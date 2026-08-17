@@ -1,0 +1,63 @@
+[
+  {
+    "id": "known-issue-first-ticket",
+    "expect_action": "route_to_tier1",
+    "note": "no history yet, and a documented password reset is the tier 1 case.",
+    "input": {
+      "ticket_id": "T-9001",
+      "summary": "Cannot log in, says password expired. Reset link not arriving.",
+      "product_area": "auth",
+      "customer_tier": "standard",
+      "prior_tickets": 0
+    }
+  },
+  {
+    "id": "outcome-says-that-worked",
+    "expect_action": "route_to_tier1",
+    "note": "an outcome percept: resolved fast, no reopen. Evidence the route was right.",
+    "input": {
+      "ticket_id": "T-9001",
+      "routed_to": "route_to_tier1",
+      "resolved": true,
+      "minutes_to_resolution": 11.0,
+      "reopened": false
+    }
+  },
+  {
+    "id": "outcome-says-that-did-not",
+    "expect_action": "route_to_specialist",
+    "note": "An outcome percept reporting that tier 1 failed and the ticket was rerouted to a specialist. Naming the route the evidence already points at is the right answer; exploring would be buying information the outcome just handed over. Expected request_exploration for one recording and that was wrong -- the log answering the question is exactly when not to explore.",
+    "input": {
+      "ticket_id": "T-9014",
+      "routed_to": "route_to_tier1",
+      "resolved": false,
+      "minutes_to_resolution": 96.0,
+      "reopened": true,
+      "rerouted_to": "route_to_specialist"
+    }
+  },
+  {
+    "id": "suspected-defect",
+    "expect_action": "route_to_engineering",
+    "note": "reproducible across customers with data loss: tier 1 and specialist both cost a reroute.",
+    "input": {
+      "ticket_id": "T-9027",
+      "summary": "Exports silently drop rows over 10k. Three customers, same repro steps.",
+      "product_area": "reporting",
+      "customer_tier": "premium",
+      "prior_tickets": 2
+    }
+  },
+  {
+    "id": "genuinely-uncertain",
+    "expect_action": "request_exploration",
+    "note": "a new area with no outcome history: the information is worth more than the ticket.",
+    "input": {
+      "ticket_id": "T-9033",
+      "summary": "Webhook retries firing twice for some events, not others. New integration.",
+      "product_area": "webhooks",
+      "customer_tier": "standard",
+      "prior_tickets": 0
+    }
+  }
+]

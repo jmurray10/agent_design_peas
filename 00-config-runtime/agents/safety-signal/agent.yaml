@@ -1,0 +1,65 @@
+# Adverse event intake triage for a pharmacovigilance team. The percept is a report as it
+# arrives from a patient, clinician or app; the action is how fast a human has to look at
+# it and by what route.
+#
+# The actuator list is the argument. There is no actuator that assesses causality, records
+# an outcome, or reports to a regulator. Those are regulated, time-bound, human decisions
+# with statutory clocks attached. What this agent does is get the report in front of the
+# right person inside the window -- which is a triage problem, and the part where a queue
+# of thousands and a fifteen-day clock actually hurt.
+agent:
+  name: "safety-signal"
+  use_case:
+    domain: >-
+      Pharmacovigilance, adverse event intake
+    decision: >-
+      A report of a possible adverse drug reaction has come in. It has to be routed: expedited
+      review, routine processing, a request for follow-up from the reporter, or a determination
+      that it is not a reportable event.
+    why_it_matters: >-
+      Regulators impose hard clocks on serious adverse events, and the clock starts when the
+      report arrives rather than when somebody reads it. A serious case routed as routine is a
+      reporting failure regardless of how it turns out clinically.
+    boundary: >-
+      It routes for human review and has no actuator that assesses causality. Whether a drug
+      caused an event is a clinical judgement with regulatory weight, and no part of this agent
+      claims to make it.
+  architecture: "simple-reflex"
+  performance:
+    metrics:
+      - "serious reports routed to expedited review within the window"
+      - "expedited referrals a safety physician agrees were serious"
+      - "reports returned as unusable that could have been triaged"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, episodic, dynamic"
+  actuators:
+    - name: "route_expedited_review"
+      type: "escalation"
+      output_schema: "schemas/action_triage.json"
+    - name: "route_standard_review"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "request_reporter_followup"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "route_product_quality"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "flag_not_an_adverse_event"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+  sensors:
+    - name: "report"
+      type: "structured"
+      input_schema: "schemas/percept_report.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "read the report -> pick one route -> validate -> dispatch"
+    # tier=mid: seriousness criteria are a written list, which sounds like a small-model
+    # job, and the hard part is recognising them in a patient's own words -- "I passed out
+    # and woke up in A&E" is hospitalisation and loss of consciousness, and never says so.
+    # Reading lay language against a clinical checklist is the mid case. Every route lands
+    # in a human queue, and the deterministic layer bounds which queues exist.
+    tier: "mid"

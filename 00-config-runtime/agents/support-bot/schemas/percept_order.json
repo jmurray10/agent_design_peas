@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot percept: order lookup result",
+  "description": "What the order system answered. Arrives from a machine, not a person, so it is validated on the way in for the same reason a message is.",
+  "type": "object",
+  "required": ["order_lookup"],
+  "properties": {
+    "order_lookup": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

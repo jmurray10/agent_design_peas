@@ -1,0 +1,41 @@
+{
+  "entries": {
+    "7125885ec5fab884881b37da": {
+      "prompt": "You are a support agent. Answer the question using ONLY the passages below.\nCite every passage you used with its marker, like [S1].\nIf the passages do not contain the answer, reply exactly: not in the knowledge base\n\n[S1] (returns-policy#2) Laptops, tablets and other opened electronics have a shorter 14 day return window. The window starts on the delivery date, not the order date.\n\n[S2] (returns-policy#4) Items marked final sale on the product page cannot be returned or exchanged. Gift cards are also non-returnable.\n\n[S3] (returns-policy#1) Any item bought from the online store can be returned within 30 days of delivery for a full refund, provided it is in resalable condition with the original packaging.\n\nQuestion: How long do I have to return a laptop?\nAnswer:",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:37:38+00:00",
+      "responses": [
+        "You have 14 days from the delivery date to return a laptop, since it's an opened electronic item with a shorter return window [S1]."
+      ],
+      "tier": "mid"
+    },
+    "9463798b1ebdc8f1d2e4ea53": {
+      "prompt": "You are a support agent. Answer the question using ONLY the passages below.\nCite every passage you used with its marker, like [S1].\nIf the passages do not contain the answer, reply exactly: not in the knowledge base\n\n[S1] (shipping#2) If tracking shows a package as delivered but it is not at the address, wait 24 hours. Carriers sometimes scan a parcel as delivered before the final drop off. After 24 hours, open a lost package claim and a replacement ships at no cost.\n\n[S2] (returns-policy#1) Any item bought from the online store can be returned within 30 days of delivery for a full refund, provided it is in resalable condition with the original packaging.\n\n[S3] (shipping#3) Delivery addresses can be changed from the order page until the parcel is handed to the carrier. After that the address is fixed and the order has to be returned before it can be resent.\n\nQuestion: My package says delivered but I never got it.\nAnswer:",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:37:41+00:00",
+      "responses": [
+        "If tracking shows your package as delivered but it hasn't arrived, wait 24 hours, since carriers sometimes scan a parcel as delivered before the final drop-off. If it still hasn't shown up after that, open a lost package claim, and a replacement will ship at no cost [S1]."
+      ],
+      "tier": "mid"
+    },
+    "54c8885f084ce0b2a06e0f74": {
+      "prompt": "You are a support agent. Answer the question using ONLY the passages below.\nCite every passage you used with its marker, like [S1].\nIf the passages do not contain the answer, reply exactly: not in the knowledge base\n\n[S1] (accounts#1) To reset a password, use the forgot password link on the sign in page. The reset link is emailed immediately and expires after one hour.\n\n[S2] (accounts#3) If an account shows sign ins you do not recognise, change the password and revoke active sessions from Settings, Security, Active Sessions. Support can also lock an account on request while the sign ins are investigated.\n\n[S3] (returns-policy#2) Laptops, tablets and other opened electronics have a shorter 14 day return window. The window starts on the delivery date, not the order date.\n\nQuestion: How do I reset my password?\nAnswer:",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:37:44+00:00",
+      "responses": [
+        "To reset your password, use the forgot password link on the sign in page. The reset link is emailed immediately and expires after one hour [S1]."
+      ],
+      "tier": "mid"
+    },
+    "f5bbbba61a80ac8ae35d86cd": {
+      "prompt": "You are a support agent. Answer the question using ONLY the passages below.\nCite every passage you used with its marker, like [S1].\nIf the passages do not contain the answer, reply exactly: not in the knowledge base\n\n[S1] (warranty#2) Refurbished hardware carries a 90 day limited warranty on the same terms. Refurbished units are tested and graded before resale and the grade is shown on the product page.\n\n[S2] (warranty#3) A warranty claim needs the order number and a description of the fault. Approved claims are repaired or replaced at our discretion. Cash refunds are not issued under warranty.\n\n[S3] (returns-policy#4) Items marked final sale on the product page cannot be returned or exchanged. Gift cards are also non-returnable.\n\nQuestion: What is the warranty on refurbished items?\nAnswer:",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:37:49+00:00",
+      "responses": [
+        "Refurbished hardware carries a 90 day limited warranty on the same terms as standard hardware. Refurbished units are tested and graded before resale, and the grade is shown on the product page [S1]."
+      ],
+      "tier": "mid"
+    }
+  },
+  "source": "07_nlp_foundations__rag_pipeline"
+}

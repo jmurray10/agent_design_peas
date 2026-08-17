@@ -1,0 +1,203 @@
+{
+  "entries": {
+    "5317073166a3e3bef9a23a6c": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: no data\n  write_custom: no data\n  escalate: no data\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:29+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "2d42cc41bb6c32fdbafdd989": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 0, \"write_custom\": 1, \"escalate\": 0, \"request_info\": 0, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:32+00:00",
+      "responses": [
+        "escalate"
+      ],
+      "tier": "mid"
+    },
+    "a996871be92e81479259246e": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: no data\n  write_custom: avg=0.00 (n=1)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:36+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "ecc611a7530c141a56e79b95": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 0, \"write_custom\": 2, \"escalate\": 1, \"request_info\": 0, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:39+00:00",
+      "responses": [
+        "send_template"
+      ],
+      "tier": "mid"
+    },
+    "bc1b871c0bbd41a78f7e718f": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=0.75 (n=2)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:41+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "e4320c23b16ec7645e51d1c1": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=0.50 (n=3)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:44+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "dc48451acf94055ae3213192": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=0.88 (n=4)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:47+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "a562c0f0ee7be8f28ba9da31": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.00 (n=5)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:49+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "802a6911794201dd794de359": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.17 (n=6)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:52+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "f382f5862ff2d41308b0b1bd": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.36 (n=7)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:35:56+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "dc0ec2c28ac8621dbca7b699": {
+      "prompt": "Analyze these experiences and extract patterns.\nSuccesses: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 20,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 12,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 64,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.5\n  }\n]\nFailures: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"escalate\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 69,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 85,\n      \"customer_satisfied\": true,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -0.5\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 88,\n      \"customer_satisfied\": false,\n      \"error\": null\n    },\n    \"reward\": 0.0\n  }\n]\nWhat patterns? What to do more, what to avoid?\nReturn JSON list of rule strings.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:36:12+00:00",
+      "responses": [
+        "```json\n[\n  \"For complaint + medium urgency + premium tier: default to write_custom — it produced all 3 positive outcomes (rewards 2.0, 2.0, 2.5) out of 4 attempts (75% hit rate).\",\n  \"Avoid escalate for medium-urgency premium complaints: the only trial returned reward -1.0 with a timeout and an unsatisfied customer, despite the task technically completing.\",\n  \"Avoid send_template for premium-tier complaints: reward -0.5; the template 'satisfied' the customer but failed to resolve the issue and hit a timeout at 85s.\",\n  \"Treat elapsed time as the dominant risk factor: every reward >= 2.0 finished in <= 64s, while every negative-or-zero reward took 69-88s. Keep handling under ~65s.\",\n  \"Watch for the write_custom failure mode: the one bad write_custom run took 88s and left the customer unsatisfied — if a custom reply is drifting past ~65s, it is trending toward a zero-reward outcome, so simplify or hand off rather than keep drafting.\",\n  \"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\",\n  \"Interpret 'timeout' errors as a strong negative signal — both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\",\n  \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\",\n  \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\",\n  \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"\n]\n```"
+      ],
+      "tier": "frontier"
+    },
+    "e451a622a2b65b705d43ff87": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.25 (n=8)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:14+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "a2df0850f3af82a1df01a024": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.39 (n=9)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:16+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "bae4f9a98dee0a4841e738e0": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.25 (n=10)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:19+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "d9036a6a636a551c92d1f381": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.23 (n=11)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:22+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "9a42b535d22c0bc63f006400": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.33 (n=12)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:24+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "f27fc5766d5628a7c353dfec": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.31 (n=13)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:28+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "1002e1716b7b16e0e6e27b18": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.32 (n=14)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:29+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "f1dca28d28001c28c5ccbe3f": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.40 (n=15)\n  escalate: avg=-1.00 (n=1)\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:32+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "96d6b3d7f85e87c076341381": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 1, \"write_custom\": 16, \"escalate\": 1, \"request_info\": 0, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:35+00:00",
+      "responses": [
+        "request_info"
+      ],
+      "tier": "mid"
+    },
+    "f4f0aa14a42226ff71e281d7": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'write_custom' -> reward 2.5\n\nDid NOT work:\n  'escalate' -> reward -1.0\n  'send_template' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"Optimize for customer_satisfied over the raw success flag: two runs with success=false but customer_satisfied=true still earned 2.0, whereas success=true with customer_satisfied=false earned -1.0.\", \"Interpret 'timeout' errors as a strong negative signal \\u2014 both timeout cases (escalate, send_template) yielded negative rewards regardless of the success flag.\", \"Best observed outcome (reward 2.5) combined write_custom with both success=true and customer_satisfied=true at 64s, so aim for a genuine resolution written personally within the time budget.\", \"Do not generalize these rules beyond complaint/medium/premium: all 6 observations share one identical state, so other ticket types, urgencies, or tiers are untested and template/escalate paths may still be optimal there.\", \"Sample size is small (n=6, one action tried 4 times, others once each); occasionally re-test escalate and send_template on low-stakes cases to confirm they are genuinely inferior rather than unlucky.\"]\n\nAction stats:\n  send_template: avg=-0.50 (n=1)\n  write_custom: avg=1.25 (n=16)\n  escalate: avg=-1.00 (n=1)\n  request_info: avg=3.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:36:39+00:00",
+      "responses": [
+        "write_custom"
+      ],
+      "tier": "mid"
+    },
+    "df92c832e4ad7f4b2d083626": {
+      "prompt": "Analyze these experiences and extract patterns.\nSuccesses: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 41,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.5\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"request_info\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 21,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 3.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 26,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 3.0\n  }\n]\nFailures: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"escalate\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 69,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 50,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 85,\n      \"customer_satisfied\": true,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -0.5\n  }\n]\nWhat patterns? What to do more, what to avoid?\nReturn JSON list of rule strings.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:36:55+00:00",
+      "responses": [
+        "```json\n[\n  \"All six episodes share the identical state (type=complaint, urgency=medium, tier=premium), so no state-based discrimination is possible; any rule learned here is conditional on this single context and must not be generalized to other types, urgencies, or tiers.\",\n  \"The strongest signal is latency, not action choice: every success completed in <=41s (21, 26, 41) and every failure took >=50s (50, 69, 85). Treat ~45s as an empirical decision boundary for this state.\",\n  \"Every failure record carries error='timeout'. Timeout is the dominant failure mode here, so prioritize interventions that cap response time over interventions that change action type.\",\n  \"Do more: request_info in this state. It is the single best observation (reward 3.0, fastest at 21s) and has no recorded failures - but n=1, so treat it as a promising hypothesis to test, not an established best action.\",\n  \"write_custom is ambiguous, not reliable: 2 successes (2.5, 3.0 at 41s and 26s) and 1 failure (-1.0 at 50s). Its outcome tracks completion time rather than the action itself, so only use it when it can be completed quickly (<45s).\",\n  \"Avoid escalate in this state: the only sample scored -1.0 with a 69s timeout. Weak evidence (n=1), but escalation appears to add latency without satisfying a medium-urgency premium complaint.\",\n  \"Avoid send_template in this state: the only sample was the worst on time (85s), the only outcome with success=false, and scored -0.5. Templates did not shortcut the work here.\",\n  \"Note the reward/outcome inconsistency: send_template had customer_satisfied=true yet success=false and negative reward, while two failures had success=true. Do not treat 'success' as the optimization target; reward correlates with (satisfied AND no timeout AND low time).\",\n  \"Recommended policy for complaint/medium/premium: try request_info first to narrow the issue cheaply; if a custom reply is needed, time-box it to under ~40s; do not escalate or send a template by default.\",\n  \"Instrument and enforce a hard time budget (e.g., abort/hand off at 45s) since crossing that threshold, regardless of action, converted every episode in this dataset into a negative-reward timeout.\",\n  \"Overall confidence is low: 6 episodes, one state, 1-3 samples per action. Next step is to gather more trials of request_info vs. write_custom in this exact state, and to vary urgency/tier before drawing any broader conclusions.\"\n]\n```"
+      ],
+      "tier": "frontier"
+    }
+  },
+  "source": "04_learning__q_learning__after"
+}

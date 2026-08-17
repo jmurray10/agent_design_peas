@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "customer context response",
+  "description": "What came back after request_customer_context or EDD.",
+  "type": "object",
+  "required": [
+    "customer_id",
+    "context"
+  ],
+  "properties": {
+    "customer_id": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "expected_monthly_volume": {
+      "type": "number",
+      "minimum": 0
+    },
+    "account_age_months": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "prior_alerts_12mo": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

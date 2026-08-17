@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: What a useful contribution looks like here
+    url: https://github.com/jmurray10/agent_design_peas/blob/main/CONTRIBUTING.md
+    about: This is a set of demonstrations rather than a library. The most valuable report is a claim that does not reproduce.
+  - name: Reporting something security-related
+    url: https://github.com/jmurray10/agent_design_peas/blob/main/SECURITY.md
+    about: Credential handling, the permissions example, or anything in a recorded transcript that should not have been published.

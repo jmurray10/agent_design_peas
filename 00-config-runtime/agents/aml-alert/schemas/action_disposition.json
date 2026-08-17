@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "alert disposition",
+  "type": "object",
+  "required": [
+    "action",
+    "reason"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "close_no_further_action",
+        "request_customer_context",
+        "request_enhanced_due_diligence",
+        "escalate_to_mlro",
+        "recommend_sar"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "state_update": {
+      "type": "object",
+      "description": "What to carry into the next turn, merged into the agent's state after the action is validated. Without this field a config can declare a state schema and have no way to write to it: the runtime reads state_update off the validated action, and additionalProperties false means the model cannot return one it was never given. Both agents here declared state and carried an empty dict through every turn, so each decision was made with no memory of the last -- a model-based agent behaving exactly like a reflex one, and nothing said so."
+    }
+  },
+  "additionalProperties": false
+}

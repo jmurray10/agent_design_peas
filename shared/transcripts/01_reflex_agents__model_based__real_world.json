@@ -1,0 +1,50 @@
+{
+  "entries": {
+    "f61294d41e9d02e3c4f19f7a": {
+      "prompt": "A loan application is being assembled. Update what is on file.\n\nAlready on file: {}\n\nNew note from the processing team:\n\"Applicant sent three payslips, all consecutive, employer matches the application.\"\n\nReturn only the fields this note changes, as JSON. Do not repeat unchanged fields and do\nnot invent a field that is not listed here.\n\nFields:\n  income_verified      true once income is evidenced and consistent with the application\n  identity_verified    true only for identity evidence that is currently valid\n  address_verified     true once address is evidenced\n  affordability_run    true once an affordability assessment has been completed\n  note                 one short sentence on anything a human should know\n\nAn expired document does not verify anything. Evidence for the wrong account or the wrong\nperson does not verify anything either.\n\nReturn JSON only, for example: {\"income_verified\": true, \"note\": \"three payslips, consistent\"}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:11:20+00:00",
+      "responses": [
+        "```json\n{\"income_verified\": true, \"note\": \"Three consecutive payslips provided, employer matches application.\"}\n```"
+      ]
+    },
+    "d4807d72c097f422c8eca017": {
+      "prompt": "A loan application is being assembled. Update what is on file.\n\nAlready on file: {'income_verified': True}\n\nNew note from the processing team:\n\"Bank statement came in but it's the joint account, not the personal one we asked for.\"\n\nReturn only the fields this note changes, as JSON. Do not repeat unchanged fields and do\nnot invent a field that is not listed here.\n\nFields:\n  income_verified      true once income is evidenced and consistent with the application\n  identity_verified    true only for identity evidence that is currently valid\n  address_verified     true once address is evidenced\n  affordability_run    true once an affordability assessment has been completed\n  note                 one short sentence on anything a human should know\n\nAn expired document does not verify anything. Evidence for the wrong account or the wrong\nperson does not verify anything either.\n\nReturn JSON only, for example: {\"income_verified\": true, \"note\": \"three payslips, consistent\"}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:11:25+00:00",
+      "responses": [
+        "{\"note\": \"Received bank statement is for joint account, not the requested personal account, so it does not verify anything.\"}"
+      ]
+    },
+    "43c45673f7999af6a00951d2": {
+      "prompt": "A loan application is being assembled. Update what is on file.\n\nAlready on file: {'income_verified': True}\n\nNew note from the processing team:\n\"Passport scan received. Expiry date is last March, so it's out of date.\"\n\nReturn only the fields this note changes, as JSON. Do not repeat unchanged fields and do\nnot invent a field that is not listed here.\n\nFields:\n  income_verified      true once income is evidenced and consistent with the application\n  identity_verified    true only for identity evidence that is currently valid\n  address_verified     true once address is evidenced\n  affordability_run    true once an affordability assessment has been completed\n  note                 one short sentence on anything a human should know\n\nAn expired document does not verify anything. Evidence for the wrong account or the wrong\nperson does not verify anything either.\n\nReturn JSON only, for example: {\"income_verified\": true, \"note\": \"three payslips, consistent\"}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:11:28+00:00",
+      "responses": [
+        "```json\n{\"identity_verified\": false, \"note\": \"Passport scan received but expired last March, so identity not verified.\"}\n```"
+      ]
+    },
+    "f6202a568bad5924fd0be308": {
+      "prompt": "A loan application is being assembled. Update what is on file.\n\nAlready on file: {'income_verified': True, 'identity_verified': False}\n\nNew note from the processing team:\n\"Driving licence arrived, in date, address matches the application form.\"\n\nReturn only the fields this note changes, as JSON. Do not repeat unchanged fields and do\nnot invent a field that is not listed here.\n\nFields:\n  income_verified      true once income is evidenced and consistent with the application\n  identity_verified    true only for identity evidence that is currently valid\n  address_verified     true once address is evidenced\n  affordability_run    true once an affordability assessment has been completed\n  note                 one short sentence on anything a human should know\n\nAn expired document does not verify anything. Evidence for the wrong account or the wrong\nperson does not verify anything either.\n\nReturn JSON only, for example: {\"income_verified\": true, \"note\": \"three payslips, consistent\"}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:11:31+00:00",
+      "responses": [
+        "{\"identity_verified\": true, \"address_verified\": true, \"note\": \"Driving licence in date, address matches application\"}"
+      ]
+    },
+    "be5638ad819b7effaa335b19": {
+      "prompt": "A loan application is being assembled. Update what is on file.\n\nAlready on file: {'income_verified': True, 'identity_verified': True, 'address_verified': True}\n\nNew note from the processing team:\n\"Ran affordability on the verified income figure. Passes with room.\"\n\nReturn only the fields this note changes, as JSON. Do not repeat unchanged fields and do\nnot invent a field that is not listed here.\n\nFields:\n  income_verified      true once income is evidenced and consistent with the application\n  identity_verified    true only for identity evidence that is currently valid\n  address_verified     true once address is evidenced\n  affordability_run    true once an affordability assessment has been completed\n  note                 one short sentence on anything a human should know\n\nAn expired document does not verify anything. Evidence for the wrong account or the wrong\nperson does not verify anything either.\n\nReturn JSON only, for example: {\"income_verified\": true, \"note\": \"three payslips, consistent\"}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:11:33+00:00",
+      "responses": [
+        "{\"affordability_run\": true, \"note\": \"Affordability check passed with room based on verified income.\"}"
+      ]
+    }
+  },
+  "source": "01_reflex_agents__model_based__real_world"
+}

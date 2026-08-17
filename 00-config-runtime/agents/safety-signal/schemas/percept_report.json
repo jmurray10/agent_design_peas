@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "adverse event report",
+  "type": "object",
+  "required": [
+    "report_id",
+    "source",
+    "product",
+    "narrative"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "patient",
+        "clinician",
+        "pharmacist",
+        "app",
+        "literature"
+      ]
+    },
+    "product": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the reporter said happened, in their words."
+    },
+    "patient_age": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 120
+    },
+    "days_since_onset": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ongoing": {
+      "type": "boolean"
+    },
+    "concomitant_products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

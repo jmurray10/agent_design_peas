@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "reserve decision",
+  "type": "object",
+  "required": [
+    "action",
+    "reason"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "reserve_minimal",
+        "reserve_standard",
+        "reserve_elevated",
+        "reserve_major",
+        "defer_pending_assessment"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_range": {
+      "type": "string",
+      "description": "The range considered, in USD."
+    }
+  },
+  "additionalProperties": false
+}

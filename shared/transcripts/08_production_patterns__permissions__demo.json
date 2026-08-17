@@ -1,0 +1,59 @@
+{
+  "entries": {
+    "2de9075819fab66290f06e00": {
+      "prompt": "You are a customer support agent working ticket T-4521.\nSituation: Parcel 12 days late, customer wants the shipping charge back.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:02+00:00",
+      "responses": [
+        "{\"action\": \"check_order_status\", \"reason\": \"Verify current shipping status and confirm the 12-day delay before processing a refund for the shipping charge.\"}"
+      ],
+      "tier": "mid"
+    },
+    "44fe0cca3781b64457ca1a32": {
+      "prompt": "You are a customer support agent working ticket T-4622.\nSituation: Item arrived damaged, customer wants the full order refunded.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:08+00:00",
+      "responses": [
+        "```json\n{\n  \"action\": \"check_order_status\",\n  \"reason\": \"Before processing a full refund for the damaged item, I need to verify the order details, total amount paid, and confirm the item status to ensure accurate refund processing for ticket T-4622.\"\n}\n```"
+      ],
+      "tier": "mid"
+    },
+    "1cace8e540590332316cce3f": {
+      "prompt": "You are a customer support agent working ticket T-4703.\nSituation: Customer was charged twice for one item.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:12+00:00",
+      "responses": [
+        "{\"action\": \"check_order_status\", \"reason\": \"Verify the order and payment records for ticket T-4703 to confirm the duplicate charge before processing a refund.\"}"
+      ],
+      "tier": "mid"
+    },
+    "1ce1647206a34c637a75dcad": {
+      "prompt": "You are a customer support agent working ticket T-4810.\nSituation: Promo code failed at checkout, customer wants the difference.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:17+00:00",
+      "responses": [
+        "{\"action\": \"check_order_status\", \"reason\": \"Need to verify the order details, applied promo code, and total charged before determining if a refund for the price difference is warranted and calculating the correct amount.\"}"
+      ],
+      "tier": "mid"
+    },
+    "bd24b5c493c2ca646bd3acb3": {
+      "prompt": "You are a customer support agent working ticket T-4521.\nSituation: Tell the customer the refund is on its way.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:20+00:00",
+      "responses": [
+        "```json\n{\n  \"action\": \"reply_to_customer\",\n  \"reason\": \"Informing the customer on ticket T-4521 that their refund has been processed and is on its way, so they are aware of the status of their request.\"\n}\n```"
+      ],
+      "tier": "mid"
+    },
+    "22110b087ee176e020a9c657": {
+      "prompt": "You are a customer support agent working ticket T-4703.\nSituation: The duplicate charge is refunded, nothing else is open.\nAvailable actions: ['reply_to_customer', 'escalate_to_manager', 'check_order_status', 'issue_refund', 'request_more_info', 'close_ticket']\nReturn JSON only, with keys \"action\", \"amount\" (USD, omit if the action has no amount)\nand \"reason\".",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:41:24+00:00",
+      "responses": [
+        "```json\n{\"action\": \"close_ticket\", \"reason\": \"Duplicate charge has already been refunded and there are no other open issues on T-4703, so the ticket can be closed.\"}\n```"
+      ],
+      "tier": "mid"
+    }
+  },
+  "source": "08_production_patterns__permissions__demo"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "context-turns-an-open-question-into-a-close",
+    "why": "An investigation is a sequence. Cold, a single large transfer to an unfamiliar counterparty is not judgeable and the agent has to ask. Once the context comes back explaining it as a property sale, the same alert closes. If state does nothing, the second run asks again. Measured across vendors on 2026-08-13: this holds against claude-sonnet-5 and fails against both gemini-3.7-flash and llama-3.3-70b, which answer the primed arm exactly as they answer the cold one. The claim is that history changes the answer, and on those two models it does not -- so read a pass here as a statement about this model, not about stateful agents in general.",
+    "preamble": [
+      {
+        "alert_id": "AL-88155",
+        "customer_id": "C-2210",
+        "rule": "unusual_counterparty",
+        "amount": 32000.0,
+        "currency": "USD",
+        "transaction_count": 1,
+        "window_days": 1,
+        "counterparties": [
+          "FX-BROKER-77"
+        ],
+        "narrative": "Single outbound transfer to a foreign exchange broker not seen on this account before."
+      },
+      {
+        "customer_id": "C-2210",
+        "context": "Customer sold a property in March. Transfer matches the completion statement on file and the broker is the conveyancer's nominated FX provider.",
+        "occupation": "teacher",
+        "expected_monthly_volume": 4200.0,
+        "account_age_months": 96,
+        "prior_alerts_12mo": 0
+      }
+    ],
+    "percept": {
+      "alert_id": "AL-88155",
+      "customer_id": "C-2210",
+      "rule": "unusual_counterparty",
+      "amount": 32000.0,
+      "currency": "USD",
+      "transaction_count": 1,
+      "window_days": 1,
+      "counterparties": [
+        "FX-BROKER-77"
+      ],
+      "narrative": "Single outbound transfer to a foreign exchange broker not seen on this account before."
+    },
+    "control_action": "request_customer_context",
+    "primed_action": "close_no_further_action"
+  }
+]

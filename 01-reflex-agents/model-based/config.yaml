@@ -1,0 +1,35 @@
+agent:
+  name: "support-bot"
+  architecture: "model-based-reflex"
+  performance:
+    metrics: ["customer satisfaction", "resolution time", "escalation rate"]
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic"
+  actuators:
+    - name: "reply_to_customer"
+      output_schema: "schemas/action_reply.json"
+    - name: "escalate_to_manager"
+    - name: "check_order_status"
+      output_schema: "schemas/action_lookup.json"
+    - name: "issue_refund"
+      output_schema: "schemas/action_refund.json"
+    - name: "request_more_info"
+    - name: "close_ticket"
+  sensors:
+    - name: "customer_message"
+      type: "text"
+      input_schema: "schemas/percept_message.json"
+    - name: "order_lookup"
+      type: "structured"
+      input_schema: "schemas/percept_order.json"
+    - name: "ticket_history"
+      type: "text"
+  prompts:
+    system: "prompts/system.md"
+    reply: "prompts/reply.md"
+    escalation: "prompts/escalation.md"
+  state:
+    schema: "schemas/state.json"
+    persistence: "per-conversation"
+    fallback: "merge-percept-data"

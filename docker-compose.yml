@@ -1,0 +1,239 @@
+# Four ways to run the same image. The image never changes between them; what changes is
+# whether a key is present and which agent directory is mounted. That is the config-driven
+# claim from `00-config-runtime/` expressed in compose form.
+#
+#   docker compose run --rm replay      offline, replays recorded real responses
+#   docker compose run --rm live        the same code against a real model
+#   docker compose run --rm verify      every example, offline, as a smoke test
+#   docker compose run --rm ci          the drift gate, exactly as CI runs it
+#
+#   docker compose up uptime-triage     that agent as an HTTP service on :8080
+#   docker compose up support-bot       and this one on :8081
+#   docker compose up                   both, plus whatever else is declared
+#
+# Each agent gets its own image, built from Dockerfile.agent, which is the base image plus
+# a path and nothing else. Adding an agent adds a service block and a directory. It does
+# not add code, and it does not touch the runtime.
+
+services:
+
+  # No key, no network. Replays what a real model returned, from shared/transcripts/.
+  replay:
+    build: .
+    image: peas
+    # Not merely "no key configured" -- no network interface at all. If anything in here
+    # reached for a provider the run would fail rather than quietly succeed, which is the
+    # only way to demonstrate that the offline path is genuinely offline.
+    network_mode: none
+    command: ["python", "00-config-runtime/demo.py"]
+
+  # The same image and the same command, against a live model. The key is passed in at
+  # run time and never enters a layer -- `.env` is in .dockerignore for that reason.
+  live:
+    build: .
+    image: peas
+    env_file: .env
+    environment:
+      LLM_PROVIDER: anthropic
+    command: ["python", "00-config-runtime/demo.py"]
+
+  # Recording writes into shared/transcripts/, so that directory is bind-mounted back to
+  # the host. Without the mount the recording would live and die inside the container.
+  record:
+    build: .
+    image: peas
+    env_file: .env
+    environment:
+      LLM_PROVIDER: anthropic
+      LLM_RECORD: "1"
+    volumes:
+      - ./shared/transcripts:/app/shared/transcripts
+    command: ["python", "00-config-runtime/demo.py"]
+
+  # Runs every example offline. Exits non-zero if any of them does, which makes it a
+  # usable smoke test for an image before it is pushed anywhere.
+  verify:
+    build: .
+    image: peas
+    network_mode: none
+    command:
+      - python
+      - -c
+      - |
+        import pathlib, subprocess, sys
+        skip = {"shared", "reference"}
+        # Both servers block by design -- serve.py in serve_forever, serve_all.py
+        # supervising one serve.py per agent. A smoke test that ran every entry point
+        # would hang on either until the per-script timeout and then call it a failure,
+        # so both are named here and exercised by the peas service instead, which is
+        # where a server belongs anyway. serve_all.py was missing from this set and the
+        # verify run has been selecting it.
+        # container_report.py joins them for a different reason: it compares a running
+        # container against the source on disk, so with no container up it correctly
+        # reports that there is nothing to compare and exits non-zero. That is the right
+        # answer to the question and the wrong thing for a smoke test to count as a
+        # failure.
+        blocking = {"serve.py", "serve_all.py", "container_report.py"}
+        scripts = sorted(
+            p for p in pathlib.Path(".").rglob("*.py")
+            if p.parts[0] not in skip
+            and "__pycache__" not in p.parts
+            and p.name not in blocking
+            and ("__main__" in p.read_text(encoding="utf-8") or p.name in ("before.py", "after.py"))
+        )
+        failed = []
+        for script in scripts:
+            result = subprocess.run([sys.executable, str(script)],
+                                    capture_output=True, text=True, timeout=900)
+            print(f"{'ok  ' if result.returncode == 0 else 'FAIL'}  {script}")
+            if result.returncode != 0:
+                failed.append((script, result.stderr.strip().splitlines()[-1:]))
+        print(f"\n{len(scripts) - len(failed)}/{len(scripts)} ran offline with no key")
+        for script, tail in failed:
+            print(f"  {script}: {tail}")
+        sys.exit(1 if failed else 0)
+
+  # The same set of scripts as `verify`, against a live model instead of the recordings.
+  #
+  # Worth having as a service rather than a note, because `verify` runs with
+  # network_mode: none and so can only ever exercise the replay path -- and every
+  # serious defect this repository has had was green on that path and broken live. The
+  # last live sweep found three: an unparseable reply that bypassed the deterministic
+  # guard written to catch it, an assertion that demanded a model answer identically
+  # twice, and a tier naming a model the provider does not serve.
+  #
+  # Set whichever backend you want and pass LLM_PROVIDER explicitly -- with several keys
+  # in the environment the shim picks by its own order, and the vendor you meant to test
+  # is not necessarily the one that runs. LLM_RECORD is deliberately not set here: this
+  # proves the live path works without overwriting what a fresh clone replays.
+  #
+  #   LLM_PROVIDER=gemini GEMINI_API_KEY=... docker compose run --rm verify-live
+  #
+  # Expect it to take tens of minutes and to cost real tokens: the suite is roughly
+  # 1,700 model calls, over half of them in 10-drift/.
+  verify-live:
+    build: .
+    image: peas
+    environment:
+      - LLM_PROVIDER
+      - ANTHROPIC_API_KEY
+      - GEMINI_API_KEY
+      - OPENAI_COMPATIBLE_BASE_URL
+      - OPENAI_COMPATIBLE_API_KEY
+      - HF_TOKEN
+    command:
+      - python
+      - -c
+      - |
+        import os, pathlib, subprocess, sys, time
+        skip = {"shared", "reference"}
+        # Same exclusions as `verify`, for the same reasons: two servers that block by
+        # design, and a report that compares against a running container.
+        blocking = {"serve.py", "serve_all.py", "container_report.py"}
+        scripts = sorted(
+            p for p in pathlib.Path(".").rglob("*.py")
+            if p.parts[0] not in skip
+            and "__pycache__" not in p.parts
+            and p.name not in blocking
+            and ("__main__" in p.read_text(encoding="utf-8") or p.name in ("before.py", "after.py"))
+        )
+        provider = os.environ.get("LLM_PROVIDER", "(selected by shared/llm.py)")
+        print(f"live verify: {len(scripts)} scripts, provider={provider}", flush=True)
+        failed, started = [], time.time()
+        for index, script in enumerate(scripts, 1):
+            t0 = time.time()
+            try:
+                result = subprocess.run([sys.executable, str(script)],
+                                        capture_output=True, text=True, timeout=3600)
+                code, err = result.returncode, result.stderr
+            except subprocess.TimeoutExpired:
+                code, err = 124, "timed out after 3600s"
+            # Truncation warnings only ever surface live, so they are counted rather
+            # than thrown away with the rest of stderr.
+            warnings = err.count("[warning]")
+            note = f"  [{warnings} truncation warning(s)]" if warnings else ""
+            print(f"{'ok  ' if code == 0 else 'FAIL'}  {index:>2}/{len(scripts)}  "
+                  f"{time.time() - t0:>7.1f}s  {script}{note}", flush=True)
+            if code != 0:
+                failed.append((script, [l for l in err.strip().splitlines() if l.strip()][-3:]))
+        print(f"\n{len(scripts) - len(failed)}/{len(scripts)} ran live against {provider} "
+              f"in {(time.time() - started) / 60:.1f} min")
+        for script, tail in failed:
+            print(f"\n  {script}")
+            for line in tail:
+                print(f"    {line}")
+        sys.exit(1 if failed else 0)
+
+  # The drift gate. No secrets, replays recordings, fails the build on a distribution
+  # shift beyond threshold -- the same thing .github/workflows/drift.yml runs.
+  ci:
+    build: .
+    image: peas
+    network_mode: none
+    command: ["python", "10-drift/ci_check.py"]
+
+  # ---------------------------------------------------------------------------
+  # One container named `peas`. Inside it, every agent runs as its own service on
+  # its own port -- separate processes, not one process behind path prefixes, so a
+  # failure in one agent is not a failure in all of them.
+  #
+  #   docker compose up -d peas
+  #   docker ps                      -> a container called `peas`
+  #   docker exec peas ps -o pid,args -> one serve.py per agent
+  #   docker logs peas               -> the port table, then every request
+  #
+  #   :8079 the index -- what each agent is, and a link to its generated docs
+  #
+  #   :8080 aml-alert       :8081 claim-reserve    :8082 claims-intake
+  #   :8083 data-contract   :8084 safety-signal    :8085 support-bot
+  #   :8086 triage-tuner    :8087 trial-scheduler  :8088 uptime-triage
+  #
+  # All five classical architectures, each behind a live endpoint:
+  #   simple reflex        claims-intake, data-contract, safety-signal, uptime-triage
+  #   model-based reflex   aml-alert, support-bot
+  #   goal-based           trial-scheduler   (a CSP: the solver proves unsatisfiable)
+  #   utility-based        claim-reserve     (a tradeoff with cost in both directions)
+  #   learning             triage-tuner      (has an explore action; the critic is code)
+  #
+  # All nine are real working domains -- insurance reserving and claims intake, AML
+  # alert disposition, adverse event intake, data contract review, support routing,
+  # clinical trial monitoring, customer support, on-call alert triage. The textbook
+  # vacuum-world agent used to be here; its before-and-after pair is in
+  # 01-reflex-agents/simple/, which is where a source page's code belongs.
+  #
+  # Ports are assigned in directory order -- which is alphabetical, so support-bot
+  # comes first -- from --base-port, and the table is printed at start-up so the
+  # mapping is never something you have to infer from this comment.
+  # Adding an agent adds a directory and the next port. It does not add a container,
+  # an image, or a line of code.
+  # ---------------------------------------------------------------------------
+
+  peas:
+    build: .
+    image: peas
+    container_name: peas
+    ports:
+      - "8079:8079"   # the index. Start here: it lists the nine and links to each.
+      - "8080:8080"   # aml-alert         model-based reflex
+      - "8081:8081"   # claim-reserve     utility-based
+      - "8082:8082"   # claims-intake     simple reflex
+      - "8083:8083"   # data-contract     simple reflex
+      - "8084:8084"   # safety-signal     simple reflex
+      - "8085:8085"   # support-bot       model-based reflex
+      - "8086:8086"   # triage-tuner      learning
+      - "8087:8087"   # trial-scheduler   goal-based
+      - "8088:8088"   # uptime-triage     simple reflex
+    # No env_file, so every agent in here replays recordings. Add `env_file: .env`
+    # and all of them are on a live model, with nothing else changed.
+    command: ["python", "00-config-runtime/serve_all.py"]
+    restart: unless-stopped
+    healthcheck:
+      # Healthy means every agent answers, not just the first one. A container that
+      # reported healthy while one of its services was dead would be worse than no
+      # healthcheck at all.
+      test: ["CMD", "python", "-c",
+             "import urllib.request as u;[u.urlopen(f'http://127.0.0.1:{p}/health',timeout=5) for p in range(8080,8089)]"]
+      interval: 10s
+      timeout: 8s
+      retries: 3
+      start_period: 8s

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "triage route",
+  "type": "object",
+  "required": [
+    "action",
+    "reason"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "route_expedited_review",
+        "route_standard_review",
+        "request_reporter_followup",
+        "route_product_quality",
+        "flag_not_an_adverse_event"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seriousness_indicator": {
+      "type": "string",
+      "description": "The criterion matched, or 'none'."
+    }
+  },
+  "additionalProperties": false
+}

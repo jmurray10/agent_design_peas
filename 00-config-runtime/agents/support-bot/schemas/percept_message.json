@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot percept: customer message",
+  "description": "Something the customer typed. Strict on unknown keys so this schema and percept_order.json cannot both match the same percept -- the runtime uses the one that matches to name which sensor fired.",
+  "type": "object",
+  "required": ["message"],
+  "properties": {
+    "message": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

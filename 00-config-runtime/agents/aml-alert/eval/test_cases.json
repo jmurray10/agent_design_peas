@@ -1,0 +1,108 @@
+[
+  {
+    "id": "cash-business-doing-cash",
+    "expect_action": "close_no_further_action",
+    "note": "consistent with the profile: a cash-intensive business depositing cash is not an alert.",
+    "input": {
+      "alert_id": "AL-88120",
+      "customer_id": "C-4471",
+      "rule": "threshold_breach",
+      "amount": 18400.0,
+      "currency": "USD",
+      "transaction_count": 6,
+      "window_days": 30,
+      "counterparties": [
+        "own-account"
+      ],
+      "narrative": "Registered laundromat operator, six cash deposits over a month, consistent with the last two years."
+    }
+  },
+  {
+    "id": "pattern-that-needs-authority-not-analysis",
+    "expect_action": "escalate_to_mlro",
+    "note": "Escalation is about authority rather than about how clear the pattern is. The activity here would support a report on its own, and what puts it above an analyst is that the customer is politically exposed and the decision to keep or exit the relationship is reserved to the officer by policy.\n\nThis case previously described an ordinary structuring pattern and expected escalation, which made it indistinguishable from the case that expects recommend_sar: same eleven transactions, same profile mismatch, different required answer. Two cases that differ only in what they assert are not testing the agent, they are testing which way it happens to lean.",
+    "input": {
+      "alert_id": "AL-88134",
+      "customer_id": "C-9902",
+      "rule": "structuring",
+      "amount": 46800.0,
+      "currency": "USD",
+      "transaction_count": 11,
+      "window_days": 9,
+      "counterparties": [
+        "P-1180",
+        "P-2245",
+        "P-3390",
+        "P-4417"
+      ],
+      "narrative": "Eleven inbound transfers of 4,100 to 4,900 from four unrelated senders. The account belongs to a foreign government official's spouse, flagged as politically exposed at onboarding, and the relationship is one the bank's own policy says only the money laundering reporting officer may decide to continue or exit."
+    }
+  },
+  {
+    "id": "not-enough-to-judge",
+    "expect_action": "request_customer_context",
+    "note": "the missing profile is what decides it: the same transfer is benign or not depending on it.",
+    "input": {
+      "alert_id": "AL-88155",
+      "customer_id": "C-2210",
+      "rule": "unusual_counterparty",
+      "amount": 32000.0,
+      "currency": "USD",
+      "transaction_count": 1,
+      "window_days": 1,
+      "counterparties": [
+        "FX-BROKER-77"
+      ],
+      "narrative": "Single outbound transfer to a foreign exchange broker not seen on this account before."
+    }
+  },
+  {
+    "id": "context-explains-it",
+    "expect_action": "close_no_further_action",
+    "note": "second turn: the context that came back resolves the earlier question.",
+    "input": {
+      "customer_id": "C-2210",
+      "context": "Customer sold a property in March. Transfer matches the completion statement on file and the broker is the conveyancer's nominated FX provider.",
+      "occupation": "teacher",
+      "expected_monthly_volume": 4200.0,
+      "account_age_months": 96,
+      "prior_alerts_12mo": 0
+    }
+  },
+  {
+    "id": "source-of-funds-unclear",
+    "expect_action": "request_enhanced_due_diligence",
+    "note": "dormant account reactivating at volume: source of funds is the open question.",
+    "input": {
+      "alert_id": "AL-88161",
+      "customer_id": "C-7734",
+      "rule": "dormant_reactivation",
+      "amount": 240000.0,
+      "currency": "USD",
+      "transaction_count": 3,
+      "window_days": 5,
+      "counterparties": [
+        "OFFSHORE-TR-4"
+      ],
+      "narrative": "Account dormant four years, three inbound transfers from an offshore trust, immediately moved on."
+    }
+  },
+  {
+    "id": "structuring-with-no-explanation",
+    "expect_action": "recommend_sar",
+    "note": "The pattern is the answer and more paperwork will not change it: eleven deposits just under the reporting threshold across three branches in nine days, on an account whose stated income is a third of the total, after context was already requested and came back with nothing that explains it. This asserts recommend_sar, which no case reached before -- an agent that can recommend a report and is never tested on one is advertising a capability nobody has checked.",
+    "input": {
+      "alert_id": "AL-91007",
+      "customer_id": "C-8841",
+      "rule": "structuring",
+      "amount": 96400.0,
+      "currency": "USD",
+      "transaction_count": 11,
+      "window_days": 9,
+      "counterparties": [
+        "CASH-DEPOSIT"
+      ],
+      "narrative": "Eleven cash deposits between 8,600 and 9,400 across three branches in nine days. Customer is salaried at roughly 34,000 a year with no registered business. Asked about the source and said only that it was money from friends. No documentation offered."
+    }
+  }
+]

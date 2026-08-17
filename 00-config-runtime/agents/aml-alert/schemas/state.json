@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "investigation state",
+  "description": "What the agent knows about this alert so far. Carried between turns.",
+  "type": "object",
+  "properties": {
+    "alert_id": {
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "expected_monthly_volume": {
+      "type": "number"
+    },
+    "account_age_months": {
+      "type": "integer"
+    },
+    "prior_alerts_12mo": {
+      "type": "integer"
+    },
+    "steps_taken": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

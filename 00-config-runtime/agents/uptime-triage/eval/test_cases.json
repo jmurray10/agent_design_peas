@@ -1,0 +1,113 @@
+[
+  {
+    "id": "checkout-failing-for-customers",
+    "expect_action": "page_oncall",
+    "note": "Customer-facing, happening now, and a person can act. This is what a page is for.",
+    "input": {
+      "alert_id": "AL-3301",
+      "service": "checkout-api",
+      "severity": "critical",
+      "message": "Payment authorisation error rate 41% over 5 minutes. Customers cannot complete orders.",
+      "metric": "error_rate",
+      "value": 0.41,
+      "threshold": 0.02,
+      "customer_facing": true,
+      "owning_team": "payments",
+      "open_alerts_same_service": 0,
+      "runbook": "rb-payments-auth",
+      "oncall_team": "payments"
+    }
+  },
+  {
+    "id": "certificate-expiring-next-month",
+    "expect_action": "create_ticket",
+    "note": "Real and dated, and waking someone at 3am changes nothing about it.",
+    "input": {
+      "alert_id": "AL-3312",
+      "service": "internal-docs",
+      "severity": "warning",
+      "message": "TLS certificate expires in 34 days.",
+      "metric": "cert_days_remaining",
+      "value": 34.0,
+      "threshold": 45.0,
+      "customer_facing": false,
+      "owning_team": "platform",
+      "open_alerts_same_service": 0,
+      "oncall_team": "platform"
+    }
+  },
+  {
+    "id": "not-this-teams-problem",
+    "expect_action": "route_to_owning_team",
+    "note": "The platform rotation, an ml-platform service. Legitimate work and not this rotation's. This case first omitted whose rotation the alert landed in, and the agent filed a ticket -- correctly, because every alert names an owning team and without a rotation to compare it against, 'belongs to someone else' is not a judgement anything could make.",
+    "input": {
+      "alert_id": "AL-3320",
+      "service": "ml-feature-store",
+      "severity": "warning",
+      "message": "Nightly feature backfill job has not completed for 2 days. Model training will use stale features.",
+      "metric": "job_age_hours",
+      "value": 51.0,
+      "threshold": 26.0,
+      "customer_facing": false,
+      "owning_team": "ml-platform",
+      "open_alerts_same_service": 0,
+      "oncall_team": "platform"
+    }
+  },
+  {
+    "id": "third-copy-of-one-already-open",
+    "expect_action": "suppress_as_duplicate",
+    "note": "Same service, same cause, already being worked. Attaches rather than mutes.",
+    "input": {
+      "alert_id": "AL-3327",
+      "service": "search-api",
+      "severity": "critical",
+      "message": "Elevated p99 latency on search-api, same upstream timeout as the alert already open.",
+      "metric": "latency_p99_ms",
+      "value": 4100.0,
+      "threshold": 800.0,
+      "customer_facing": true,
+      "owning_team": "search",
+      "open_alerts_same_service": 2,
+      "runbook": "rb-search-latency",
+      "oncall_team": "search"
+    }
+  },
+  {
+    "id": "several-services-going-together",
+    "expect_action": "declare_incident",
+    "note": "The claim is not that this alert is severe. It is that the scatter is one event.",
+    "input": {
+      "alert_id": "AL-3340",
+      "service": "api-gateway",
+      "severity": "critical",
+      "message": "Gateway 5xx across checkout, search and accounts simultaneously. Shared auth dependency returning connection refused.",
+      "metric": "error_rate",
+      "value": 0.88,
+      "threshold": 0.02,
+      "customer_facing": true,
+      "owning_team": "platform",
+      "open_alerts_same_service": 6,
+      "runbook": "rb-gateway-5xx",
+      "oncall_team": "platform"
+    }
+  },
+  {
+    "id": "severity-label-overstates-it",
+    "expect_action": "create_ticket",
+    "note": "Stamped critical by the alert rule and it is one replica of six restarting, with no customer impact. The prompt says the severity label is a hint from whoever wrote the rule rather than a verdict, and this is the case that asks whether the agent believes that.",
+    "input": {
+      "alert_id": "AL-3355",
+      "service": "recommendations",
+      "severity": "critical",
+      "message": "Pod recommendations-4 restarted twice in 10 minutes. Five of six replicas healthy, traffic served normally.",
+      "metric": "restart_count",
+      "value": 2.0,
+      "threshold": 1.0,
+      "customer_facing": false,
+      "owning_team": "discovery",
+      "open_alerts_same_service": 0,
+      "oncall_team": "discovery"
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "small-clear-documented",
+    "expect_action": "reserve_minimal",
+    "note": "clear liability, no injury, tight range: the band is not in doubt.",
+    "input": {
+      "claim_id": "RS-4410",
+      "loss_type": "auto_collision",
+      "description": "Parked car struck in a car park. Other driver admitted fault, repair quote obtained.",
+      "liability_clear": true,
+      "initial_estimate": 3200.0,
+      "injury_severity": "none",
+      "policy_limit": 500000.0,
+      "assessment_scheduled": false
+    }
+  },
+  {
+    "id": "ordinary-property",
+    "expect_action": "reserve_standard",
+    "note": "the everyday claim: bounded, documented, no injury.",
+    "input": {
+      "claim_id": "RS-4423",
+      "loss_type": "property_water",
+      "description": "Burst pipe under a kitchen floor. Drying and reflooring quoted.",
+      "liability_clear": true,
+      "initial_estimate": 18500.0,
+      "injury_severity": "none",
+      "policy_limit": 750000.0,
+      "assessment_scheduled": false
+    }
+  },
+  {
+    "id": "estimate-understates-the-tail",
+    "expect_action": "reserve_elevated",
+    "note": "the estimate says standard and contested liability with injury says otherwise.",
+    "input": {
+      "claim_id": "RS-4440",
+      "loss_type": "liability_injury",
+      "description": "Customer slipped on a wet floor. Says the sign was not out. Ongoing back pain, seeing a specialist.",
+      "liability_clear": false,
+      "initial_estimate": 28000.0,
+      "injury_severity": "moderate",
+      "policy_limit": 2000000.0,
+      "assessment_scheduled": false
+    }
+  },
+  {
+    "id": "could-reach-the-limit",
+    "expect_action": "reserve_major",
+    "note": "severe injury with contested liability: the plausible range approaches the policy limit.",
+    "input": {
+      "claim_id": "RS-4455",
+      "loss_type": "product_liability",
+      "description": "Machine guard failed, operator lost use of a hand. Employer disputes maintenance responsibility.",
+      "liability_clear": false,
+      "initial_estimate": 0.0,
+      "injury_severity": "severe",
+      "policy_limit": 5000000.0,
+      "assessment_scheduled": true
+    }
+  },
+  {
+    "id": "range-too-wide-to-band",
+    "expect_action": "defer_pending_assessment",
+    "note": "One unknown fact decides the band, and the two possible answers do not land in the same band -- so any single reserve set now is a guess at which. An assessor is on the way.\n\nMeasured live the earlier wording split four to one against reserve_elevated, which is a defensible reading: setting a reserve and awaiting the assessor is what many adjusters would do. The percept now says the range spans bands, which is the fact that makes deferring the only answer the config supports.",
+    "input": {
+      "claim_id": "RS-4471",
+      "loss_type": "property_water",
+      "description": "Sprinkler discharged overnight in a mixed-use unit. Ground floor is retail stock, mostly clothing. The basement holds a tenant's server room and nobody has been able to get down there yet to see whether the water reached it. If it stopped at the stairs this is a few thousand pounds of clothing; if it reached the servers it is hardware plus the tenant's business interruption. The two ends of that range fall in different reserve bands.",
+      "liability_clear": true,
+      "initial_estimate": 0.0,
+      "injury_severity": "none",
+      "policy_limit": 10000000.0,
+      "assessment_scheduled": true
+    }
+  }
+]

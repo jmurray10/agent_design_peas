@@ -1,0 +1,61 @@
+{
+  "entries": {
+    "794a427273df38c51a6f191d": {
+      "prompt": "Extract structured data from the document. Return JSON.\nInput: {\"document\": \"INVOICE\\nBill to: Acme Manufacturing LLC\\nTotal amount: $2,450.00\\nTerms: Net 30\"}\nAvailable actions: ['extract_fields', 'flag_unclear']\nReturn a JSON object with these keys at the top level: name (string), amount (number), confidence (number).\nProcess the input. Return JSON.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:59:26+00:00",
+      "responses": [
+        "```json\n{\n  \"name\": \"Acme Manufacturing LLC\",\n  \"amount\": 2450.00,\n  \"confidence\": 0.97\n}\n```\n\n**Notes on extraction:**\n- `name` — taken from the \"Bill to:\" line; unambiguous.\n- `amount` — parsed from \"Total amount: $2,450.00\" → currency symbol and thousands separator stripped, yielding `2450.0`. Currency (USD) is implied but not representable in the requested schema.\n- `confidence` — high (0.97) rather than 1.0: the document is short and clearly labeled, but the \"Net 30\" term implies a due date that isn't captured, and no invoice number or date is present to cross-validate.\n\nAction taken: `extract_fields` (no `flag_unclear` needed — all three target fields map to explicit, labeled values in the source).",
+        "```json\n{\n  \"name\": \"Acme Manufacturing LLC\",\n  \"amount\": 2450.00,\n  \"confidence\": 0.97\n}\n```\n\nNotes on extraction:\n- **name** — taken from the \"Bill to:\" line.\n- **amount** — parsed from \"Total amount: $2,450.00\" (currency symbol and thousands separator stripped).\n- **confidence** — high; both fields are explicitly labeled and unambiguous. The `Terms: Net 30` line was not requested and was ignored. No `flag_unclear` action was needed.",
+        "```json\n{\n  \"name\": \"Acme Manufacturing LLC\",\n  \"amount\": 2450.00,\n  \"confidence\": 0.97\n}\n```"
+      ],
+      "tier": "frontier"
+    },
+    "8f55443e2b2c1bb976312737": {
+      "prompt": "Validate extracted data for completeness and correctness. Return JSON.\nInput: {\"name\": \"Acme Manufacturing LLC\", \"amount\": 2450.0, \"confidence\": 0.97}\nAvailable actions: ['approve', 'reject', 'flag']\nReturn a JSON object with these keys at the top level: status (string), name (string), amount (number).\nProcess the input. Return JSON.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:59:10+00:00",
+      "responses": [
+        "```json\n{\n  \"status\": \"approve\",\n  \"name\": \"Acme Manufacturing LLC\",\n  \"amount\": 2450.0\n}\n```\n\n**Validation Summary:**\n- **Name**: ✅ Present and valid (non-empty string)\n- **Amount**: ✅ Present, valid positive number (2450.0)\n- **Confidence**: ✅ 0.97 (97%) — exceeds typical approval threshold (e.g., ≥0.85)\n\nAll fields are complete and pass correctness checks. Action: **approve**."
+      ],
+      "tier": "mid"
+    },
+    "210127bedf1eb4cf2dd20677": {
+      "prompt": "Format validated data into the requested output. Return JSON.\nInput: {\"status\": \"approve\", \"name\": \"Acme Manufacturing LLC\", \"amount\": 2450.0}\nAvailable actions: ['format_report', 'format_json']\nProcess the input. Return JSON.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:59:13+00:00",
+      "responses": [
+        "```json\n{\n  \"action\": \"format_json\",\n  \"output\": {\n    \"status\": \"approve\",\n    \"name\": \"Acme Manufacturing LLC\",\n    \"amount\": 2450.0\n  }\n}\n```"
+      ],
+      "tier": "small"
+    },
+    "67b66a227fdb3fd93214a9bb": {
+      "prompt": "Format validated data into the requested output. Return JSON.\nInput: {\"document\": \"INVOICE\\nBill to: Acme Manufacturing LLC\\nTotal amount: $2,450.00\\nTerms: Net 30\"}\nAvailable actions: ['format_report', 'format_json']\nProcess the input. Return JSON.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:59:15+00:00",
+      "responses": [
+        "```json\n{\n  \"action\": \"format_json\",\n  \"input\": {\n    \"document_type\": \"INVOICE\",\n    \"bill_to\": \"Acme Manufacturing LLC\",\n    \"total_amount\": \"$2,450.00\",\n    \"terms\": \"Net 30\"\n  },\n  \"output\": {\n    \"invoice\": {\n      \"bill_to\": \"Acme Manufacturing LLC\",\n      \"total_amount\": 2450.00,\n      \"currency\": \"USD\",\n      \"terms\": \"Net 30\"\n    }\n  }\n}\n```"
+      ],
+      "tier": "small"
+    },
+    "a85ff4c9fc2e264ee35455ef": {
+      "prompt": "Validate extracted data for completeness and correctness. Return JSON.\nInput: {\"document\": \"INVOICE\\nBill to: Acme Manufacturing LLC\\nTotal amount: $2,450.00\\nTerms: Net 30\"}\nAvailable actions: ['approve', 'reject', 'flag']\nReturn a JSON object with these keys at the top level: status (string), name (string), amount (number).\nProcess the input. Return JSON.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:59:19+00:00",
+      "responses": [
+        "{\n  \"status\": \"flag\",\n  \"name\": \"Acme Manufacturing LLC\",\n  \"amount\": 2450.00\n}"
+      ],
+      "tier": "mid"
+    },
+    "aae6953539d8eb217eb0b2de": {
+      "prompt": "Classify to one handler: ['extractor', 'validator', 'formatter']\nInput: {\"document\": \"INVOICE\\nBill to: Acme Manufacturing LLC\\nTotal amount: $2,450.00\\nTerms: Net 30\"}\nReturn just the handler name.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:59:21+00:00",
+      "responses": [
+        "extractor"
+      ],
+      "tier": "small"
+    }
+  },
+  "source": "05_multi_agent__orchestration__after"
+}

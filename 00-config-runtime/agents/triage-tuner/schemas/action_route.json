@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "routing decision",
+  "type": "object",
+  "required": [
+    "action",
+    "reason"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "route_to_tier1",
+        "route_to_specialist",
+        "route_to_engineering",
+        "request_exploration"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "learned": {
+      "type": "string",
+      "description": "What the outcomes so far suggest. 'none yet' is a valid answer."
+    },
+    "state_update": {
+      "type": "object",
+      "description": "What to carry into the next turn, merged into the agent's state after the action is validated. Without this field a config can declare a state schema and have no way to write to it: the runtime reads state_update off the validated action, and additionalProperties false means the model cannot return one it was never given. Both agents here declared state and carried an empty dict through every turn, so each decision was made with no memory of the last -- a model-based agent behaving exactly like a reflex one, and nothing said so."
+    }
+  },
+  "additionalProperties": false
+}

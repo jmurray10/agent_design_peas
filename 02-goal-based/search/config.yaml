@@ -1,0 +1,30 @@
+agent:
+  name: "puzzle-solver"
+  architecture: "goal-based"
+  performance:
+    metrics: ["solution optimality", "time to solve"]
+    eval: "eval/test_cases.json"
+  environment:
+    type: "fully-observable, deterministic, episodic, discrete"
+  actuators:
+    - name: "up"
+      output_schema: "schemas/action_move.json"
+    - name: "down"
+      output_schema: "schemas/action_move.json"
+    - name: "left"
+      output_schema: "schemas/action_move.json"
+    - name: "right"
+      output_schema: "schemas/action_move.json"
+  sensors:
+    - name: "puzzle_description"
+      type: "text"
+    - name: "puzzle_grid"
+      type: "structured"
+      input_schema: "schemas/percept_grid.json"
+  prompts:
+    system: "prompts/system.md"
+    goal_interpretation: "prompts/interpret_goal.md"
+  planning:
+    strategy: "a_star"
+    fallback: "llm_reasoning"
+    heuristic: "manhattan_distance"

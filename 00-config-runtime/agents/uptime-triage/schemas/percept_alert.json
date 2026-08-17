@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monitoring alert",
+  "type": "object",
+  "required": [
+    "alert_id",
+    "service",
+    "severity",
+    "message",
+    "oncall_team"
+  ],
+  "properties": {
+    "alert_id": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "critical"
+      ],
+      "description": "As stamped by the alert rule. A hint, not a verdict."
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metric": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    },
+    "threshold": {
+      "type": "number"
+    },
+    "customer_facing": {
+      "type": "boolean"
+    },
+    "owning_team": {
+      "type": "string"
+    },
+    "open_alerts_same_service": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "How many alerts are already open on this service."
+    },
+    "runbook": {
+      "type": "string",
+      "description": "Runbook URL or id, where one exists."
+    },
+    "oncall_team": {
+      "type": "string",
+      "description": "Whose rotation this alert landed in. Without it the agent cannot tell an alert that belongs to another team from one that is its own team's work, because every alert names an owning team."
+    }
+  },
+  "additionalProperties": false
+}

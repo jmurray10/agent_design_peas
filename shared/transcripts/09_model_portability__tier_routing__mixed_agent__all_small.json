@@ -1,0 +1,203 @@
+{
+  "entries": {
+    "5317073166a3e3bef9a23a6c": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: no data\n  write_custom: no data\n  escalate: no data\n  request_info: no data\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:50+00:00",
+      "responses": [
+        "write_custom"
+      ]
+    },
+    "2d42cc41bb6c32fdbafdd989": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 0, \"write_custom\": 1, \"escalate\": 0, \"request_info\": 0, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:50+00:00",
+      "responses": [
+        "request_info"
+      ]
+    },
+    "6f7a4d6f90a0c4a136ffda4d": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: no data\n  write_custom: avg=0.00 (n=1)\n  escalate: no data\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:52+00:00",
+      "responses": [
+        "write_custom\n\n**Reasoning:** This is a medium urgency premium tier complaint with no established patterns or successful templates yet. A custom response shows attentiveness to the customer's specific issue, which is important for premium tier satisfaction. The negative history with `request_info` suggests jumping to information gathering isn't optimal here."
+      ]
+    },
+    "a8f3c08c080db3a5ce37d53b": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 1, \"write_custom\": 1, \"escalate\": 0, \"request_info\": 1, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:52+00:00",
+      "responses": [
+        "escalate"
+      ]
+    },
+    "bfa54b280111d9496324b430": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=1.50 (n=1)\n  write_custom: avg=0.00 (n=1)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:55+00:00",
+      "responses": [
+        "write_custom\n\n**Reasoning:** \n- This is a **premium tier** customer with a **complaint** - they deserve personalized attention\n- Medium urgency suggests this isn't critical but warrants prompt, thoughtful handling\n- \"write_custom\" has a historical average of 0.00, which is better than the negative scores of escalate (-0.50) and request_info (-1.00)\n- A custom response acknowledges the complaint seriously and shows the premium customer they're valued\n- send_template (avg=1.50) performed best historically, but for a complaint from a premium customer, the personalized touch of a custom response is more appropriate and professional"
+      ]
+    },
+    "dfec5f83c766d3de8eebdecf": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=0.75 (n=2)\n  write_custom: avg=0.00 (n=1)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:56+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "c9e9b32e862574cbe5c6a779": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=1.17 (n=3)\n  write_custom: avg=0.00 (n=1)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:56+00:00",
+      "responses": [
+        "write_custom"
+      ]
+    },
+    "f3f6930ee25a47d6ae00dfa4": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=1.17 (n=3)\n  write_custom: avg=0.75 (n=2)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:57+00:00",
+      "responses": [
+        "write_custom"
+      ]
+    },
+    "b7aaa502622635cdcb5659c1": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=1.17 (n=3)\n  write_custom: avg=1.17 (n=3)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:59+00:00",
+      "responses": [
+        "write_custom\n\nReasoning: For a medium urgency premium tier complaint with no learned patterns yet, a custom response is most appropriate because:\n1. Premium tier customers expect personalized attention\n2. Complaints need tailored acknowledgment of their specific issue\n3. Custom responses have shown positive average performance (1.17)\n4. This approach allows for building experience data for future similar cases\n5. It avoids the risk of escalation's negative performance (-0.50) without more information"
+      ]
+    },
+    "ec8990737128485a0c88d1b7": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  None yet.\n\nDid NOT work:\n  None yet.\n\nPatterns:\n[]\n\nAction stats:\n  send_template: avg=1.50 (n=4)\n  write_custom: avg=1.17 (n=3)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:58:59+00:00",
+      "responses": [
+        "write_custom"
+      ]
+    },
+    "3525b1af157616d181a5e261": {
+      "prompt": "Analyze these experiences and extract patterns.\nSuccesses: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 20,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 12,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 64,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.5\n  }\n]\nFailures: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"request_info\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 69,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"escalate\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 85,\n      \"customer_satisfied\": true,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -0.5\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"write_custom\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 88,\n      \"customer_satisfied\": false,\n      \"error\": null\n    },\n    \"reward\": 0.0\n  }\n]\nWhat patterns? What to do more, what to avoid?\nReturn JSON list of rule strings.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:03+00:00",
+      "responses": [
+        "```json\n[\n  \"DO: Use send_template or write_custom for medium-urgency premium complaints - both achieve customer satisfaction\",\n  \"DO: Prioritize send_template and write_custom actions - they have 100% customer satisfaction rate (3/3)\",\n  \"AVOID: request_info action - caused customer dissatisfaction despite technical success\",\n  \"AVOID: escalate action - resulted in timeout errors and negative reward (-0.5)\",\n  \"PATTERN: Customer satisfaction is achievable even when technical success=false if action is send_template or write_custom\",\n  \"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\",\n  \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\",\n  \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\",\n  \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\",\n  \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"\n]\n```"
+      ]
+    },
+    "a55d4a2aa7b5f493a53d4892": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.50 (n=4)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:03+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "7f5ca8bffa91698376560fe5": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.70 (n=5)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:04+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "87b8139fcab705b09d2ff08c": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.42 (n=6)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:05+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "315bf1d4f9ce77849ea8361c": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.36 (n=7)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:05+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "81550c87386ed24278874cf7": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.50 (n=8)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:06+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "31a632e525de9e999234eb19": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.44 (n=9)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:07+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "e2bf6181e3e9fa768bd2859b": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.45 (n=10)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:07+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "32d40f06242422fbce7cbfdd": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.55 (n=11)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: no data\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:08+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "ef9e83a2b764cd01ebb8706c": {
+      "prompt": "Suggest an experiment for a email response agent.\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\nUsage counts: {\"send_template\": 12, \"write_custom\": 4, \"escalate\": 1, \"request_info\": 1, \"auto_resolve\": 0}\nSuggest an underexplored action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:08+00:00",
+      "responses": [
+        "auto_resolve"
+      ]
+    },
+    "e0b0520d22f67ace01161171": {
+      "prompt": "You are a email response agent.\n\nSituation: {\"type\": \"complaint\", \"urgency\": \"medium\", \"tier\": \"premium\"}\nActions: ['send_template', 'write_custom', 'escalate', 'request_info', 'auto_resolve']\n\nLEARNED FROM EXPERIENCE:\nWorked well:\n  'send_template' -> reward 2.0\n  'write_custom' -> reward 2.0\n  'send_template' -> reward 2.5\n\nDid NOT work:\n  'request_info' -> reward -1.0\n  'escalate' -> reward -0.5\n  'write_custom' -> reward 0.0\n\nPatterns:\n[\"PATTERN: Longer execution times (64-88s) don't guarantee better outcomes - write_custom failed at 88s\", \"PATTERN: request_info and escalate actions correlate with timeout errors - avoid for medium-urgency premium tier\", \"DO: For medium-urgency premium complaints, prefer send_template (best reward 2.5) over alternatives\", \"INSIGHT: Technical success metric is unreliable - focus on customer_satisfied as primary success indicator\", \"AVOID: write_custom when time pressure exists - shows high variance (12s success to 88s failure)\"]\n\nAction stats:\n  send_template: avg=1.33 (n=12)\n  write_custom: avg=1.00 (n=4)\n  escalate: avg=-0.50 (n=1)\n  request_info: avg=-1.00 (n=1)\n  auto_resolve: avg=3.00 (n=1)\n\nPick the best action. Return just the action name.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:09+00:00",
+      "responses": [
+        "send_template"
+      ]
+    },
+    "da195efe99093bcbfccaffd6": {
+      "prompt": "Analyze these experiences and extract patterns.\nSuccesses: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 41,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 2.5\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"auto_resolve\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 21,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 3.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 26,\n      \"customer_satisfied\": true,\n      \"error\": null\n    },\n    \"reward\": 3.0\n  }\n]\nFailures: [\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"request_info\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 69,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"send_template\",\n    \"outcome\": {\n      \"success\": true,\n      \"time_seconds\": 50,\n      \"customer_satisfied\": false,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -1.0\n  },\n  {\n    \"state\": {\n      \"type\": \"complaint\",\n      \"urgency\": \"medium\",\n      \"tier\": \"premium\"\n    },\n    \"action\": \"escalate\",\n    \"outcome\": {\n      \"success\": false,\n      \"time_seconds\": 85,\n      \"customer_satisfied\": true,\n      \"error\": \"timeout\"\n    },\n    \"reward\": -0.5\n  }\n]\nWhat patterns? What to do more, what to avoid?\nReturn JSON list of rule strings.",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-16T01:59:13+00:00",
+      "responses": [
+        "```json\n{\n  \"patterns\": [\n    \"For medium-urgency premium complaints: auto_resolve is optimal (3.0 reward, 21s)\",\n    \"For medium-urgency premium complaints: send_template is reliable (2.5-3.0 reward, 26-41s)\",\n    \"For medium-urgency premium complaints: request_info causes timeouts and dissatisfaction\",\n    \"For medium-urgency premium complaints: escalate is slow (85s) and error-prone\",\n    \"Response time under 30s correlates with customer satisfaction\",\n    \"Response time over 50s correlates with timeouts and dissatisfaction\"\n  ],\n  \"do_more\": [\n    \"PRIORITIZE auto_resolve for medium-urgency premium complaints (highest reward: 3.0, fastest: 21s)\",\n    \"USE send_template as secondary option for medium-urgency premium complaints (reliable: 2.5-3.0 reward)\",\n    \"TARGET sub-30 second response times for customer satisfaction\"\n  ],\n  \"avoid\": [\n    \"AVOID request_info for medium-urgency premium complaints (causes timeouts, negative reward)\",\n    \"AVOID escalate for medium-urgency premium complaints (slowest action, error-prone)\",\n    \"AVOID actions exceeding 50 seconds (timeout risk increases significantly)\"\n  ],\n  \"recommended_policy\": [\n    \"IF type=complaint AND urgency=medium AND tier=premium THEN auto_resolve (first choice)\",\n    \"IF type=complaint AND urgency=medium AND tier=premium AND auto_resolve_unavailable THEN send_template (second choice)\",\n    \"IF type=complaint AND urgency=medium AND tier=premium THEN never request_info OR escalate\"\n  ]\n}\n```"
+      ]
+    }
+  },
+  "source": "09_model_portability__tier_routing__mixed_agent__all_small"
+}

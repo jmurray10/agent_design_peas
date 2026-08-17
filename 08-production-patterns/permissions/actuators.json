@@ -1,0 +1,101 @@
+{
+  "agent": {
+    "name": "support-bot",
+    "architecture": "model-based-reflex"
+  },
+  "session_scope": "one run of the agent process",
+  "actuators": [
+    {
+      "name": "reply_to_customer",
+      "output_schema": "schemas/action_reply.json",
+      "permissions": {
+        "tier": "autonomous",
+        "reversible": true,
+        "rate_limit": "20 per session",
+        "audit": false,
+        "roles": [
+          "support_agent",
+          "support_manager"
+        ]
+      }
+    },
+    {
+      "name": "escalate_to_manager",
+      "permissions": {
+        "tier": "autonomous",
+        "reversible": true,
+        "rate_limit": "5 per session",
+        "audit": true,
+        "roles": [
+          "support_agent",
+          "support_manager"
+        ]
+      }
+    },
+    {
+      "name": "check_order_status",
+      "output_schema": "schemas/action_lookup.json",
+      "permissions": {
+        "tier": "autonomous",
+        "reversible": true,
+        "rate_limit": "30 per session",
+        "audit": false,
+        "roles": [
+          "support_agent",
+          "support_manager",
+          "triage_bot"
+        ]
+      }
+    },
+    {
+      "name": "issue_refund",
+      "output_schema": "schemas/action_refund.json",
+      "permissions": {
+        "tier": "requires_approval_above",
+        "autonomous_limit": 50.0,
+        "hard_limit": 2000.0,
+        "reversible": false,
+        "rate_limit": "3 per session",
+        "audit": true,
+        "roles": [
+          "support_agent",
+          "support_manager"
+        ],
+        "approver_roles": [
+          "support_manager"
+        ]
+      }
+    },
+    {
+      "name": "request_more_info",
+      "permissions": {
+        "tier": "autonomous",
+        "reversible": true,
+        "rate_limit": "10 per session",
+        "audit": false,
+        "roles": [
+          "support_agent",
+          "support_manager",
+          "triage_bot"
+        ]
+      }
+    },
+    {
+      "name": "close_ticket",
+      "permissions": {
+        "tier": "requires_confirmation",
+        "reversible": true,
+        "rate_limit": "5 per session",
+        "audit": true,
+        "roles": [
+          "support_agent",
+          "support_manager"
+        ],
+        "approver_roles": [
+          "customer",
+          "support_manager"
+        ]
+      }
+    }
+  ]
+}

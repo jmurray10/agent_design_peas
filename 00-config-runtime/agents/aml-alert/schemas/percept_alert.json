@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monitoring alert",
+  "type": "object",
+  "required": [
+    "alert_id",
+    "customer_id",
+    "rule",
+    "amount",
+    "currency"
+  ],
+  "properties": {
+    "alert_id": {
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "string",
+      "description": "Which monitoring rule fired.",
+      "enum": [
+        "structuring",
+        "rapid_movement",
+        "high_risk_jurisdiction",
+        "unusual_counterparty",
+        "threshold_breach",
+        "dormant_reactivation"
+      ]
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "transaction_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "window_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "counterparties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "narrative": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

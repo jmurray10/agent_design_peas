@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot action: issue_refund",
+  "description": "The only action that moves money, and the only one whose schema demands both an order and an amount. A refund with a missing field is refused in code, before it reaches anything that can pay it.",
+  "type": "object",
+  "required": ["action", "order_id", "amount"],
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "state_update": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+# This is 01-reflex-agents/model-based/config.yaml plus the same two additions uptime-triage
+# got: an actuator `type`, and a `behavior` block. The one structural difference from
+# uptime-triage is the `state` block at the bottom. That block, and nothing else, is what
+# makes this a model-based reflex agent rather than a simple one. Same runtime, same
+# class, four extra lines of YAML.
+agent:
+  name: "support-bot"
+  use_case:
+    domain: >-
+      Customer support, order and billing enquiries
+    decision: >-
+      What to do with the customer in front of it, one turn at a time: answer, look up an order,
+      refund, ask for something it needs, escalate to a person, or close a ticket that is
+      finished.
+    why_it_matters: >-
+      This is the agent the source material uses to introduce state. What it carries between
+      turns is the whole difference between a conversation and a sequence of unrelated replies.
+    boundary: >-
+      It can issue a refund, which is the one actuator here that moves money, and the prompt
+      requires confirmation from a system lookup rather than from the customer's own account of
+      events before it does.
+  architecture: "model-based-reflex"
+  performance:
+    metrics: ["customer satisfaction", "resolution time", "escalation rate"]
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic"
+  actuators:
+    - name: "reply_to_customer"
+      type: "deterministic"
+      output_schema: "schemas/action_reply.json"
+    - name: "escalate_to_manager"
+      type: "escalation"
+    - name: "check_order_status"
+      type: "deterministic"
+      output_schema: "schemas/action_lookup.json"
+    - name: "issue_refund"
+      type: "deterministic"
+      output_schema: "schemas/action_refund.json"
+    - name: "request_more_info"
+      type: "deterministic"
+    - name: "close_ticket"
+      type: "deterministic"
+  sensors:
+    - name: "customer_message"
+      type: "text"
+      input_schema: "schemas/percept_message.json"
+    - name: "order_lookup"
+      type: "structured"
+      input_schema: "schemas/percept_order.json"
+    - name: "ticket_history"
+      type: "text"
+  prompts:
+    system: "prompts/system.md"
+    reply: "prompts/reply.md"
+    escalation: "prompts/escalation.md"
+  behavior:
+    decision_strategy: "read the percept -> update what you believe -> pick one actuator -> validate -> dispatch"
+    # tier=mid: every turn emits a structured object that carries a nested state update,
+    # and that state has to stay coherent across a conversation. A small model gets the
+    # content right and the schema wrong often enough that the declared fallback would
+    # become the normal path, which is not what a fallback is for. A frontier model buys
+    # nothing once the schema is this narrow.
+    tier: "mid"
+    task_prompts:
+      - when: "refund"
+        use: "escalation"
+      - when: "order #"
+        use: "reply"
+  state:
+    schema: "schemas/state.json"
+    persistence: "per-conversation"
+    fallback: "merge-percept-data"

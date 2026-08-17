@@ -1,0 +1,27 @@
+agent:
+  name: "scheduling-agent"
+  architecture: "goal-based"
+  performance:
+    metrics: ["all constraints satisfied", "minimize schedule duration"]
+    eval: "eval/scheduling_cases.json"
+  environment:
+    type: "fully-observable, deterministic, episodic, static, discrete"
+  actuators:
+    - name: "solve_csp"
+      type: "deterministic"
+      output_schema: "schemas/csp_solution.json"
+    - name: "present_schedule"
+      type: "output"
+  sensors:
+    - name: "scheduling_request"
+      type: "text"
+      preprocessing: "llm_extract_csp"
+      output_schema: "schemas/csp_definition.json"   # schema for the extracted CSP
+  prompts:
+    system: "prompts/system.md"
+    extract_csp: "prompts/extract_csp.md"             # prompt template for CSP extraction
+    format_solution: "prompts/format_solution.md"     # prompt template for NL output
+  behavior:
+    decision_strategy: "parse request -> extract CSP -> solve -> present"
+    solver: "backtracking_with_ac3"
+    fallback: "llm_suggest_schedule"

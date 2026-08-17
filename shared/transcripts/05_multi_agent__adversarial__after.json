@@ -1,0 +1,1527 @@
+{
+  "entries": {
+    "add08c62bf0895a4630cb6bc": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:29:53+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "f0149c46513a17f0dd9e9cc9": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:30:02+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "430c0634dd494f751ee8a210": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:30:05+00:00",
+      "responses": [
+        "0.7"
+      ],
+      "tier": "mid"
+    },
+    "e02b24f9d31871631faf7747": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:30:07+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "fab9106b6b39d6b8ca12860c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:42:52+00:00",
+      "responses": [
+        "0.95",
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "813bfd77101b3b6cf6cecc91": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:48:08+00:00",
+      "responses": [
+        "",
+        "0.1"
+      ],
+      "tier": "mid"
+    },
+    "82970d0d96bfe2b52ecdc8db": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:01:02+00:00",
+      "responses": [
+        "0.6",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "73e9692c434cfd93af762d46": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:31:25+00:00",
+      "responses": [
+        "0.7"
+      ],
+      "tier": "mid"
+    },
+    "36781076f48b88eacce210c0": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\nX . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:31:27+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "61db2f49ffc50822407d1369": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:31:31+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "ffbbef66e8c685b8287911a7": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:31:34+00:00",
+      "responses": [
+        "0.5"
+      ],
+      "tier": "mid"
+    },
+    "05a53f7f4ce17756fa8e693c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:31:38+00:00",
+      "responses": [
+        "0.5"
+      ],
+      "tier": "mid"
+    },
+    "e78fd163b2e04bfdf96ad8f2": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:50:20+00:00",
+      "responses": [
+        "",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "29f82ad453700f3687d69d08": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:03:09+00:00",
+      "responses": [
+        "0.2",
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "2add2e5e2292f8570a443a7c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\nO . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:35+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "e8f699e3d48d42706cbe52bb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. O .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:38+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "2b76e6d2e7b52068283742ac": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. O .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:43+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "4ab8e527670b32d3d7f9ef55": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . O\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:46+00:00",
+      "responses": [
+        "0.8"
+      ],
+      "tier": "mid"
+    },
+    "ec7172e8af5e56fe5bcc48ac": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:54+00:00",
+      "responses": [
+        "0.45"
+      ],
+      "tier": "mid"
+    },
+    "63eb3a550b281a4d37343ddc": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:32:57+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "42fc43ac4a4271045acbcf47": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . .\n. O .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:33:04+00:00",
+      "responses": [
+        "0.7"
+      ],
+      "tier": "mid"
+    },
+    "1ab13d3cdf7959a71dfee177": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . .\n. . O\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:33:08+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "c7bf5fb7e977d2251d42a0d5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X X\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:35:51+00:00",
+      "responses": [
+        "0.2",
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "32e16505fddbc9060aea971d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\nX . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:37:43+00:00",
+      "responses": [
+        "-0.3",
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "4966cd91ff134facdc7f203d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:39:30+00:00",
+      "responses": [
+        "",
+        "0.35"
+      ],
+      "tier": "mid"
+    },
+    "02792d1b2485a6715ccc87b8": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:14+00:00",
+      "responses": [
+        "0.0",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "b9f07af1787c24ff2a14d270": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:40+00:00",
+      "responses": [
+        "-0.2",
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "0893351b9276366ca10945e5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:45:16+00:00",
+      "responses": [
+        "",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "6b91c6964aa47c03531fdc15": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:58:44+00:00",
+      "responses": [
+        "0.1",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "bf33ff8d7a5208ba0bf928b4": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\nX . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:38:26+00:00",
+      "responses": [
+        "0.2",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "2da4bde484d2b2916fbf7210": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:39:33+00:00",
+      "responses": [
+        "0.6",
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "20d1c8c19d4e08fcb2004c90": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:19+00:00",
+      "responses": [
+        "0.2",
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "8501e651e6e9e7f880c593fd": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:43+00:00",
+      "responses": [
+        "-0.2",
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "58a06f828e8a5322eb58f2cf": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:45:36+00:00",
+      "responses": [
+        "",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "4326f4c653bf9f4cc4342ce1": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:58:47+00:00",
+      "responses": [
+        "",
+        "-0.6"
+      ],
+      "tier": "mid"
+    },
+    "8aef59428e3cd6a7484aac5d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:39:35+00:00",
+      "responses": [
+        "0.6",
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "9c3cbbb516cf13eb403ff2b6": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:21+00:00",
+      "responses": [
+        "-0.2",
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "fc569db0f743b5f4f9c4a62e": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:57+00:00",
+      "responses": [
+        "",
+        "-0.1"
+      ],
+      "tier": "mid"
+    },
+    "4f49f08799aae87c966de71b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:45:40+00:00",
+      "responses": [
+        "-0.6",
+        "-0.6"
+      ],
+      "tier": "mid"
+    },
+    "101dcd204695e608925961df": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:59:31+00:00",
+      "responses": [
+        "0.2",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "ded99af329cded1e5b9c3025": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. X X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:25+00:00",
+      "responses": [
+        "0.0",
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "beb8e3e7c117e6d3d214e76f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. X .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:41:59+00:00",
+      "responses": [
+        "-0.2",
+        "-0.3"
+      ],
+      "tier": "mid"
+    },
+    "3d7f5a92515440b23c5392be": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. X .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:46:25+00:00",
+      "responses": [
+        "",
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "4d590882fcde7ace9fb7ef53": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. X .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:59:35+00:00",
+      "responses": [
+        "0.6",
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "7c791da5f78a2db326955a39": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . X\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:42:02+00:00",
+      "responses": [
+        "0.1",
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "f32d06f20914aed0f6dafcbe": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . X\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:46:29+00:00",
+      "responses": [
+        "-0.3",
+        "-0.3"
+      ],
+      "tier": "mid"
+    },
+    "5ec3477a4826283ef2093c8c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . X\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:59:39+00:00",
+      "responses": [
+        "0.1",
+        "-0.5"
+      ],
+      "tier": "mid"
+    },
+    "0b9bceefff359affc7e7ad62": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\nX X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:47:11+00:00",
+      "responses": [
+        "0.9",
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "aa3b3784fb0ed8adbffe1b9b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\nX . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:00:11+00:00",
+      "responses": [
+        "1.0",
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "d3fbcad94a5976ea4f4d3753": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O X\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:43:31+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "8b2bd490d5456ded08096859": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\nX . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:44:18+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "fec480adcf7054ebf2bdc5de": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. X .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:44:21+00:00",
+      "responses": [
+        "0.4"
+      ],
+      "tier": "mid"
+    },
+    "341519fa1d050ee9ab9392e9": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . X\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:44:25+00:00",
+      "responses": [
+        "0.4"
+      ],
+      "tier": "mid"
+    },
+    "675503eb1a1dbe0939338b37": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . .\nX X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:49:06+00:00",
+      "responses": [
+        "",
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "205976e30151fd027a1dba0e": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . .\nX . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:02:38+00:00",
+      "responses": [
+        "0.6",
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "3f6dd51689425622cca8c730": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\n. X X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:00:15+00:00",
+      "responses": [
+        "",
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "03097b4b290873be980d3f7e": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O X\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:48:23+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "9698b6f0739c1c301594604f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\nX . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:48:26+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "3bcc713dda34c122253d4445": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. X .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:48:42+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "877d2f56c0220db66df801f3": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . X\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:48:46+00:00",
+      "responses": [
+        "-0.3"
+      ],
+      "tier": "mid"
+    },
+    "4e8b4bceab4de548004f5e6b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . .\n. X X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:49:35+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "2613bc4c31d3560e5d2ac216": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X O\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:51:00+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "d4ac99b4d538b86011c8416f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\nX . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:51:03+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "404dad548e9a7e114d71bce5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. X .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:51:46+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "0cf901f537856e1bad909e54": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. . X\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:51:59+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "bbac9ce52b32218f79f02f25": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. . .\nX X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:52:04+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "39b4328143502bcd1747874f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. . .\n. X X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:52:49+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "a7698de42c7b19b3ce5f2ed5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\nO . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:52:52+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "db3fa014ef48cb283ee885d1": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X .\nO . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:53:36+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "391f498edcd17a74d21460cb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . X\nO . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:54:18+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "860dd3931f5d57b5bee5b0af": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nO X .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:54:38+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "41a5d1f8e4c1367cab204990": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. O .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:54:41+00:00",
+      "responses": [
+        "-0.5"
+      ],
+      "tier": "mid"
+    },
+    "455f445d4639268173d6b4cf": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X .\n. O .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:54:43+00:00",
+      "responses": [
+        "-0.4"
+      ],
+      "tier": "mid"
+    },
+    "f5e9ffd8f4f3991b47c4c457": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . X\n. O .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:55:30+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "2874b9d92430821adcd50a19": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nX O .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:55:39+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "e183c67553882ce0ca620f4b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. O X\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:55:42+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "0641fc1d302c91cd0b5d87bc": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. O .\nX X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:56:08+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "ff1f49bc4c9d2f6c1dac2885": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. O .\n. X X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:09:48+00:00",
+      "responses": [
+        "0.9",
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "b81b6e54dc4b7e30553d5d4c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. . O\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:56:14+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "feb5ba59ebb0d832a441a57d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X .\n. . O\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:56:16+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "5b023430ff6d050792127dff": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . X\n. . O\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:57:00+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "801bb113551788e6de24f446": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nX . O\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:57:42+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "518b817dff2519843e37439f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. X O\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:57:47+00:00",
+      "responses": [
+        "0.5"
+      ],
+      "tier": "mid"
+    },
+    "ee73b91fcb5a953952c12513": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. . O\nX X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:57:55+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "be8e6504d72f67510b303465": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. . O\n. X X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T14:57:59+00:00",
+      "responses": [
+        "-0.3"
+      ],
+      "tier": "mid"
+    },
+    "42a4b800ee06feb7868e7878": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O X\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:01:32+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "413d8cecbdf919d40ed46d2b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\nX . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:01:36+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "3c0f2595eb921db7336ad6b7": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. X .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:01:39+00:00",
+      "responses": [
+        "0.7"
+      ],
+      "tier": "mid"
+    },
+    "b194dcba29b01f4815013fec": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. O .\n. . X\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:02:23+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "b0163f4308405491b727f753": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X O\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:03:17+00:00",
+      "responses": [
+        "0.15"
+      ],
+      "tier": "mid"
+    },
+    "3ed021bd85df88765a2bc820": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\nX . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:04:01+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "653a86f2f39c6cdbe578b0b9": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. X .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:04:30+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "a044385e2438a3fc270035b1": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. . X\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:04:42+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "009953f70d6e38afa8981587": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . O\n. . .\nX . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:04:48+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "9821e8b4a62439a2bff66656": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\nO . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:05:26+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "37bec41ac44cd4bbfe170d16": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X .\nO . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:05:57+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "b0e8c0777d973ca553b576b4": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . X\nO . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:06:02+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "18153db1cc41901d0179871d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nO X .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:06:04+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "b13f971d769085bd83c44cdd": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nO . X\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:06:44+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "3ad5156988a33170275f5fb1": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nO . .\nX . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:06:59+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "0feecb4aaa7681da2968187c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. O .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:07:03+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "b961ea4d6bedb18ab9f27eeb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. X .\n. O .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:07:44+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "b0138216495f403921ef8c79": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . X\n. O .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:08:27+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "e99d93e3880fa52b3b9627ae": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\nX O .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:09:11+00:00",
+      "responses": [
+        ""
+      ],
+      "tier": "mid"
+    },
+    "ce83e6281f816c28d4e80ccd": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. O X\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:09:15+00:00",
+      "responses": [
+        "-0.6"
+      ],
+      "tier": "mid"
+    },
+    "2ceb3381f911aff4843e8123": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\n. . .\n. O .\nX . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:09:45+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "66e84834893f8fb7ad4efa70": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\nX . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:10:09+00:00",
+      "responses": [
+        "-1.0"
+      ],
+      "tier": "mid"
+    },
+    "2372279fc11667fb8b602770": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:10:15+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "7113403a68db147217f5b43c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. . X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:10:30+00:00",
+      "responses": [
+        "-1.0"
+      ],
+      "tier": "mid"
+    },
+    "510c20c85cd904f7108741f3": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. . .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:10:36+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "adc290dc6978f1ce1d647494": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:10:44+00:00",
+      "responses": [
+        "-1.0"
+      ],
+      "tier": "mid"
+    },
+    "490000bc6a2f9e1d7cc9a485": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\nX . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:13:56+00:00",
+      "responses": [
+        "",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "a05a9dc4c3e4d60d8b07cb5b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:15:56+00:00",
+      "responses": [
+        "0.0",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "2463b37cc8b5045a41f471bb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. . X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:17:02+00:00",
+      "responses": [
+        "0.0",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "9b4563670ceb46cfaac3c808": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. . .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:18:44+00:00",
+      "responses": [
+        "",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "e7ffb8953e0b39a8c90d76fb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:13:24+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "2425803dbac7b215cfb76fde": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:16:00+00:00",
+      "responses": [
+        "1.0",
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "4ea0cced96e1a5b8fcaa758a": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX . X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:17:17+00:00",
+      "responses": [
+        "-1.0",
+        "-0.9"
+      ],
+      "tier": "mid"
+    },
+    "d7a8519e9cce049683d9ef4c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX . .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:19:03+00:00",
+      "responses": [
+        "0.0",
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "fc372355df8ab403e606925a": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:15:19+00:00",
+      "responses": [
+        "-1.0"
+      ],
+      "tier": "mid"
+    },
+    "a4de8dba3d00cf7261c5fa04": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. X X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:17:25+00:00",
+      "responses": [
+        "1.0",
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "f9155759bd383cedc259044a": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. X .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:19:22+00:00",
+      "responses": [
+        "0.0",
+        "0.1"
+      ],
+      "tier": "mid"
+    },
+    "31933e744f7d0df58824f8e5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . X\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:00+00:00",
+      "responses": [
+        "",
+        ""
+      ],
+      "tier": "mid"
+    },
+    "b9494fdc45e700da7105f283": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . X\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:18:07+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "f909a797fda6cde2b14c8f59": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:30+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "19168c0996e8a3811ffca98e": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:33+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "82aa03761f6706bb1fa15140": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\nO . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:36+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "17272cd8793f0333db0f556f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. O .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:39+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "c4b1c1a79988642689508ac6": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. . O\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:42+00:00",
+      "responses": [
+        "0.4"
+      ],
+      "tier": "mid"
+    },
+    "3c1354de3487b701e865083d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:45+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "f7018ebe3ab7ea55edf1c410": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. . .\n. O .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:47+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "b8cf17911a0c1c79ac7cb11b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\n. . .\n. . O\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:50+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "dc0bc2357f656a265cc9963d": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO X .\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:53+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "e78333664c5e7ad00d9d26a1": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . X\n. . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:56+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "69bb0cf150877b26b3af386c": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\nX . .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:20:59+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "3efde20f9a570e9241669a20": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. X .\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:02+00:00",
+      "responses": [
+        "0.2"
+      ],
+      "tier": "mid"
+    },
+    "cd97a77f685081be78ab84f5": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . X\n. . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:04+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "a6a17f9aebf19b41b63972a9": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\nX . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:06+00:00",
+      "responses": [
+        "0.15"
+      ],
+      "tier": "mid"
+    },
+    "9cb8512f563b8738a46f97c0": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\n. X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:09+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "8139a8cbd7c89191c23dc107": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nO . .\n. . .\n. . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:11+00:00",
+      "responses": [
+        "-0.2"
+      ],
+      "tier": "mid"
+    },
+    "7045fa6978839f3910d2d908": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X O\n. . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:28+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "729e3763d0e628de5b46745e": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\nO . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:32+00:00",
+      "responses": [
+        "-0.6"
+      ],
+      "tier": "mid"
+    },
+    "755b1d57e3226e7b45888f04": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. O .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:39+00:00",
+      "responses": [
+        "-1.0"
+      ],
+      "tier": "mid"
+    },
+    "24adbdb6ee0be65ffc7b3eb6": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . O\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:45+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "710ca4c932a294dcaee76294": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . .\nO O .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:52+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "eea1e44d2bb1c0c4fab00117": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX X .\n. . .\nO . O\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:21:57+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "822eafa5faa494706eaf5852": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\n. . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:26+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "0eb6518ebbe022ad3c98c9fc": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\nO . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:31+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "9d3906b28262e497b392ccdb": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. O .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:35+00:00",
+      "responses": [
+        "0.95"
+      ],
+      "tier": "mid"
+    },
+    "23fae869470f7d07146083e6": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. . O\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:38+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "b2092797582641eac4c0c66b": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. . .\nO O .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:45+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "22bc7b4e5d3670830de88530": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . X\n. . .\nO . O\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:48+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "4ae457bad8f26c5267ffe9de": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\nX . .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:22:58+00:00",
+      "responses": [
+        "0.9"
+      ],
+      "tier": "mid"
+    },
+    "334211a736f8bdb4b306232a": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:23:04+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "33a6f99ab4c92757a4994336": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:23:10+00:00",
+      "responses": [
+        "0.6"
+      ],
+      "tier": "mid"
+    },
+    "1b5acd8a13bfa03742027e39": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:23:12+00:00",
+      "responses": [
+        "0.3"
+      ],
+      "tier": "mid"
+    },
+    "f2613eb1bd15e85d4b438716": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:23:48+00:00",
+      "responses": [
+        "0.0"
+      ],
+      "tier": "mid"
+    },
+    "5ebee63f9e976966412ad5a8": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O .\n. . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:23:55+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "43e2c895e00a8f6c05b39641": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . O\n. . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:01+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "23bf16f16c83d07c17325380": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX . .\nO . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:03+00:00",
+      "responses": [
+        "-0.6"
+      ],
+      "tier": "mid"
+    },
+    "1183571497acfe5281283cd8": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\nO X .\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:08+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "f7453103edc09c719aa188c9": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\nO . X\nO . .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:13+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "77429db324ea7b5fdf40bf2f": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\nO . .\nO X .\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:33+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    },
+    "bbd5c6715023586b2d2043e3": {
+      "prompt": "Evaluate this game position from -1.0 to 1.0.\n+1.0 = X winning, -1.0 = O winning, 0.0 = even.\nX O X\nO . .\nO . X\nAnswer with the number alone. No reasoning, no explanation, no units.\nExample of a valid answer: -0.25",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T15:24:40+00:00",
+      "responses": [
+        "1.0"
+      ],
+      "tier": "mid"
+    }
+  },
+  "source": "05_multi_agent__adversarial__after"
+}

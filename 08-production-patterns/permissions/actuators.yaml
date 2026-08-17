@@ -1,0 +1,83 @@
+# Actuator spec for the support-bot, extended with a permissions block per actuator.
+#
+# The six actuator names are exactly the available_actions of the agent in
+# 01-reflex-agents/model-based/after.py, and the name/output_schema pairs are the spec
+# that article already shows. Everything under `permissions` is new.
+#
+# pyyaml is not part of this repository's zero-setup promise, so actuators.json mirrors
+# this file. permissions.py reads this file when pyyaml is importable and the JSON when
+# it is not. Run `python 08-production-patterns/permissions/permissions.py` to check the
+# two still agree -- an unnoticed disagreement between them would mean readers with and
+# without pyyaml get different authorization rules, which is the worst kind of drift.
+
+agent:
+  name: "support-bot"
+  architecture: "model-based-reflex"
+
+# Rate limits below are per session, and a session here is one run of the agent process.
+# That is the weak scope: a crash loop is a fresh budget every restart. A production
+# system scopes the same counter to an account and a wall-clock window instead. The
+# parser in permissions.py accepts "N per minute", "N per hour" and "N per day" as well,
+# so switching scope is a spec edit rather than a code change.
+session_scope: "one run of the agent process"
+
+actuators:
+  - name: "reply_to_customer"
+    output_schema: "schemas/action_reply.json"
+    permissions:
+      tier: "autonomous"
+      reversible: true
+      rate_limit: "20 per session"
+      audit: false
+      roles: ["support_agent", "support_manager"]
+
+  - name: "escalate_to_manager"
+    permissions:
+      tier: "autonomous"
+      reversible: true
+      rate_limit: "5 per session"
+      audit: true
+      roles: ["support_agent", "support_manager"]
+
+  - name: "check_order_status"
+    output_schema: "schemas/action_lookup.json"
+    permissions:
+      tier: "autonomous"
+      reversible: true
+      rate_limit: "30 per session"
+      audit: false
+      roles: ["support_agent", "support_manager", "triage_bot"]
+
+  # The one that shows up in an incident review. Money leaves, nothing brings it back,
+  # and the article's config said only that the actuator exists.
+  - name: "issue_refund"
+    output_schema: "schemas/action_refund.json"
+    permissions:
+      tier: "requires_approval_above"
+      autonomous_limit: 50.00
+      hard_limit: 2000.00
+      reversible: false
+      rate_limit: "3 per session"
+      audit: true
+      roles: ["support_agent", "support_manager"]
+      approver_roles: ["support_manager"]
+
+  - name: "request_more_info"
+    permissions:
+      tier: "autonomous"
+      reversible: true
+      rate_limit: "10 per session"
+      audit: false
+      roles: ["support_agent", "support_manager", "triage_bot"]
+
+  # Reversible, so a confirmation from the customer is enough. The same tier on an
+  # irreversible actuator would require a human approval instead -- see _required_grant
+  # in permissions.py.
+  - name: "close_ticket"
+    permissions:
+      tier: "requires_confirmation"
+      reversible: true
+      rate_limit: "5 per session"
+      audit: true
+      roles: ["support_agent", "support_manager"]
+      approver_roles: ["customer", "support_manager"]

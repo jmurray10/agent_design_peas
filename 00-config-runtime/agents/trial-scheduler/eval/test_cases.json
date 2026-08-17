@@ -1,0 +1,100 @@
+[
+  {
+    "id": "three-visits-four-slots",
+    "expect_action": "propose_schedule",
+    "note": "one monitor across three sites, four slots: satisfiable with a slot to spare.",
+    "input": {
+      "request_id": "SCH-101",
+      "visits": [
+        "site-04-interim",
+        "site-11-interim",
+        "site-19-closeout"
+      ],
+      "slots": [
+        "Mon AM",
+        "Mon PM",
+        "Tue AM",
+        "Wed AM"
+      ],
+      "monitors": {
+        "site-04-interim": "r.okafor",
+        "site-11-interim": "r.okafor",
+        "site-19-closeout": "r.okafor"
+      },
+      "blackouts": {},
+      "notes": "One monitor covering all three. She cannot be at two sites at once."
+    }
+  },
+  {
+    "id": "more-visits-than-slots",
+    "expect_action": "report_unsatisfiable",
+    "note": "the solver proves it; a model asked directly would very likely answer anyway.",
+    "input": {
+      "request_id": "SCH-118",
+      "visits": [
+        "site-02-initiation",
+        "site-07-interim",
+        "site-13-interim"
+      ],
+      "slots": [
+        "Thu AM",
+        "Thu PM"
+      ],
+      "monitors": {
+        "site-02-initiation": "j.baptiste",
+        "site-07-interim": "j.baptiste",
+        "site-13-interim": "j.baptiste"
+      },
+      "blackouts": {},
+      "notes": "All three before Friday. Same monitor for all of them."
+    }
+  },
+  {
+    "id": "blackout-forces-the-order",
+    "expect_action": "propose_schedule",
+    "note": "satisfiable, but only one assignment works once the blackouts are applied.",
+    "input": {
+      "request_id": "SCH-126",
+      "visits": [
+        "site-05-interim",
+        "site-08-interim"
+      ],
+      "slots": [
+        "Tue AM",
+        "Tue PM"
+      ],
+      "monitors": {
+        "site-05-interim": "l.moreau",
+        "site-08-interim": "l.moreau"
+      },
+      "blackouts": {
+        "site-05-interim": [
+          "Tue PM"
+        ],
+        "site-08-interim": [
+          "Tue AM"
+        ]
+      },
+      "notes": "Site 05 closes at noon on Tuesday. Site 08 has an audit in the morning."
+    }
+  },
+  {
+    "id": "duration-not-stated",
+    "expect_action": "request_missing_constraints",
+    "note": "whether a visit fits in one slot decides the answer, and nobody said.",
+    "input": {
+      "request_id": "SCH-134",
+      "visits": [
+        "site-21-closeout",
+        "site-22-interim"
+      ],
+      "slots": [
+        "Mon AM",
+        "Mon PM"
+      ],
+      "monitors": {},
+      "blackouts": {},
+      "notes": "Closeout visits sometimes run a full day. Not sure if this one does."
+    }
+  }
+]

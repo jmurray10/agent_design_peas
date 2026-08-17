@@ -1,0 +1,32 @@
+{
+  "entries": {
+    "462b8cb3f88a3d807105c3a0": {
+      "prompt": "Score market positions in a price war, from our point of view.\n\nMarket context:\nWe're the incumbent in this category with about 55 percent share. Their brand\nis thinner but they've been buying share with promotions all year and retail buyers have\nnoticed. Switching costs for the customer are close to zero -- it's a shelf decision. Our\nunit cost is 62 and we've told the street we'll hold category margin this year, so a long\nwar at 70 is worse for us than losing a few points of share. They're private and burning\ncash, which means they can go lower than us for longer than is comfortable.\n\nScore each position from -100 to 100. Positive is a good place for us to be over the next\ntwo quarters, negative is bad. Weigh margin against share: being cheaper wins volume, a\nmatched cut leaves both of us poorer at the same relative position, and our unit cost is\n62.\n\nPositions:\n  us73_them81: we are at 73, they are at 81\n  us73_them85: we are at 73, they are at 85\n  us73_them89: we are at 73, they are at 89\n  us77_them81: we are at 77, they are at 81\n  us77_them85: we are at 77, they are at 85\n\nAnswer with the JSON object and nothing else. Do not explain.\n{\"<key>\": <score>, ...}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:42:51+00:00",
+      "responses": [
+        "{\"us73_them81\": 20, \"us73_them85\": 35, \"us73_them89\": 50, \"us77_them81\": 60, \"us77_them85\": 90}"
+      ]
+    },
+    "b4f0d9a9d05639fd4a604eb6": {
+      "prompt": "Score market positions in a price war, from our point of view.\n\nMarket context:\nWe're the incumbent in this category with about 55 percent share. Their brand\nis thinner but they've been buying share with promotions all year and retail buyers have\nnoticed. Switching costs for the customer are close to zero -- it's a shelf decision. Our\nunit cost is 62 and we've told the street we'll hold category margin this year, so a long\nwar at 70 is worse for us than losing a few points of share. They're private and burning\ncash, which means they can go lower than us for longer than is comfortable.\n\nScore each position from -100 to 100. Positive is a good place for us to be over the next\ntwo quarters, negative is bad. Weigh margin against share: being cheaper wins volume, a\nmatched cut leaves both of us poorer at the same relative position, and our unit cost is\n62.\n\nPositions:\n  us77_them89: we are at 77, they are at 89\n  us81_them81: we are at 81, they are at 81\n  us81_them85: we are at 81, they are at 85\n  us81_them89: we are at 81, they are at 89\n  us85_them81: we are at 85, they are at 81\n\nAnswer with the JSON object and nothing else. Do not explain.\n{\"<key>\": <score>, ...}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:43:43+00:00",
+      "responses": [
+        "{\"us77_them89\": 60, \"us81_them81\": 10, \"us81_them85\": 50, \"us81_them89\": 75, \"us85_them81\": -60}"
+      ]
+    },
+    "8418b6ec1d5f15ffd182f7d4": {
+      "prompt": "Score market positions in a price war, from our point of view.\n\nMarket context:\nWe're the incumbent in this category with about 55 percent share. Their brand\nis thinner but they've been buying share with promotions all year and retail buyers have\nnoticed. Switching costs for the customer are close to zero -- it's a shelf decision. Our\nunit cost is 62 and we've told the street we'll hold category margin this year, so a long\nwar at 70 is worse for us than losing a few points of share. They're private and burning\ncash, which means they can go lower than us for longer than is comfortable.\n\nScore each position from -100 to 100. Positive is a good place for us to be over the next\ntwo quarters, negative is bad. Weigh margin against share: being cheaper wins volume, a\nmatched cut leaves both of us poorer at the same relative position, and our unit cost is\n62.\n\nPositions:\n  us85_them85: we are at 85, they are at 85\n  us85_them89: we are at 85, they are at 89\n  us89_them81: we are at 89, they are at 81\n  us89_them85: we are at 89, they are at 85\n  us89_them89: we are at 89, they are at 89\n\nAnswer with the JSON object and nothing else. Do not explain.\n{\"<key>\": <score>, ...}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:44:05+00:00",
+      "responses": [
+        "{\"us85_them85\": 35, \"us85_them89\": 65, \"us89_them81\": -65, \"us89_them85\": -35, \"us89_them89\": 55}"
+      ]
+    }
+  },
+  "source": "05_multi_agent__adversarial__real_world"
+}

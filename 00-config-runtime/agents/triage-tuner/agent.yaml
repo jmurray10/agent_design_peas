@@ -1,0 +1,97 @@
+# A learning agent, and the four components are visible in the config rather than only in
+# the code. It routes support tickets and improves from the outcomes of its own routing.
+#
+#   performance element  the model call below, choosing a route
+#   critic               NOT HERE, and that is the point. The reward is computed by
+#                        arithmetic over what happened -- was it resolved, how long did it
+#                        take, did it come back -- and no actuator on this list produces
+#                        it. A critic that is a model call is an agent grading its own
+#                        homework, and 10-drift/critic-experiment measures what that costs.
+#   learning element     extracts patterns from the outcome log between turns
+#   problem generator    request_exploration, below: it deliberately routes against its
+#                        own current best guess to find out what it does not know
+#
+# The interesting actuator is request_exploration. A reflex agent never has one, because
+# it has nothing to learn. This agent gives up expected value on one ticket to buy
+# information that improves every later ticket, which is the whole of the exploration
+# tradeoff in a single action name.
+agent:
+  name: "triage-tuner"
+  use_case:
+    domain: >-
+      Customer support operations, ticket routing
+    decision: >-
+      Where a support ticket goes: first-line support, a specialist, engineering, or
+      deliberately to a queue it would not normally choose in order to find out something it
+      does not know.
+    why_it_matters: >-
+      Every reroute is a customer waiting twice. Routing accuracy is worth more than routing
+      speed, and the information needed to be accurate only arrives as outcomes from earlier
+      routing.
+    boundary: >-
+      Its critic is arithmetic and is deliberately absent from the actuator list. The reward is
+      computed from what happened -- resolved or not, how long, whether it came back -- and
+      never asked of a model. A critic that is a model call is an agent grading its own
+      homework.
+  architecture: "learning"
+  performance:
+    metrics:
+      - "first-contact resolution rate"
+      - "reroutes per ticket"
+      - "improvement in routing accuracy over time"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic"
+  actuators:
+    - name: "route_to_tier1"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+    - name: "route_to_specialist"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+    - name: "route_to_engineering"
+      type: "escalation"
+      output_schema: "schemas/action_route.json"
+    - name: "request_exploration"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+  sensors:
+    - name: "ticket"
+      type: "structured"
+      input_schema: "schemas/percept_ticket.json"
+    - name: "outcome"
+      type: "structured"
+      input_schema: "schemas/percept_outcome.json"
+  prompts:
+    system: "prompts/system.md"
+  state:
+    schema: "schemas/state.json"
+    persistence: "per-session"
+    # This agent used to ask its model for `outcomes_seen` -- a running count of the
+    # outcomes it had been handed -- in an agent whose own header says the reward is
+    # "computed by arithmetic over what happened" and that a critic which is a model call
+    # is an agent grading its own homework. It was a count, and it was being asked of a
+    # model. Measured live over twenty runs of the primed arm of
+    # an-outcome-stops-the-exploring, where the correct answer is 3: right 7 times, 2
+    # seven times, 1 six times. Nothing in the repository noticed, because the eval suite
+    # compares actions, the sequence harness compares actions, and state.json accepts any
+    # integer, so a wrong count was indistinguishable from a right one.
+    #
+    # Both halves of the fix are declarative and neither is agent-specific code:
+    # `counted` has the runtime increment the field itself, and `model_writable` drops
+    # anything the model proposes outside the list, so a model that volunteers a count
+    # anyway cannot overwrite the arithmetic. The prompt no longer asks for it.
+    #
+    # This is the oscillation the repository argues for, in four lines of config: the
+    # model proposes the patterns, which need judgement, and addition does the addition.
+    counted:
+      outcomes_seen: "outcome"
+    model_writable:
+      - patterns
+  behavior:
+    decision_strategy: "fold the outcome into what is known -> route or explore -> validate -> dispatch"
+    # tier=mid: routing is a bounded choice over four queues, and the agent has to weigh
+    # accumulated outcomes against the current ticket, which is more than a small model
+    # holds together. Not frontier: the learning element's pattern extraction is the part
+    # that would justify one, and here it runs over tens of outcomes rather than a corpus.
+    tier: "mid"

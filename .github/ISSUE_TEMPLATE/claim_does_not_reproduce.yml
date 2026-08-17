@@ -1,0 +1,54 @@
+name: A claim does not reproduce
+description: You ran the command an example gives you and got something the README does not describe.
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the most useful report you can file here. Every example states a
+        falsifiable claim and ships the command that checks it; a command that
+        prints something else is the repository failing at its one job.
+
+        Several real defects were found exactly this way. Please include the
+        output rather than describing it.
+  - type: input
+    id: claim
+    attributes:
+      label: Which claim
+      description: The example directory, and the sentence from its README that did not hold.
+      placeholder: "02-goal-based/search -- 'same plan, same nodes expanded, from prose instead of a tuple'"
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: The exact command you ran
+      placeholder: "python 02-goal-based/search/after.py"
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What it printed
+      description: Paste the output. Trim it if it is long, but keep the part that differs.
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Which mode
+      description: With no key configured the examples replay recorded responses. With one they call a model live.
+      options:
+        - Replay, no key configured
+        - Live, my own key
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and OS, or the container
+      placeholder: "3.12 on Ubuntu 24.04, or: docker run --rm --network none peas"
+    validations:
+      required: true

@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "34c95904e26e51cd2dc96694": {
+      "prompt": "Turn this into a reward function for a maintenance decision model.\n\nWhat the plant manager said:\n\"Running the line normally earns us about 900 a day in throughput.\nA planned service visit costs 1,200 and we lose half a day. Replacing the unit outright is\n40,000 and two days down. What actually hurts is an unplanned breakdown -- last time the\nline was down four days, we missed two customer commitments, and I would put the true cost\nsomewhere around 25,000 once you count the lot of it. Running a failing unit is where that\nrisk lives.\"\n\nStates: ['new', 'good', 'worn', 'failing']   Actions: ['run', 'service', 'replace']\n\nReturn the reward for taking each action in each state, as JSON. Rewards are per period.\nEarnings are positive, costs are negative. Running a machine in worse condition should\nearn less and carry more risk. Do not invent a number the message does not support.\n\nReturn JSON only, exactly this shape:\n{\"run\": {\"new\": <n>, \"good\": <n>, \"worn\": <n>, \"failing\": <n>},\n  \"service\": {\"new\": <n>, \"good\": <n>, \"worn\": <n>, \"failing\": <n>},\n  \"replace\": {\"new\": <n>, \"good\": <n>, \"worn\": <n>, \"failing\": <n>}}",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:00:54+00:00",
+      "responses": [
+        "```json\n{\"run\": {\"new\": 900, \"good\": 900, \"worn\": 900, \"failing\": -25000},\n  \"service\": {\"new\": -1650, \"good\": -1650, \"worn\": -1650, \"failing\": -1650},\n  \"replace\": {\"new\": -41800, \"good\": -41800, \"worn\": -41800, \"failing\": -41800}}\n```\n\n**How the numbers were built (only from stated figures):**\n\n- **run**: Normal operation earns the stated $900/day throughput for new/good/worn states — the manager gave no separate degraded‑throughput figure for \"worn,\" so it isn't invented. For **failing**, the manager explicitly ties running a failing unit to the ~$25,000 breakdown cost (\"that risk lives\" in running a failing unit), so that state's run reward reflects that loss.\n\n- **service**: Cost = $1,200 visit fee + lost half‑day throughput (0.5 × $900 = $450) = **-$1,650**, applied uniformly since no state‑specific service cost was mentioned.\n\n- **replace**: Cost = $40,000 unit cost + 2 lost days of throughput (2 × $900 = $1,800) = **-$41,800**, applied uniformly since no state‑specific replacement cost was mentioned."
+      ]
+    }
+  },
+  "source": "03_utility_based__value_iteration__real_world"
+}

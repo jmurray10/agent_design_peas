@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "id": "vague-where-is-it",
+      "input": {
+        "message": "Where is my order?"
+      },
+      "expect_action": "request_more_info",
+      "note": "No order number, and check_order_status requires a query -- there is nothing to look up with. The expectation was check_order_status and was wrong: its own note said \"no order number given, so look it up\", which the action schema forbids. Corrected after the agent disagreed and turned out to be right."
+    },
+    {
+      "id": "lookup-came-back-delivered",
+      "input": {
+        "order_lookup": "Order #7781 - delivered 3 days ago"
+      },
+      "expect_action": "reply_to_customer",
+      "note": "the lookup answers the question, so the customer gets the answer"
+    },
+    {
+      "id": "order-number-given-so-look-it-up",
+      "expect_action": "check_order_status",
+      "note": "The customer supplied the identifier, so the lookup is available and asking again would be asking a question already answered. check_order_status was declared and never asserted.",
+      "input": {
+        "message": "Where is order 88214? It was due Tuesday."
+      }
+    },
+    {
+      "id": "refund-inside-the-policy",
+      "expect_action": "issue_refund",
+      "note": "Confirmation from a system lookup rather than from the customer. The case first put the confirmation in the customer's own message, and the model checked the order instead of refunding -- correctly, because the prompt says not to refund while anything about the return is unconfirmed, and a customer asserting a return was received is not a confirmation of it.",
+      "input": {
+        "order_lookup": "Order 77310 - return received 4 Aug, 12 days after delivery, within the 30 day window. Item inspected, resaleable. Refund due: 84.00. No refund issued yet."
+      }
+    },
+    {
+      "id": "angry-and-asking-for-a-person",
+      "expect_action": "escalate_to_manager",
+      "note": "Third contact on the same problem, explicitly asking for a supervisor. The point of the actuator is that some tickets should leave the agent, and it was never asserted.",
+      "input": {
+        "message": "This is the third time I have written about the same billing error and nobody has fixed it. I want to speak to a manager, not a bot."
+      }
+    },
+    {
+      "id": "thanks-that-sorted-it",
+      "expect_action": "close_ticket",
+      "note": "The customer says the problem is resolved and asks for nothing further. Closing is the correct action and no case asserted it, so nothing checked that the agent can stop.",
+      "input": {
+        "message": "Got it, the tracking link works now. Thanks for the help."
+      }
+    }
+  ]
+}

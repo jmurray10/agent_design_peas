@@ -1,0 +1,68 @@
+{
+  "entries": {
+    "9e642dec30eddb61df5cdd17": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: I want my money back\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:37:58+00:00",
+      "responses": [
+        "billing"
+      ],
+      "tier": "small"
+    },
+    "21c8c3ac27fb35e5baf0e5bf": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: please process a refund for order 9912\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:00+00:00",
+      "responses": [
+        "billing"
+      ],
+      "tier": "small"
+    },
+    "556857af886b0cffd491b069": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: the app crashes when I open the settings page\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:02+00:00",
+      "responses": [
+        "technical_support"
+      ],
+      "tier": "small"
+    },
+    "c79ee421c3aba00d1c417245": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: my parcel has been sitting in the same city for six days\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:03+00:00",
+      "responses": [
+        "shipping"
+      ],
+      "tier": "small"
+    },
+    "a684a43519c713b6ddf02ac0": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: someone logged into my account from another country\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:05+00:00",
+      "responses": [
+        "account_security"
+      ],
+      "tier": "small"
+    },
+    "dd2c45c9c8816e888539508f": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: do you offer bulk pricing for a 200 seat purchase\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:08+00:00",
+      "responses": [
+        "other"
+      ],
+      "tier": "small"
+    },
+    "fbea0c6e86fee5ac01b0e7f6": {
+      "prompt": "Route this customer message to exactly one queue.\n\nQueues:\n- billing: e.g. 'I need a refund for order 4471', 'you charged me twice for the same subscription'\n- shipping: e.g. 'where is my parcel', 'the tracking number has not updated in four days'\n- technical_support: e.g. 'the app crashes when I open settings', 'the screen flickers after the latest update'\n- account_security: e.g. 'I cannot sign in to my account', 'someone logged in from a country I have never visited'\n- other: none of the above\n\nMessage: it stopped working after the update and I want compensation\n\nReply with the queue name and nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:38:10+00:00",
+      "responses": [
+        "technical_support"
+      ],
+      "tier": "small"
+    }
+  },
+  "source": "07_nlp_foundations__routing_by_similarity"
+}

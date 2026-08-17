@@ -1,0 +1,66 @@
+# First Notice of Loss triage. The percept is a claim as it arrives; the action is which
+# queue it belongs in. A simple reflex agent, because the right queue is a function of the
+# notice in front of you and nothing the agent saw earlier -- which is the test the
+# overview page gives for when a reflex agent is the honest choice.
+#
+# What is deliberately absent: any actuator that pays money. Triage routes a claim to the
+# people and systems that decide it. An agent that could both classify a claim and settle
+# it would be one bad classification away from settling the wrong one, and the classifier
+# is the nondeterministic part.
+agent:
+  name: "claims-intake"
+  use_case:
+    domain: >-
+      Property and casualty insurance, first notice of loss
+    decision: >-
+      A claim has just been reported. It has to reach the right queue: fast track, an adjuster,
+      the special investigations unit, coverage review, or back to the policyholder for a
+      document the claim cannot proceed without.
+    why_it_matters: >-
+      Routing at first notice sets the cost of the whole claim. A claim that sits in the wrong
+      queue for a week costs more to settle and produces a worse outcome for the policyholder,
+      and a fraud indicator missed at intake is rarely caught later.
+    boundary: >-
+      No actuator pays money. Every action routes the claim to a person or asks the policyholder
+      for something. Referral to the special investigations unit is a request for a look, not an
+      accusation, and the prompt says so because the difference matters to the person being
+      referred.
+  architecture: "simple-reflex"
+  performance:
+    metrics:
+      - "correct queue on first routing"
+      - "SIU referrals that survive investigator review"
+      - "fast-track claims that do not later need an adjuster"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, episodic, dynamic, discrete"
+  actuators:
+    - name: "assign_fast_track"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+    - name: "assign_adjuster"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+    - name: "request_documents"
+      type: "deterministic"
+      output_schema: "schemas/action_route.json"
+    - name: "refer_to_siu"
+      type: "escalation"
+      output_schema: "schemas/action_route.json"
+    - name: "refer_to_coverage_review"
+      type: "escalation"
+      output_schema: "schemas/action_route.json"
+  sensors:
+    - name: "fnol"
+      type: "structured"
+      input_schema: "schemas/percept_fnol.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "read the notice -> pick one queue -> validate -> dispatch"
+    # tier=mid: a bounded classification over a five-item queue list, but the inputs are
+    # messy free text plus numbers that interact. A small loss reported late with injuries
+    # is not a fast-track claim however small the number is, and those interactions are
+    # the only reason a human triager exists. Not frontier: no synthesis across examples,
+    # and the queue list is five items long.
+    tier: "mid"

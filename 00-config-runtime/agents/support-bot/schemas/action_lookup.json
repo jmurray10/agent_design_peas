@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot action: check_order_status",
+  "type": "object",
+  "required": ["action", "query"],
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "state_update": {
+      "type": "object"
+    }
+  }
+}

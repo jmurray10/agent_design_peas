@@ -1,0 +1,41 @@
+{
+  "entries": {
+    "e9c3e49c80e2d15f7dcabc4d": {
+      "prompt": "A card payment was declined and our rule table has no entry for this reason.\n\nDecline reason from the network: issuer_velocity_limit_exceeded\nAmount: 31.50 USD\n\nChoose exactly one recovery action from this list and nothing else:\n['retry_in_72h', 'request_new_card', 'tell_customer_to_call_issuer', 'stop_retrying', 'no_op']\n\n  retry_in_72h                  the decline is likely temporary and a later retry may work\n  request_new_card              the card itself is the problem and a different one is needed\n  tell_customer_to_call_issuer  only the cardholder's bank can clear this\n  stop_retrying                 retrying is wrong, whether for fraud or a hard block\n  no_op                         you genuinely cannot tell from the reason given\n\nA velocity or rate limit means the issuer is throttling, not refusing forever.\n\nReturn JSON only: {\"action\": \"<one of the list>\", \"reason\": \"<one sentence>\"}",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-12T03:53:25+00:00",
+      "responses": [
+        "```json\n{\"action\": \"retry_in_72h\", \"reason\": \"Issuer velocity limit is a temporary throttle that typically resets within 72 hours, making a delayed retry the appropriate recovery strategy.\"}\n```"
+      ]
+    },
+    "fcd5bcb9dc14278619df4d92": {
+      "prompt": "Assign a general ledger account to this invoice. The vendor is not in our\ncoding table, so there is no history to copy.\n\nVendor: Aldergate Partners LLP\nAmount: 28,750.00\nLine item: Advisory re: share purchase agreement, disclosure schedules, completion mechanics\n\nChart of accounts:\n  6810_software_subscriptions  Software and SaaS subscriptions\n  6820_cloud_infrastructure  Cloud hosting and infrastructure\n  7100_rent_and_facilities  Rent, utilities, facilities\n  7200_professional_legal  Legal counsel and related fees\n  7210_professional_consulting  Management and strategy consulting\n  7220_contract_engineering  Contracted engineering and development\n  7420_travel_ground  Ground transport and vehicle hire\n  9000_uncoded  Held for manual coding\n\nCode on what the work actually was, not on how the vendor styles itself. A firm called\n\"Partners LLP\" may be doing legal work or consulting, and the line item is the evidence.\nIf the line item does not distinguish them, use 9000_uncoded rather than guessing: a held\ninvoice costs a few minutes, and a miscoded one costs a wrong department budget and a\ncorrecting entry after somebody notices at quarter end.\n\nReturn JSON only: {\"account\": \"<code from the list>\", \"reason\": \"<one sentence>\"}",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-12T04:25:56+00:00",
+      "responses": [
+        "```json\n{\"account\": \"7200_professional_legal\", \"reason\": \"The line item describes legal advisory work on a share purchase agreement, including disclosure schedules and completion mechanics, which is clearly legal counsel services.\"}\n```"
+      ]
+    },
+    "d4377d54bbee11af19b03ed0": {
+      "prompt": "Assign a general ledger account to this invoice. The vendor is not in our\ncoding table, so there is no history to copy.\n\nVendor: Northwind Delivery Co\nAmount: 9,640.00\nLine item: Sprint capacity, two backend engineers, September, statement of work 4\n\nChart of accounts:\n  6810_software_subscriptions  Software and SaaS subscriptions\n  6820_cloud_infrastructure  Cloud hosting and infrastructure\n  7100_rent_and_facilities  Rent, utilities, facilities\n  7200_professional_legal  Legal counsel and related fees\n  7210_professional_consulting  Management and strategy consulting\n  7220_contract_engineering  Contracted engineering and development\n  7420_travel_ground  Ground transport and vehicle hire\n  9000_uncoded  Held for manual coding\n\nCode on what the work actually was, not on how the vendor styles itself. A firm called\n\"Partners LLP\" may be doing legal work or consulting, and the line item is the evidence.\nIf the line item does not distinguish them, use 9000_uncoded rather than guessing: a held\ninvoice costs a few minutes, and a miscoded one costs a wrong department budget and a\ncorrecting entry after somebody notices at quarter end.\n\nReturn JSON only: {\"account\": \"<code from the list>\", \"reason\": \"<one sentence>\"}",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-12T04:25:57+00:00",
+      "responses": [
+        "```json\n{\n  \"account\": \"7220_contract_engineering\",\n  \"reason\": \"The line item explicitly describes contracted engineering work (two backend engineers) for a specific sprint period.\"\n}\n```"
+      ]
+    },
+    "dde98751fbc40c468639aa86": {
+      "prompt": "Assign a general ledger account to this invoice. The vendor is not in our\ncoding table, so there is no history to copy.\n\nVendor: Calder & Vance\nAmount: 61,000.00\nLine item: Operating model review, phase 1 diagnostic and target state design\n\nChart of accounts:\n  6810_software_subscriptions  Software and SaaS subscriptions\n  6820_cloud_infrastructure  Cloud hosting and infrastructure\n  7100_rent_and_facilities  Rent, utilities, facilities\n  7200_professional_legal  Legal counsel and related fees\n  7210_professional_consulting  Management and strategy consulting\n  7220_contract_engineering  Contracted engineering and development\n  7420_travel_ground  Ground transport and vehicle hire\n  9000_uncoded  Held for manual coding\n\nCode on what the work actually was, not on how the vendor styles itself. A firm called\n\"Partners LLP\" may be doing legal work or consulting, and the line item is the evidence.\nIf the line item does not distinguish them, use 9000_uncoded rather than guessing: a held\ninvoice costs a few minutes, and a miscoded one costs a wrong department budget and a\ncorrecting entry after somebody notices at quarter end.\n\nReturn JSON only: {\"account\": \"<code from the list>\", \"reason\": \"<one sentence>\"}",
+      "model": "claude-haiku-4-5",
+      "tier": "small",
+      "recorded_at": "2026-08-12T04:25:59+00:00",
+      "responses": [
+        "```json\n{\n  \"account\": \"7210_professional_consulting\",\n  \"reason\": \"The line item describes operating model review and target state design work, which are management and strategy consulting services.\"\n}\n```"
+      ]
+    }
+  },
+  "source": "01_reflex_agents__simple__real_world"
+}

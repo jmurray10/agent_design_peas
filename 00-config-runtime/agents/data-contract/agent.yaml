@@ -1,0 +1,79 @@
+# Schema change triage for a data platform. The percept is a proposed change to a table
+# other teams depend on; the action is what has to happen before it ships.
+#
+# The interesting property is that most of this job is not a judgement call at all. Whether
+# a change drops a column is a fact about the diff, and code answers it faster and more
+# reliably than a model. What needs a model is the part underneath: whether a rename is
+# cosmetic or semantic, whether a widened type breaks a downstream assumption nobody wrote
+# down. So the actuator list is narrow and the schemas are strict, and the model is asked
+# one question rather than asked to review a pull request.
+agent:
+  name: "data-contract"
+  use_case:
+    domain: >-
+      Data engineering, schema change review
+    decision: >-
+      A proposed schema change arrives against a table that downstream consumers depend on.
+      Approve it, require a migration, reject it, or hold it for a human, based on what it does
+      to the consumers rather than on what it does to the table.
+    why_it_matters: >-
+      A backwards-incompatible change that reaches production breaks consumers that had no say
+      in it, and the breakage usually appears as wrong numbers rather than as an error. Silent
+      data loss is the expensive case.
+    boundary: >-
+      It reviews and does not apply. Nothing here writes to a schema. Its tier is the highest in
+      this repository, and that is a measured decision rather than a preference -- the comment
+      in its config records what the cheaper tier did and in which direction it failed.
+  architecture: "simple-reflex"
+  performance:
+    metrics:
+      - "breaking changes caught before release"
+      - "changes blocked that were in fact compatible"
+      - "consumer-hours saved against a broken pipeline"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "fully-observable, deterministic, episodic, static, discrete"
+  actuators:
+    - name: "approve_compatible"
+      type: "deterministic"
+      output_schema: "schemas/action_verdict.json"
+    - name: "require_migration_window"
+      type: "deterministic"
+      output_schema: "schemas/action_verdict.json"
+    - name: "block_breaking_change"
+      type: "escalation"
+      output_schema: "schemas/action_verdict.json"
+    - name: "require_consumer_signoff"
+      type: "escalation"
+      output_schema: "schemas/action_verdict.json"
+  sensors:
+    - name: "change_request"
+      type: "structured"
+      input_schema: "schemas/percept_change.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "read the diff and the consumers -> pick one verdict -> validate -> dispatch"
+    # tier=frontier, and this started as "small" on exactly the reasoning that sounds
+    # right: four verdicts, a structured diff, an explicit consumer list, no prose and no
+    # state. Picking one label from a short list is the small-model case, and paying
+    # frontier prices per pull request is the mistake the overview page warns about.
+    #
+    # The eval suite disagreed, so it was measured. Four runs per tier, per case:
+    #
+    #   narrowing a VARCHAR(64) to (16) when values already reach 41
+    #     small 0/4    mid 4/4    frontier 4/4
+    #   dropping a column two consumers select
+    #     small 0/4    mid 2/4    frontier 4/4
+    #
+    # Small did not merely miss. It answered approve_compatible four times out of four on
+    # a change that silently truncates data, which is the expensive direction to be wrong
+    # in: a blocked safe change costs an argument, an approved breaking one costs a
+    # pipeline and the trust of everyone downstream. Mid is right on the clearer case and
+    # a coin flip on the other.
+    #
+    # So the volume argument inverts. Schema changes are low-volume -- tens per week, not
+    # tens per second -- and the thing being prevented is an outage. This is the component
+    # where paying for the best model is the cheap option, and the only reason that is
+    # knowable is that the eval suite ran before the tier was trusted.
+    tier: "frontier"

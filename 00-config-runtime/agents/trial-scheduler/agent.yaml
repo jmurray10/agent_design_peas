@@ -1,0 +1,65 @@
+# Goal-based, and the goal is a constraint satisfaction problem. Scheduling monitoring
+# visits across clinical trial sites: each visit needs a monitor qualified for that
+# protocol, no monitor in two places at once, and site blackout windows respected.
+#
+# What makes this goal-based rather than reflex is that the answer is an assignment
+# satisfying constraints, not a reaction to the last thing seen. The model's job is to
+# read a scheduling request written by a person and say which formal problem it is --
+# variables, domains, constraints. A solver decides the assignment, and the solver is
+# complete: when it says no schedule exists, none does. A model asked the same question
+# answers anyway.
+#
+# The actuator list has no actuator that books anything. This produces a proposed
+# assignment for a coordinator to accept, because a wrong booking against a trial site is
+# expensive to unwind and the extraction step is the nondeterministic one.
+agent:
+  name: "trial-scheduler"
+  use_case:
+    domain: >-
+      Clinical research operations, monitoring visits
+    decision: >-
+      Monitoring visits have to be scheduled across trial sites under real constraints: a
+      monitor cannot be in two places at once, sites have blackout windows, and some requests
+      cannot be satisfied at all.
+    why_it_matters: >-
+      Monitoring visits are a regulatory obligation with deadlines. A schedule that quietly
+      violates a constraint is discovered when a monitor arrives at a closed site, and a request
+      that cannot be met needs to be known now rather than on the day.
+    boundary: >-
+      Nothing here books anything. It proposes an assignment for a coordinator to accept. More
+      importantly the solver decides the assignment, not the model: when it reports a request
+      unsatisfiable, that is a proof rather than an opinion, and a model asked the same question
+      would answer anyway.
+  architecture: "goal-based"
+  performance:
+    metrics:
+      - "assignments with zero constraint violations"
+      - "requests correctly identified as unsatisfiable"
+      - "coordinator edits per accepted schedule"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "fully-observable, deterministic, episodic, static, discrete"
+  actuators:
+    - name: "propose_schedule"
+      type: "deterministic"
+      output_schema: "schemas/action_schedule.json"
+    - name: "report_unsatisfiable"
+      type: "deterministic"
+      output_schema: "schemas/action_schedule.json"
+    - name: "request_missing_constraints"
+      type: "deterministic"
+      output_schema: "schemas/action_schedule.json"
+  sensors:
+    - name: "scheduling_request"
+      type: "structured"
+      input_schema: "schemas/percept_request.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "read the request -> state the CSP -> decide satisfiability -> propose or report"
+    # tier=frontier: turning a scheduling request in prose into variables, domains and
+    # constraints is the hardest judgement in this repository. Getting it wrong does not
+    # produce a visible error -- the solver returns a provably optimal assignment to the
+    # wrong problem, which is worse than no assignment, because it looks like an answer.
+    # The overview page names exactly this case as the one that needs the best model.
+    tier: "frontier"

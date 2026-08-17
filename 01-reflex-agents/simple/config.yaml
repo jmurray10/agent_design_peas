@@ -1,0 +1,25 @@
+agent:
+  name: "vacuum-bot"
+  architecture: "simple-reflex"
+  performance:
+    metrics: ["+1 per clean square at time T"]
+    eval: "eval/test_cases.json"
+  environment:
+    type: "fully-observable, deterministic, episodic, static, discrete"
+  actuators:
+    - name: "suck"
+      output_schema: "schemas/action.json"
+    - name: "move_left"
+      output_schema: "schemas/action.json"
+    - name: "move_right"
+      output_schema: "schemas/action.json"
+    - name: "no_op"
+  sensors:
+    - name: "location"
+      type: "discrete"
+      values: ["left", "right"]
+    - name: "status"
+      type: "text"
+      input_schema: "schemas/percept.json"
+  prompts:
+    system: "prompts/system.md"

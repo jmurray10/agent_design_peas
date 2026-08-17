@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "schema change request",
+  "type": "object",
+  "required": [
+    "change_id",
+    "table",
+    "change_type",
+    "detail",
+    "consumers"
+  ],
+  "properties": {
+    "change_id": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string"
+    },
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "add_column",
+        "drop_column",
+        "rename_column",
+        "change_type",
+        "add_table",
+        "change_primary_key"
+      ]
+    },
+    "detail": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The diff in words, including before and after where relevant."
+    },
+    "consumers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Known downstream consumers of this table."
+    },
+    "nullable": {
+      "type": "boolean"
+    },
+    "has_compatibility_view": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

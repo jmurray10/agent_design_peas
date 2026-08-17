@@ -1,0 +1,37 @@
+# One image per agent, and this file is the whole of it.
+#
+# There is no agent code here because there is no agent code anywhere: `peas` carries the
+# runtime, and an agent is a directory of YAML, prompts and JSON Schema that the runtime
+# reads. So a per-agent image is the base plus a path, and the interesting thing about
+# this Dockerfile is how little it is allowed to contain. If shipping a new agent ever
+# needs a line added below, the config-driven claim in 00-config-runtime/ has broken.
+#
+#   docker build -t peas .                                        the runtime, once
+#   docker build -f Dockerfile.agent --build-arg AGENT=uptime-triage \
+#                -t peas-uptime-triage .
+#   docker run --rm -p 8080:8080 peas-uptime-triage
+#
+# Then http://localhost:8080/docs for the Swagger UI, or /openapi.json for the spec
+# itself, which is generated from that agent's agent.yaml at start-up rather than
+# written by hand.
+
+ARG BASE=peas
+FROM ${BASE}
+
+# Which directory under 00-config-runtime/agents/ this image serves. The only thing that
+# differs between one agent image and the next.
+ARG AGENT=uptime-triage
+ENV PEAS_AGENT_DIR=/app/00-config-runtime/agents/${AGENT}
+ENV PEAS_AGENT_NAME=${AGENT}
+
+# Fail at build time rather than at 3am if the directory is not there. A missing agent is
+# a typo in a --build-arg, and finding that out from a crash loop is worse than finding it
+# out from a failed build.
+RUN test -f "${PEAS_AGENT_DIR}/agent.yaml" \
+ || (echo "no agent.yaml at ${PEAS_AGENT_DIR}" && exit 1)
+
+EXPOSE 8080
+
+# Shell form so ${PEAS_AGENT_DIR} expands. `exec` so the server is PID 1 and receives
+# SIGTERM directly -- without it, docker stop waits the full timeout and then kills.
+CMD ["sh", "-c", "exec python 00-config-runtime/serve.py \"$PEAS_AGENT_DIR\" --port 8080"]

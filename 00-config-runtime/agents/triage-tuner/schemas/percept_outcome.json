@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "routing outcome",
+  "description": "How a previous routing turned out. The critic's input, not the critic.",
+  "type": "object",
+  "required": [
+    "ticket_id",
+    "routed_to",
+    "resolved"
+  ],
+  "properties": {
+    "ticket_id": {
+      "type": "string"
+    },
+    "routed_to": {
+      "type": "string"
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "minutes_to_resolution": {
+      "type": "number",
+      "minimum": 0
+    },
+    "reopened": {
+      "type": "boolean"
+    },
+    "rerouted_to": {
+      "type": "string"
+    },
+    "product_area": {
+      "type": "string",
+      "description": "Which area the routed ticket belonged to. Without it an outcome says a route worked and not what it worked on, so the agent cannot tell whether a later ticket is covered by it -- and a learning agent that cannot attribute an outcome has a log it can only read as a total."
+    }
+  },
+  "additionalProperties": false
+}

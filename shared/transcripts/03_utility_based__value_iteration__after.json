@@ -1,0 +1,200 @@
+{
+  "entries": {
+    "20e32e8ecafcc781fd2e2390": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r1\", \"beacon_rssi\": [-41, -78, -80], \"note\": \"strong signal from the south-west beacon\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:33:37+00:00",
+      "responses": [
+        "{\"x\": 1, \"y\": 2}",
+        "{\"x\": 1, \"y\": 2}"
+      ],
+      "tier": "mid"
+    },
+    "1f125aa58b50394f0b70d669": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r2\", \"beacon_rssi\": [-77, -44, -62], \"note\": \"close to the north-east corridor\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:33:44+00:00",
+      "responses": [
+        "```json\n{\"x\": 3, \"y\": 3}\n```",
+        "```json\n{\"x\": 3, \"y\": 3}\n```"
+      ],
+      "tier": "mid"
+    },
+    "34c96771b1a870389a6c91da": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r3\", \"beacon_rssi\": [-88, -87, -89], \"note\": \"all beacons weak, reading is degraded\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:33:51+00:00",
+      "responses": [
+        "```json\n{\"x\": 1, \"y\": 3}\n```",
+        "```json\n{\"x\": 1, \"y\": 3}\n```"
+      ],
+      "tier": "mid"
+    },
+    "84ef47c65aa3c9cd11ddee34": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r4\", \"beacon_rssi\": [-70, -70, -45], \"note\": \"east side, altitude sensor offline\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:33:56+00:00",
+      "responses": [
+        "```json\n{\"x\": 3, \"y\": 2}\n```",
+        "```json\n{\"x\": 3, \"y\": 2}\n```"
+      ],
+      "tier": "mid"
+    },
+    "236645d52c9d443a041e1d9f": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r5\", \"beacon_rssi\": [-90, -39, -55], \"note\": \"at the goal marker\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:02+00:00",
+      "responses": [
+        "```json\n{\"x\": 3, \"y\": 2}\n```",
+        "```json\n{\"x\": 3, \"y\": 2}\n```"
+      ],
+      "tier": "mid"
+    },
+    "21960064907139ef9d2f6e97": {
+      "prompt": "Estimate the agent's position in a 4x3 grid.\nWall at (1,1). Terminals: (3,2)=+1, (3,1)=-1.\nSensor reading: {\"reading_id\": \"r6\", \"beacon_rssi\": [-62, -61, -63], \"note\": \"dead centre, possibly inside the obstacle\"}\nReturn JSON: {\"x\": int, \"y\": int}",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:09+00:00",
+      "responses": [
+        "```json\n{\"x\": 2, \"y\": 2}\n```",
+        "```json\n{\"x\": 2, \"y\": 2}\n```"
+      ],
+      "tier": "mid"
+    },
+    "5b67d3db9e8a774de12357c3": {
+      "prompt": "You are a content moderation agent making sequential decisions.\nState: {\"content_id\": \"c1\", \"text\": \"Our Q3 numbers are up 12 percent. Full deck inside.\", \"reports\": 0, \"account_age_days\": 1420, \"flags\": []}\nActions: ['approve', 'flag_for_review', 'reject', 'request_edit']\nRewards: \n    +1 correctly approved good content\n    +1 correctly rejected harmful content\n    -5 approving harmful content (false negative)\n    -1 rejecting good content (false positive)\n    -0.1 per step (time cost)\nDiscount: 0.95\nRecent history: []\n\nWhich action maximizes expected total discounted reward?\nReturn just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:11+00:00",
+      "responses": [
+        "approve"
+      ],
+      "tier": "mid"
+    },
+    "ad0c802473e3dc5fe846fa82": {
+      "prompt": "You are a content moderation agent making sequential decisions.\nState: {\"content_id\": \"c2\", \"text\": \"[redacted -- explicit threat against a named person]\", \"reports\": 14, \"account_age_days\": 2, \"flags\": [\"violence\", \"targeted\"]}\nActions: ['approve', 'flag_for_review', 'reject', 'request_edit']\nRewards: \n    +1 correctly approved good content\n    +1 correctly rejected harmful content\n    -5 approving harmful content (false negative)\n    -1 rejecting good content (false positive)\n    -0.1 per step (time cost)\nDiscount: 0.95\nRecent history: [{'state': {'content_id': 'c1', 'text': 'Our Q3 numbers are up 12 percent. Full deck inside.', 'reports': 0, 'account_age_days': 1420, 'flags': []}, 'action': 'approve'}]\n\nWhich action maximizes expected total discounted reward?\nReturn just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:16+00:00",
+      "responses": [
+        "reject"
+      ],
+      "tier": "mid"
+    },
+    "11d1dde1024edcbe4826b6a9": {
+      "prompt": "You are a content moderation agent making sequential decisions.\nState: {\"content_id\": \"c3\", \"text\": \"This supplement cured my condition in four days.\", \"reports\": 3, \"account_age_days\": 90, \"flags\": [\"health_claim\"]}\nActions: ['approve', 'flag_for_review', 'reject', 'request_edit']\nRewards: \n    +1 correctly approved good content\n    +1 correctly rejected harmful content\n    -5 approving harmful content (false negative)\n    -1 rejecting good content (false positive)\n    -0.1 per step (time cost)\nDiscount: 0.95\nRecent history: [{'state': {'content_id': 'c1', 'text': 'Our Q3 numbers are up 12 percent. Full deck inside.', 'reports': 0, 'account_age_days': 1420, 'flags': []}, 'action': 'approve'}, {'state': {'content_id': 'c2', 'text': '[redacted -- explicit threat against a named person]', 'reports': 14, 'account_age_days': 2, 'flags': ['violence', 'targeted']}, 'action': 'reject'}]\n\nWhich action maximizes expected total discounted reward?\nReturn just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:18+00:00",
+      "responses": [
+        "flag_for_review"
+      ],
+      "tier": "mid"
+    },
+    "a0aadaf154836099dca34dbe": {
+      "prompt": "You are a content moderation agent making sequential decisions.\nState: {\"content_id\": \"c4\", \"text\": \"Ambiguous sarcasm about a public figure, quoted.\", \"reports\": 6, \"account_age_days\": 800, \"flags\": [\"harassment?\"]}\nActions: ['approve', 'flag_for_review', 'reject', 'request_edit']\nRewards: \n    +1 correctly approved good content\n    +1 correctly rejected harmful content\n    -5 approving harmful content (false negative)\n    -1 rejecting good content (false positive)\n    -0.1 per step (time cost)\nDiscount: 0.95\nRecent history: [{'state': {'content_id': 'c1', 'text': 'Our Q3 numbers are up 12 percent. Full deck inside.', 'reports': 0, 'account_age_days': 1420, 'flags': []}, 'action': 'approve'}, {'state': {'content_id': 'c2', 'text': '[redacted -- explicit threat against a named person]', 'reports': 14, 'account_age_days': 2, 'flags': ['violence', 'targeted']}, 'action': 'reject'}, {'state': {'content_id': 'c3', 'text': 'This supplement cured my condition in four days.', 'reports': 3, 'account_age_days': 90, 'flags': ['health_claim']}, 'action': 'flag_for_review'}]\n\nWhich action maximizes expected total discounted reward?\nReturn just the action name.",
+      "model": "claude-sonnet-5",
+      "recorded_at": "2026-08-04T04:34:20+00:00",
+      "responses": [
+        "flag_for_review"
+      ],
+      "tier": "mid"
+    },
+    "cd3c321738077a7f81ccfcf5": {
+      "prompt": "You are a incident response agent.\nState: latency_spiking\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  No experience yet.\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:25+00:00",
+      "responses": [
+        "# Incident Response Decision\n\n**Current State:** latency_spiking\n**Available Actions:** ['restart_service', 'scale_up', 'rollback', 'wait']\n\n## Analysis\n\nGiven no past experience to rely on, I'll apply general incident response principles:\n\n**Most likely high-reward action: `scale_up`**\n\n### Reasoning:\n\n1. **Scale_up is lowest-risk**: Increases capacity to handle load, addressing the most common cause of latency spikes (resource exhaustion)\n\n2. **Immediate impact potential**: Can relieve pressure quickly without service disruption\n\n3. **Diagnostic value**: If latency resolves, indicates resource constraint. If not, points to other root causes.\n\n4. **Other actions ranked**:\n   - **restart_service**: Higher risk of brief outage; useful only for hung processes\n   - **rollback**: Appropriate only if recent deployment caused it; risky without confirmation\n   - **wait**: Lowest reward; spikes don't typically self-resolve\n\n### Recommendation\n**Action: `scale_up`**\n\nThis provides the best balance of risk mitigation and problem-solving potential while gathering information about the root cause."
+      ],
+      "tier": "small"
+    },
+    "e25abdb1dcc1d1d8405f914f": {
+      "prompt": "You are a incident response agent.\nState: queue_backlog_growing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:29+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n**Current State:** queue_backlog_growing\n\n**Available Actions:** restart_service, scale_up, rollback, wait\n\n**Relevant Past Experience:**\n- latency_spiking + scale_up → 0.957 (high success rate)\n\n## Recommendation\n\n**Action: `scale_up`**\n\n### Rationale\n\n1. **Related Success Pattern**: While the past experience shows `latency_spiking + scale_up`, a growing queue backlog is typically a symptom of insufficient capacity—the same root cause that causes latency spikes.\n\n2. **Logical Connection**: \n   - Queue backlog grows when → processing capacity < incoming load\n   - Scale_up increases → processing capacity\n   - Therefore: scale_up directly addresses the root cause\n\n3. **Risk Assessment**:\n   - **scale_up**: Low risk, directly targets capacity shortage (0.957 benchmark relevance)\n   - **restart_service**: Medium risk, doesn't address load mismatch\n   - **rollback**: Only appropriate if recent deployment caused regression\n   - **wait**: High risk, backlog will likely continue growing\n\n**Confidence Level:** High - Scale up is the most appropriate remediation for queue backlog growth."
+      ],
+      "tier": "small"
+    },
+    "850fbef97c4475d01aa4dbeb": {
+      "prompt": "You are a incident response agent.\nState: queue_backlog_growing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:33+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n## Current State\n- **State**: queue_backlog_growing\n- **Available Actions**: restart_service, scale_up, rollback, wait\n\n## Past Experience Review\n\nLooking at historical outcomes for `queue_backlog_growing`:\n\n| Action | Outcome |\n|--------|---------|\n| scale_up | 1.24 |\n| scale_up | 1.3 |\n\nBoth instances of scaling up during queue backlog growth resulted in **positive rewards (>1.0)**, with outcomes of 1.24 and 1.3.\n\n## Recommendation\n\n**Action: `scale_up`**\n\n### Rationale:\n1. **Proven success**: 100% of historical cases with this state used scale_up and achieved positive rewards\n2. **Strong reward signals**: Both outcomes (1.24, 1.3) indicate meaningful improvement\n3. **Addresses root cause**: Queue backlog growing indicates insufficient capacity—scaling up directly addresses this\n4. **No negative precedent**: No failed attempts with scale_up for this state\n\n**Expected reward: ~1.27** (average of historical outcomes)"
+      ],
+      "tier": "small"
+    },
+    "450b2eafe60cc8b595fb6ca4": {
+      "prompt": "You are a incident response agent.\nState: error_rate_normal\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:38+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n## Current State\n- **State**: error_rate_normal\n- **Available Actions**: restart_service, scale_up, rollback, wait\n\n## Past Experience Review\n\nLooking at the historical outcomes:\n- latency_spiking + scale_up → **0.957** ✓ (positive)\n- queue_backlog_growing + scale_up → **1.24** ✓ (positive)\n- queue_backlog_growing + scale_up → **1.3** ✓ (positive, highest)\n- queue_backlog_growing + restart_service → **-0.612** ✗ (negative)\n\n## Recommendation\n\n**Action: `wait`**\n\n### Rationale\n\nSince the current state is **error_rate_normal** (healthy baseline):\n\n1. **No immediate problem detected** - Error rates are within acceptable parameters\n2. **Avoid unnecessary intervention** - The past data shows mixed results with active interventions, and premature actions could destabilize a stable system\n3. **Preserve resources** - Scaling up or restarting services when not needed wastes infrastructure resources\n4. **Monitor and observe** - Waiting allows time to gather more telemetry and confirm the system remains stable before taking action\n\n**Best practice**: Only take corrective actions when problems are actively detected. The `scale_up` action shows promise for latency/backlog issues, but those issues aren't present now."
+      ],
+      "tier": "small"
+    },
+    "cde1db6f1e64c821bd4b0d76": {
+      "prompt": "You are a incident response agent.\nState: error_rate_normal\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:43+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n**Current State:** error_rate_normal\n\n**Evaluating actions based on past experience:**\n\n1. **restart_service**: -0.637 (negative reward when error_rate is normal)\n2. **scale_up**: No direct data point (only used with latency_spiking and queue_backlog)\n3. **rollback**: No historical data\n4. **wait**: No historical data\n\n## Recommendation: **wait**\n\n**Reasoning:**\n- The system is in a **normal error rate state** - no intervention is required\n- **restart_service** has a documented negative outcome (-0.637) in this exact scenario\n- There's no evidence that scale_up would help when error rates are normal\n- The safest action is to **wait** and continue monitoring, avoiding unnecessary disruption to a healthy system\n\nTaking action on a system that's functioning normally risks introducing new problems without addressing any actual issue."
+      ],
+      "tier": "small"
+    },
+    "61c5bbc2bb914125f277c91a": {
+      "prompt": "You are a incident response agent.\nState: queue_backlog_growing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:47+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n**Current State:** queue_backlog_growing\n\n**Evaluating each action based on past experience:**\n\n| Action | Relevant History | Outcome |\n|--------|------------------|---------|\n| **scale_up** | queue_backlog_growing + scale_up → 1.24, 1.3 | ✅ **High positive rewards** |\n| restart_service | queue_backlog_growing + restart_service → -0.612 | ❌ Negative outcome |\n| wait | error_rate_normal + wait → 0.434 | ⚠️ Modest positive, but different state |\n| rollback | No relevant history | Unknown |\n\n## Recommendation: **scale_up**\n\n**Rationale:**\n- Direct historical precedent shows `queue_backlog_growing + scale_up` produces strong positive rewards (1.24 and 1.30)\n- Aligns with the problem: growing queue backlog indicates insufficient processing capacity\n- `restart_service` actually worsens this condition (-0.612)\n- Other actions lack supporting evidence\n\n**Action:** Execute `scale_up` to increase service capacity and reduce the queue backlog."
+      ],
+      "tier": "small"
+    },
+    "923dee36f2e7bb9f063d48c4": {
+      "prompt": "You are a incident response agent.\nState: memory_climbing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\n  queue_backlog_growing + rollback -> -0.123\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:34:54+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n**Current State:** `memory_climbing`\n\n**Available Actions:** restart_service, scale_up, rollback, wait\n\n**Analysis of Past Experience:**\n\nLooking at outcomes from similar memory/resource pressure scenarios:\n\n| Scenario | Action | Outcome |\n|----------|--------|---------|\n| latency_spiking | scale_up | +0.957 ✓ |\n| queue_backlog_growing | scale_up | +1.24 to +1.30 ✓ |\n| queue_backlog_growing | restart_service | -0.612 ✗ |\n| queue_backlog_growing | rollback | -0.123 ✗ |\n| error_rate_normal | wait | +0.434 |\n\n**Reasoning:**\n\nWhen memory climbs, it typically indicates:\n1. **Insufficient resources** for current load\n2. Resource exhaustion that may cause cascading failures\n\nThe historical data shows:\n- **scale_up** consistently produces the highest positive outcomes (+0.957 to +1.30) when dealing with resource/load issues\n- **restart_service** risks data loss and correlation failure (-0.612)\n- **rollback** shows minimal benefit (-0.123)\n- **wait** is suboptimal for active memory growth\n\n## **Recommended Action: `scale_up`**\n\nThis action addresses the root cause by providing additional resources, with the strongest track record of positive outcomes in similar resource-constrained scenarios."
+      ],
+      "tier": "small"
+    },
+    "d3a2856546349a3ebc711586": {
+      "prompt": "You are a incident response agent.\nState: error_rate_normal\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\n  queue_backlog_growing + rollback -> -0.123\n  memory_climbing + wait -> -0.671\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:35:00+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\n**Current State:** error_rate_normal\n\n**Relevant Past Experience:**\n- error_rate_normal + restart_service → **-0.637** (negative outcome)\n- error_rate_normal + wait → **0.434** (positive outcome)\n- scale_up → mixed results (0.957 in latency context, but 1.24-1.3 in queue backlog context)\n- rollback → -0.123 (negative outcome)\n\n**Recommendation: `wait`**\n\n## Reasoning:\n1. **Direct precedent**: The only prior experience with \"error_rate_normal\" state shows:\n   - `wait` yielded +0.434 (positive)\n   - `restart_service` yielded -0.637 (harmful)\n\n2. **Contextual appropriateness**: When error rates are normal, taking disruptive actions (restart/rollback) is likely counterproductive and risks introducing new issues.\n\n3. **Risk minimization**: `wait` is the safest choice that has demonstrated positive outcomes in this exact scenario.\n\n**Action: `wait`**"
+      ],
+      "tier": "small"
+    },
+    "265451b2aecc8b4d27b2225e": {
+      "prompt": "You are a incident response agent.\nState: error_rate_normal\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\n  queue_backlog_growing + rollback -> -0.123\n  memory_climbing + wait -> -0.671\n  error_rate_normal + rollback -> -0.462\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:35:06+00:00",
+      "responses": [
+        "# Incident Response Decision\n\n**Current State:** error_rate_normal\n\n**Analysis of Past Experience:**\n\nLooking at outcomes when in `error_rate_normal` state:\n\n| Action | Outcome |\n|--------|---------|\n| restart_service | -0.637 |\n| wait | 0.434 |\n| rollback | -0.462 |\n\n**Recommendation: `wait`**\n\n**Rationale:**\n- `wait` has the highest reward (0.434) when the error rate is normal\n- Both `restart_service` (-0.637) and `rollback` (-0.462) produce negative outcomes in this state\n- Since the system is functioning normally (error_rate_normal), intervening with disruptive actions like restarts or rollbacks is counterproductive\n- The modest positive reward from waiting suggests the system is self-correcting or the current state is stable\n\n**Action: WAIT**"
+      ],
+      "tier": "small"
+    },
+    "f212440e9bf8e87ba2e42842": {
+      "prompt": "You are a incident response agent.\nState: memory_climbing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  latency_spiking + scale_up -> 0.957\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\n  queue_backlog_growing + rollback -> -0.123\n  memory_climbing + wait -> -0.671\n  error_rate_normal + rollback -> -0.462\n  error_rate_normal + scale_up -> -0.381\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:35:10+00:00",
+      "responses": [
+        "# Incident Response Decision\n\n**Current State:** memory_climbing\n\n**Available Actions:** restart_service, scale_up, rollback, wait\n\n## Analysis of Past Experience\n\nLooking at outcomes when memory_climbing occurred:\n- **memory_climbing + wait → -0.671** (negative outcome)\n\nSince there's only one direct data point for the memory_climbing state, I need to evaluate alternative actions based on related patterns:\n\n- **restart_service**: Often shows negative outcomes (-0.612, -0.637)\n- **scale_up**: Mixed results, but generally positive for resource issues (0.957, 1.24, 1.3)\n- **rollback**: Shows mixed/negative results (-0.123, -0.462)\n- **wait**: Consistently problematic (-0.671)\n\n## Recommendation\n\n**Action: `scale_up`**\n\n**Rationale:**\n1. Memory climbing typically indicates resource exhaustion\n2. Scale_up is the most appropriate action for resource constraint issues\n3. While scale_up shows negative results for error_rate_normal states, it performs well for other resource-related issues (latency_spiking: 0.957, queue_backlog: 1.24-1.3)\n4. The direct experience with waiting shows it worsens memory_climbing (-0.671)\n\n**Expected outcome:** Adding capacity should resolve the memory pressure and prevent further climbing."
+      ],
+      "tier": "small"
+    },
+    "a073089d7c7d4f9079e30b32": {
+      "prompt": "You are a incident response agent.\nState: queue_backlog_growing\nActions: ['restart_service', 'scale_up', 'rollback', 'wait']\nPast experience:\n  queue_backlog_growing + scale_up -> 1.24\n  queue_backlog_growing + scale_up -> 1.3\n  queue_backlog_growing + restart_service -> -0.612\n  error_rate_normal + restart_service -> -0.637\n  error_rate_normal + wait -> 0.434\n  queue_backlog_growing + rollback -> -0.123\n  memory_climbing + wait -> -0.671\n  error_rate_normal + rollback -> -0.462\n  error_rate_normal + scale_up -> -0.381\n  memory_climbing + wait -> -0.741\nPick the action most likely to give high reward.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:35:15+00:00",
+      "responses": [
+        "# Incident Response Analysis\n\nBased on the current state **queue_backlog_growing** and past experience data, here's my evaluation:\n\n## Action Performance for Current State:\n\n| Action | Past Outcomes | Average Reward |\n|--------|---------------|-----------------|\n| **scale_up** | 1.24, 1.3 | **+1.27** ✓ |\n| rollback | -0.123 | -0.123 |\n| restart_service | -0.612 | -0.612 |\n| wait | *(no direct data)* | *Unknown* |\n\n## Recommendation:\n\n**→ ACTION: `scale_up`**\n\n### Rationale:\n- **scale_up** has the highest and most consistent positive outcomes (+1.24 and +1.30) when applied to the queue_backlog_growing state\n- This makes logical sense: a growing queue backlog indicates insufficient processing capacity, and scaling up resources directly addresses this\n- The other actions show negative or near-zero rewards for this state\n- There are no data points suggesting wait would be beneficial for queue issues\n\n**Confidence: High** - The evidence from past experience strongly favors scaling up resources to handle the queue backlog."
+      ],
+      "tier": "small"
+    }
+  },
+  "source": "03_utility_based__value_iteration__after"
+}

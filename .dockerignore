@@ -1,0 +1,63 @@
+# The build context is copied into the image, and anything in a layer is recoverable from
+# that image by anyone who pulls it. `docker history` and `docker save` do not care that a
+# later layer deleted a file. So this is the same problem as .gitignore and needs answering
+# separately, because Docker does not read .gitignore.
+#
+# This file denies everything and then allows back what the image needs, rather than
+# listing what to keep out. Two reasons, and the second is the one that matters.
+#
+# It fails safe. A deny-list has to be updated every time private material is added, and
+# the first build of this image shipped three planning documents because it had not been.
+# An allow-list excludes anything new by default; the failure mode is a missing file and a
+# build that breaks loudly, rather than a shipped file and a build that looks fine.
+#
+# It names nothing private. This file is committed and publishes with the repository, so a
+# deny-list here announces the directories it is trying to hide -- which is the same reason
+# the private names live in .git/info/exclude rather than in .gitignore. There is nothing
+# to learn from the list below except what the image runs.
+
+*
+
+# The examples, one directory per architecture or production concern.
+!00-config-runtime/
+!01-reflex-agents/
+!02-goal-based/
+!03-utility-based/
+!04-learning/
+!05-multi-agent/
+!06-parallelization/
+!07-nlp-foundations/
+!08-production-patterns/
+!09-model-portability/
+!10-drift/
+
+# The shim, the recordings, and the tier-to-model table.
+!shared/
+
+# The source pages the code is drawn from, and the notebooks that link back to them.
+!reference/
+!colab/
+
+# Read at runtime by nothing, but a container someone is exploring should carry its own
+# documentation.
+!README.md
+
+# Required rather than optional. MIT says the notice ships with any copy or substantial
+# portion of the software, and an image is a copy: someone who pulls it and never sees the
+# repository has still received the code.
+!LICENSE
+
+# Referenced by docker-compose for the per-agent image variant.
+!Dockerfile.agent
+
+# Re-excluded inside the allowed trees: caches are rebuilt in the image, and bytecode
+# compiled against a different interpreter than this image has is worse than none.
+**/__pycache__/
+**/*.py[cod]
+# Stray run output should not enter the image. The one exception is the critic run log,
+# which two published claims cite as their raw evidence -- it is tracked in git for the
+# same reason, so both surfaces carry it and neither carries anything else.
+**/*.log
+!10-drift/critic-experiment/run-2026-08-03-sonnet5.log
+**/.pytest_cache/
+**/.ipynb_checkpoints/

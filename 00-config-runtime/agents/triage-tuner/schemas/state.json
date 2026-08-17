@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "what the agent has learned this session",
+  "type": "object",
+  "properties": {
+    "outcomes_seen": {
+      "type": "integer"
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_ticket": {
+      "type": "string"
+    },
+    "last_route": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

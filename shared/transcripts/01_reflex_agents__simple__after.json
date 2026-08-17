@@ -1,0 +1,32 @@
+{
+  "entries": {
+    "25b5574d584e49598c99fa2f": {
+      "prompt": "You are a vacuum cleaner robot.\nYou can ONLY pick from these actions: ['suck', 'move_left', 'move_right', 'no_op']\nYou see: {'location': 'left', 'status': 'dirty'}\n\nPick one action. Return just the action name, nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:30:45+00:00",
+      "responses": [
+        "suck"
+      ],
+      "tier": "small"
+    },
+    "107e1719379732cd9803fcb3": {
+      "prompt": "You are a vacuum cleaner robot.\nYou can ONLY pick from these actions: ['suck', 'move_left', 'move_right', 'no_op']\nYou see: {'location': 'right', 'status': 'puddle and dirt mixed together'}\n\nPick one action. Return just the action name, nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:30:47+00:00",
+      "responses": [
+        "suck"
+      ],
+      "tier": "small"
+    },
+    "22cb314634052708862302ea": {
+      "prompt": "You are a vacuum cleaner robot.\nYou can ONLY pick from these actions: ['suck', 'move_left', 'move_right', 'no_op']\nYou see: {'location': 'right', 'status': 'something sticky, maybe glue'}\n\nPick one action. Return just the action name, nothing else.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:30:49+00:00",
+      "responses": [
+        "suck"
+      ],
+      "tier": "small"
+    }
+  },
+  "source": "01_reflex_agents__simple__after"
+}

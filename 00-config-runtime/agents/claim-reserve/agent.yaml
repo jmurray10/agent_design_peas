@@ -1,0 +1,70 @@
+# Utility-based, and the tradeoff is real money in both directions. Setting the initial
+# reserve on an insurance claim -- the amount held against an expected payout -- where
+# reserving too little understates liabilities and reserving too much locks up capital
+# that could be underwriting new business.
+#
+# This is not a reflex agent choosing a label. The percept is a claim with uncertain
+# outcomes, and the action is the band whose expected utility is highest given what is
+# known so far. That is the case the overview page describes as belonging to a
+# utility-based agent: conflicting objectives, probabilistic outcomes, no single correct
+# answer available at decision time.
+#
+# The actuators are bands, not amounts. A model returning 47,312.50 would imply a
+# precision the evidence at first notice cannot support, and a band is what an actuary
+# reviews anyway.
+agent:
+  name: "claim-reserve"
+  use_case:
+    domain: >-
+      Property and casualty insurance, reserving
+    decision: >-
+      How much to hold against a claim before anyone knows what it will cost. The answer is a
+      band rather than a number, because the evidence available at first notice does not support
+      more precision than that.
+    why_it_matters: >-
+      Reserves are how an insurer states what it owes. Under-reserving understates liabilities
+      and is discovered late, by a regulator. Over-reserving locks up capital that could be
+      underwriting new business and is discovered early, internally. The errors are not
+      symmetric and neither is free.
+    boundary: >-
+      The bands are wide on purpose and an actuary reviews every one. An agent returning
+      47,312.50 would imply a precision that first notice cannot support, which is why the
+      actuators are bands and not amounts.
+  architecture: "utility-based"
+  performance:
+    metrics:
+      - "reserve band containing the final settled amount"
+      - "capital locked in over-reserved claims"
+      - "adverse development from under-reserved claims"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic, continuous"
+  actuators:
+    - name: "reserve_minimal"
+      type: "deterministic"
+      output_schema: "schemas/action_reserve.json"
+    - name: "reserve_standard"
+      type: "deterministic"
+      output_schema: "schemas/action_reserve.json"
+    - name: "reserve_elevated"
+      type: "deterministic"
+      output_schema: "schemas/action_reserve.json"
+    - name: "reserve_major"
+      type: "escalation"
+      output_schema: "schemas/action_reserve.json"
+    - name: "defer_pending_assessment"
+      type: "deterministic"
+      output_schema: "schemas/action_reserve.json"
+  sensors:
+    - name: "claim"
+      type: "structured"
+      input_schema: "schemas/percept_claim.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "weigh the outcomes -> pick the band with the best expected utility -> validate -> dispatch"
+    # tier=mid: five bands is a bounded choice, and the judgement is asymmetric rather
+    # than hard -- under-reserving costs more than over-reserving, and the inputs interact
+    # in ways a small model flattens. Not frontier: an actuary reviews every band, the
+    # bands are wide, and nothing here is a novel formalisation.
+    tier: "mid"

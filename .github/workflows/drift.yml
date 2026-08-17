@@ -1,0 +1,44 @@
+# The conventions for this repository say no CI. This file is the exception, and it is
+# an exception on purpose:
+# the workflow is the artifact the article points at, not infrastructure convenience.
+# 10-drift/README.md records the override so it does not read as an oversight.
+#
+# It replays the twenty-case suite from shared/transcripts/ -- no key, no network, no
+# cost, no flakiness -- and fails when the aggregate leaves the bands in
+# 10-drift/ci_check.py.
+name: drift
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  baseline-diff:
+    runs-on: ubuntu-latest
+    env:
+      # Explicit, so a repository or organisation variable pointing somewhere real cannot
+      # quietly turn every push into twenty billable calls. shared/llm.py honours this
+      # above every other signal.
+      #
+      # The value went missing at some point and left `env:` holding nothing but this
+      # comment. That is not an empty mapping to YAML, it is null, and GitHub rejects a
+      # workflow whose env is not a mapping -- so every run since has failed at startup
+      # in 0s with no job and no log, and the badge on the front page has been red the
+      # whole time. The comment described a protection the file had stopped providing.
+      LLM_PROVIDER: replay
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Diff twenty cases against the committed baseline
+        # No pip install: replaying a recording is standard library only, which is the
+        # same promise made to a reader with a fresh clone.
+        run: python 10-drift/ci_check.py --save ci
+      - name: Keep the run that failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drift-snapshot
+          path: 10-drift/baselines/ci.json

@@ -1,0 +1,23 @@
+{
+  "entries": {
+    "e37242242feb156d17119578": {
+      "prompt": "Turn this dispatcher's message into a routing problem.\n\nMessage: \"Driver's at the depot. Needs to get to the Riverside job. Old bridge is shut this morning, resurfacing, so route around it.\"\n\nKnown locations: ['depot', 'industrial', 'market-st', 'north-gate', 'old-bridge', 'ring-road', 'riverside', 'south-quay']\n\nReturn JSON only:\n{\"start\": \"<location>\", \"goal\": \"<location>\", \"blocked\": [\"<location>\", ...]}\n\nblocked lists locations that cannot be routed through, for closures or restrictions.\nUse the location names exactly as written above. If nothing is blocked, use [].",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T03:53:29+00:00",
+      "responses": [
+        "{\"start\": \"depot\", \"goal\": \"riverside\", \"blocked\": [\"old-bridge\"]}"
+      ]
+    },
+    "59f6757193aef086eabf288d": {
+      "prompt": "Turn this account manager's note into constraints for a fulfilment plan.\n\nNote:\n\"Spoke to their ops director. They'll accept a partial shipment as\nlong as the balance lands before month end, which gives us twelve days total. What they\nwon't take is the substitute part -- it failed qualification at their site last year and\ntheir quality team won't sign it off again. They're also the reference account for the\ntender we're in next quarter, so this is not one to be late on.\"\n\nAvailable sourcing options: ['air_freight', 'partner_stock', 'port_bonded', 'pull_production', 'regional_wh', 'substitute_sku']\n\nReturn JSON only:\n{\"days_available\": <number>,\n  \"excluded\": [\"<option>\", ...],\n  \"partial_shipment_acceptable\": true or false}\n\nexcluded lists options the customer or the situation rules out. Use the option names\nexactly as listed. Return [] if nothing is excluded.",
+      "model": "claude-sonnet-5",
+      "tier": "mid",
+      "recorded_at": "2026-08-12T04:28:00+00:00",
+      "responses": [
+        "```json\n{\"days_available\": 12,\n  \"excluded\": [\"substitute_sku\"],\n  \"partial_shipment_acceptable\": true}\n```"
+      ]
+    }
+  },
+  "source": "02_goal_based__search__real_world"
+}

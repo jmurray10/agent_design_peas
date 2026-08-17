@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lay-language-hospitalisation",
+    "expect_action": "route_expedited_review",
+    "note": "the reporter never says hospitalisation or syncope, and describes both.",
+    "input": {
+      "report_id": "AE-33101",
+      "source": "patient",
+      "product": "Product A 50mg",
+      "narrative": "Two hours after my second dose I passed out in the kitchen and woke up in A and E. They kept me in overnight.",
+      "patient_age": 61,
+      "days_since_onset": 1,
+      "ongoing": false,
+      "concomitant_products": [
+        "amlodipine"
+      ]
+    }
+  },
+  {
+    "id": "mild-and-resolved",
+    "expect_action": "route_standard_review",
+    "note": "an adverse event, no seriousness criterion met.",
+    "input": {
+      "report_id": "AE-33118",
+      "source": "app",
+      "product": "Product A 50mg",
+      "narrative": "Mild nausea for about an hour after taking it, settled on its own. Taking it with food now.",
+      "patient_age": 34,
+      "days_since_onset": 3,
+      "ongoing": false,
+      "concomitant_products": []
+    }
+  },
+  {
+    "id": "ambiguous-could-be-serious",
+    "expect_action": "request_reporter_followup",
+    "note": "Chest pain with no indication of what followed: whether the reporter sought care, and whether it recurred, decides the route. The follow-up buys the fact that decides it.\n\nThe percept used to carry ongoing: true, which measured live at four to one -- an event still happening in a 58-year-old is a seriousness signal arguing for expedited review at the same moment this case claims to isolate missing information. A case carrying a signal that fights the thing it measures will flake.",
+    "input": {
+      "report_id": "AE-33127",
+      "source": "patient",
+      "product": "Product B",
+      "narrative": "Bad chest pain the evening I started it. It settled by the morning. Not sure if it was the tablet.",
+      "patient_age": 58,
+      "days_since_onset": 2,
+      "ongoing": false,
+      "concomitant_products": []
+    }
+  },
+  {
+    "id": "device-fault-no-event",
+    "expect_action": "route_product_quality",
+    "note": "a product complaint with no adverse event described.",
+    "input": {
+      "report_id": "AE-33140",
+      "source": "pharmacist",
+      "product": "Product C auto-injector",
+      "narrative": "Three pens from the same lot would not depress fully. No patient took a dose from them.",
+      "patient_age": 0,
+      "days_since_onset": 0,
+      "ongoing": false,
+      "concomitant_products": []
+    }
+  },
+  {
+    "id": "not-a-safety-report",
+    "expect_action": "flag_not_an_adverse_event",
+    "note": "an administrative question that arrived on the safety inbox.",
+    "input": {
+      "report_id": "AE-33152",
+      "source": "patient",
+      "product": "Product A 50mg",
+      "narrative": "Can I get my repeat prescription sent to a different pharmacy while I am away?",
+      "patient_age": 45,
+      "days_since_onset": 0,
+      "ongoing": false,
+      "concomitant_products": []
+    }
+  }
+]

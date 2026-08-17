@@ -1,0 +1,59 @@
+system:
+  name: "document-processing-pipeline"
+  pattern: "workflow"
+
+  agents:
+    - name: "extractor"
+      config_dir: "agents/extractor/"              # each agent is its own directory
+      architecture: "goal-based"
+      performance:
+        metrics: ["extraction accuracy", "completeness"]
+      actuators:
+        - name: "extract_fields"
+          output_schema: "agents/extractor/schemas/output.json"
+        - name: "flag_unclear"
+      sensors:
+        - name: "document_text"
+          input_schema: "agents/extractor/schemas/input.json"
+      prompts:
+        system: "agents/extractor/prompts/system.md"
+        extraction: "agents/extractor/prompts/extraction.md"
+
+    - name: "validator"
+      config_dir: "agents/validator/"
+      architecture: "simple-reflex"
+      performance:
+        metrics: ["error detection rate", "false positive rate"]
+      actuators:
+        - name: "approve"
+          output_schema: "agents/validator/schemas/output.json"
+        - name: "reject"
+          output_schema: "agents/validator/schemas/output.json"
+        - name: "flag"
+      sensors:
+        - name: "extracted_data"
+          input_schema: "agents/validator/schemas/input.json"
+      prompts:
+        system: "agents/validator/prompts/system.md"
+
+    - name: "formatter"
+      config_dir: "agents/formatter/"
+      architecture: "simple-reflex"
+      performance:
+        metrics: ["format compliance"]
+      actuators:
+        - name: "format_report"
+          output_schema: "agents/formatter/schemas/output.json"
+        - name: "format_json"
+          output_schema: "agents/formatter/schemas/output.json"
+      sensors:
+        - name: "validated_data"
+          input_schema: "agents/formatter/schemas/input.json"
+      prompts:
+        system: "agents/formatter/prompts/system.md"
+
+  orchestration:
+    type: "sequential"
+    validation_between_agents: true                # validate output schema of agent N against input schema of agent N+1
+    error_handling: "retry_once_then_fail"
+    max_total_steps: 15

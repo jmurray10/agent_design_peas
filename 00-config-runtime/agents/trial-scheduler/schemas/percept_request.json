@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scheduling request",
+  "type": "object",
+  "required": [
+    "request_id",
+    "visits",
+    "slots"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string"
+    },
+    "visits": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "The monitoring visits to be scheduled."
+    },
+    "slots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Candidate slots, as the coordinator wrote them."
+    },
+    "monitors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Visit -> monitor, where a monitor is already assigned."
+    },
+    "blackouts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "description": "Visit -> slots that visit cannot take."
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

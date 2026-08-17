@@ -1,0 +1,41 @@
+{
+  "entries": {
+    "20498d572de046d14912b770": {
+      "prompt": "Extract a Constraint Satisfaction Problem from this request.\nRequest: \"Schedule 3 meetings next week:\n- Team standup: Alice and Bob, 30 min\n- Design review: Bob and Carol, 1 hour\n- Sprint planning: everyone, 1 hour\nNobody in two meetings at once.\nSlots: Monday 9am, Monday 2pm, Tuesday 10am, Wednesday 9am\"\nReturn JSON:\n- \"variables\": list of variable names\n- \"domains\": dict of variable -> possible values\n- \"constraints\": list of [var1, var2, \"relationship\"]\n  relationship: \"not_equal\", \"less_than\", \"not_same_time\"\nReturn valid JSON only.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:33:08+00:00",
+      "responses": [
+        "```json\n{\n  \"variables\": [\"team_standup\", \"design_review\", \"sprint_planning\"],\n  \"domains\": {\n    \"team_standup\": [\"Monday 9am\", \"Monday 2pm\", \"Tuesday 10am\", \"Wednesday 9am\"],\n    \"design_review\": [\"Monday 9am\", \"Monday 2pm\", \"Tuesday 10am\", \"Wednesday 9am\"],\n    \"sprint_planning\": [\"Monday 9am\", \"Monday 2pm\", \"Tuesday 10am\", \"Wednesday 9am\"]\n  },\n  \"constraints\": [\n    [\"team_standup\", \"design_review\", \"not_same_time\"],\n    [\"team_standup\", \"sprint_planning\", \"not_same_time\"],\n    [\"design_review\", \"sprint_planning\", \"not_same_time\"]\n  ]\n}\n```"
+      ],
+      "tier": "frontier"
+    },
+    "d67316eca601fedd8c36c7af": {
+      "prompt": "The user asked: \"Schedule 3 meetings next week:\n- Team standup: Alice and Bob, 30 min\n- Design review: Bob and Carol, 1 hour\n- Sprint planning: everyone, 1 hour\nNobody in two meetings at once.\nSlots: Monday 9am, Monday 2pm, Tuesday 10am, Wednesday 9am\"\nSolution: {\"team_standup\": \"Monday 9am\", \"design_review\": \"Monday 2pm\", \"sprint_planning\": \"Tuesday 10am\"}\nExplain in plain language.",
+      "model": "claude-haiku-4-5",
+      "recorded_at": "2026-08-04T04:33:12+00:00",
+      "responses": [
+        "# Meeting Schedule Explanation\n\nThe solution assigns the three meetings to different time slots to avoid conflicts:\n\n**Team Standup** → Monday 9am\n- Attendees: Alice and Bob\n- Duration: 30 minutes\n- No conflicts (neither has other meetings scheduled)\n\n**Design Review** → Monday 2pm\n- Attendees: Bob and Carol\n- Duration: 1 hour\n- No conflicts (Bob is free after standup; Carol has no other meetings)\n\n**Sprint Planning** → Tuesday 10am\n- Attendees: Everyone (Alice, Bob, and Carol)\n- Duration: 1 hour\n- No conflicts (all three are available)\n\n**Why this works:** Each person appears in only one meeting at a time. Bob appears in both standup and design review, but they're 5 hours apart. The Wednesday 9am slot goes unused because it's not needed once the first three meetings are scheduled."
+      ],
+      "tier": "small"
+    },
+    "7114d8581d86cc11c42b7104": {
+      "prompt": "Extract a Constraint Satisfaction Problem from this request.\nRequest: \"Same three meetings as before, same attendees.\nThe only slots left are Monday 9am and Monday 2pm.\"\nReturn JSON:\n- \"variables\": list of variable names\n- \"domains\": dict of variable -> possible values\n- \"constraints\": list of [var1, var2, \"relationship\"]\n  relationship: \"not_equal\", \"less_than\", \"not_same_time\"\nReturn valid JSON only.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:33:18+00:00",
+      "responses": [
+        "```json\n{\n  \"variables\": [\"Meeting1\", \"Meeting2\", \"Meeting3\"],\n  \"domains\": {\n    \"Meeting1\": [\"Monday 9am\", \"Monday 2pm\"],\n    \"Meeting2\": [\"Monday 9am\", \"Monday 2pm\"],\n    \"Meeting3\": [\"Monday 9am\", \"Monday 2pm\"]\n  },\n  \"constraints\": [\n    [\"Meeting1\", \"Meeting2\", \"not_same_time\"],\n    [\"Meeting1\", \"Meeting3\", \"not_same_time\"],\n    [\"Meeting2\", \"Meeting3\", \"not_same_time\"]\n  ]\n}\n```"
+      ],
+      "tier": "frontier"
+    },
+    "1082754452be27edbdbbc6aa": {
+      "prompt": "Extract a Constraint Satisfaction Problem from this request.\nRequest: \"Book a kickoff and a retro sometime next week.\"\nReturn JSON:\n- \"variables\": list of variable names\n- \"domains\": dict of variable -> possible values\n- \"constraints\": list of [var1, var2, \"relationship\"]\n  relationship: \"not_equal\", \"less_than\", \"not_same_time\"\nReturn valid JSON only.",
+      "model": "claude-opus-5",
+      "recorded_at": "2026-08-04T04:33:25+00:00",
+      "responses": [
+        "{\n  \"variables\": [\"kickoff\", \"retro\"],\n  \"domains\": {\n    \"kickoff\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\"],\n    \"retro\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\"]\n  },\n  \"constraints\": [\n    [\"kickoff\", \"retro\", \"not_equal\"],\n    [\"kickoff\", \"retro\", \"less_than\"],\n    [\"kickoff\", \"retro\", \"not_same_time\"]\n  ]\n}"
+      ],
+      "tier": "frontier"
+    }
+  },
+  "source": "02_goal_based__csp__after"
+}

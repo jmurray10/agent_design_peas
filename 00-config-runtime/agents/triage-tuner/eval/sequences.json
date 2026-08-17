@@ -1,0 +1,64 @@
+[
+  {
+    "id": "an-outcome-changes-the-next-route",
+    "why": "The claim that makes this a learning agent. After an outcome saying tier 1 failed on a reporting ticket and it had to be rerouted, a second reporting ticket goes to the specialist. Five live runs of the primed arm agree.\n\nTwo things this test learned about itself. The outcome originally named no product area, so the agent could not connect it to the ticket and explored instead -- the same defect as the sibling test, fixed there and missed here.\n\nAnd the cold arm is deliberately not pinned. Measured live it splits three to two between exploring and tier 1, both defensible with an empty log, so asserting either would make the suite flaky and would be asserting the coin. What this test claims is that the history changes the answer and which way it changes it, and the harness still requires the two arms to differ.",
+    "preamble": [
+      {
+        "ticket_id": "T-9014",
+        "routed_to": "route_to_tier1",
+        "resolved": false,
+        "minutes_to_resolution": 96.0,
+        "reopened": true,
+        "rerouted_to": "route_to_specialist",
+        "product_area": "reporting"
+      }
+    ],
+    "percept": {
+      "ticket_id": "T-9041",
+      "summary": "Report export finishes but the emailed copy never arrives.",
+      "product_area": "reporting",
+      "customer_tier": "standard",
+      "prior_tickets": 1
+    },
+    "primed_action": "route_to_specialist"
+  },
+  {
+    "id": "an-outcome-stops-the-exploring",
+    "why": "Exploration is for genuine uncertainty. Cold, a webhook ticket has no history and exploring buys information. After three outcomes in that same area, each resolved quickly by a specialist with no reopen, the information has been bought and exploring again spends a ticket to learn nothing.\n\nThe percept used to say the integration was new and that the customer had raised nothing before, which measured live at seven runs in eight. Those two details argue for exploring at the same time as the preamble argues against it, and this test claims to isolate the preamble. A case carrying a signal that fights the thing it is measuring will flake, and the one run in eight was the confound rather than the agent.",
+    "preamble": [
+      {
+        "ticket_id": "T-9033",
+        "routed_to": "route_to_specialist",
+        "resolved": true,
+        "minutes_to_resolution": 24.0,
+        "reopened": false,
+        "product_area": "webhooks"
+      },
+      {
+        "ticket_id": "T-9047",
+        "routed_to": "route_to_specialist",
+        "resolved": true,
+        "minutes_to_resolution": 31.0,
+        "reopened": false,
+        "product_area": "webhooks"
+      },
+      {
+        "ticket_id": "T-9049",
+        "routed_to": "route_to_specialist",
+        "resolved": true,
+        "minutes_to_resolution": 19.0,
+        "reopened": false,
+        "product_area": "webhooks"
+      }
+    ],
+    "percept": {
+      "ticket_id": "T-9052",
+      "summary": "Webhook retries firing twice for some events.",
+      "product_area": "webhooks",
+      "customer_tier": "standard",
+      "prior_tickets": 2
+    },
+    "control_action": "request_exploration",
+    "primed_action": "route_to_specialist"
+  }
+]

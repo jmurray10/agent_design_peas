@@ -1,0 +1,70 @@
+# On-call alert triage. A simple reflex agent in the place a simple reflex agent
+# genuinely belongs: one alert in, one routing decision out, no memory between alerts,
+# and a decision that has to be made thousands of times a day.
+#
+# This agent replaced the textbook vacuum-world agent. That one demonstrated the
+# architecture honestly and was a toy, and its before/after pair is still in
+# 01-reflex-agents/simple/ where the source page's code lives. What it could not
+# demonstrate is why anyone would run a reflex agent in production, which is volume.
+agent:
+  name: "uptime-triage"
+  use_case:
+    domain: >-
+      Site reliability engineering, on-call alert triage
+    decision: >-
+      A monitoring system has fired an alert. Something has to decide, within seconds,
+      whether it wakes a human now, becomes a ticket for the morning, belongs to another
+      team, is the third copy of an alert already being worked, or is the point at which
+      a scatter of alerts becomes a declared incident.
+    why_it_matters: >-
+      Alert fatigue is the failure mode of on-call. Pages that did not need to be pages
+      train people to ignore the ones that did, and the cost of that is paid on the night
+      it matters. The opposite error is worse and rarer. This is also the clearest case
+      in this repository for a small model: the decision runs on every alert, and a
+      frontier model on every alert is not a design anyone can afford.
+    boundary: >-
+      It cannot silence anything. There is no actuator that mutes an alert, edits a
+      threshold, or resolves an incident. Suppressing as a duplicate attaches this alert
+      to one already open, which is a routing decision a human can see and undo, rather
+      than a deletion nobody notices. The distinction is the actuator list, which is code.
+  architecture: "simple-reflex"
+  performance:
+    metrics:
+      - "pages that the on-call engineer judged necessary"
+      - "incidents caught before a customer reported them"
+      - "alerts suppressed that should not have been"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, episodic, dynamic, discrete"
+  actuators:
+    - name: "page_oncall"
+      type: "escalation"
+      output_schema: "schemas/action_triage.json"
+    - name: "create_ticket"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "route_to_owning_team"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "suppress_as_duplicate"
+      type: "deterministic"
+      output_schema: "schemas/action_triage.json"
+    - name: "declare_incident"
+      type: "escalation"
+      output_schema: "schemas/action_triage.json"
+  sensors:
+    - name: "alert"
+      type: "structured"
+      input_schema: "schemas/percept_alert.json"
+  prompts:
+    system: "prompts/system.md"
+  behavior:
+    decision_strategy: "read the alert -> judge blast radius and urgency -> route -> validate -> dispatch"
+    # tier=small: this is the honest case for the cheapest model, and the reason is
+    # volume rather than simplicity. The monitoring system has already supplied the
+    # service, the severity and the metric; what is left is reading a message written by
+    # whoever configured the alert and deciding urgency. A frontier model would be
+    # slightly better at that and would run on every alert of every day, which is a cost
+    # nobody carries. 09-model-portability/same_percept_three_tiers.py is where that
+    # tradeoff is measured rather than asserted.
+    tier: "small"

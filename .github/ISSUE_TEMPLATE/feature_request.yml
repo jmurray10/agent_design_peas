@@ -1,0 +1,31 @@
+name: Suggest an example or a claim
+description: An architecture, a production concern, or a claim you think this should demonstrate.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Worth reading CONTRIBUTING.md first: there is deliberately no framework
+        here, and a suggestion that adds an abstraction layer will probably be
+        declined. A suggestion that adds a *falsifiable claim with a way to check
+        it* is the shape that fits.
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim
+      description: State it so it could be wrong. "X is faster" is not checkable; "X expands the same number of nodes as Y" is.
+    validations:
+      required: true
+  - type: textarea
+    id: check
+    attributes:
+      label: How a reader would check it
+      description: What would before.py do, what would after.py do, and what would the reader compare?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source, if it comes from one
+      description: This repository's examples are drawn from the pages in reference/.
+      placeholder: "Russell and Norvig chapter 2, or a specific write-up"

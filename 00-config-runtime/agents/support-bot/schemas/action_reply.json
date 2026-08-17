@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot action: reply_to_customer",
+  "type": "object",
+  "required": ["action", "message"],
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "state_update": {
+      "type": "object"
+    }
+  }
+}

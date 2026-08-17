@@ -1,0 +1,35 @@
+agent:
+  name: "content-moderator"
+  architecture: "utility-based"
+  performance:
+    reward_structure: "schemas/rewards.json"       # externalized reward definitions
+    eval: "eval/moderation_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic"
+  actuators:
+    - name: "approve"
+      output_schema: "schemas/action_decision.json"
+    - name: "flag_for_review"
+      output_schema: "schemas/action_decision.json"
+    - name: "reject"
+      output_schema: "schemas/action_decision.json"
+    - name: "request_edit"
+      output_schema: "schemas/action_decision.json"
+  sensors:
+    - name: "content"
+      type: "text"
+      input_schema: "schemas/percept_content.json"
+    - name: "user_history"
+      type: "structured"
+      input_schema: "schemas/percept_user.json"
+    - name: "content_flags"
+      type: "structured"
+  prompts:
+    system: "prompts/system.md"
+    moderation: "prompts/moderation.md"
+  decision_making:
+    strategy: "llm_policy"
+    discount_factor: 0.95
+    exploration_rate: 0.1
+    reward_tracking: "deterministic"
+    fallback: "flag_for_review"

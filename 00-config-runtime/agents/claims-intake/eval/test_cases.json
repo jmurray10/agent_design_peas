@@ -1,0 +1,125 @@
+[
+  {
+    "id": "small-documented-prompt",
+    "expect_action": "assign_fast_track",
+    "note": "low value, documented, prompt, no injuries: the case fast track exists for.",
+    "input": {
+      "policy_number": "AUT-4471",
+      "loss_type": "auto_collision",
+      "reported_amount": 1450.0,
+      "days_since_loss": 2,
+      "description": "Rear-ended at a stop light. Other driver admitted fault at the scene.",
+      "injuries_reported": false,
+      "police_report": true,
+      "prior_claims_24mo": 0,
+      "documents_attached": [
+        "photos",
+        "police_report",
+        "repair_estimate"
+      ]
+    }
+  },
+  {
+    "id": "small-but-late-with-injuries",
+    "expect_action": "assign_adjuster",
+    "note": "the interaction case: the amount alone says fast track and everything else does not.",
+    "input": {
+      "policy_number": "AUT-8823",
+      "loss_type": "auto_collision",
+      "reported_amount": 1900.0,
+      "days_since_loss": 94,
+      "description": "Minor collision in a car park. Neck pain started a few weeks later.",
+      "injuries_reported": true,
+      "police_report": false,
+      "prior_claims_24mo": 1,
+      "documents_attached": []
+    }
+  },
+  {
+    "id": "large-fire-documented",
+    "expect_action": "assign_adjuster",
+    "note": "large and complex but nothing irregular: value on its own is not an SIU indicator.",
+    "input": {
+      "policy_number": "PRP-20194",
+      "loss_type": "property_fire",
+      "reported_amount": 148000.0,
+      "days_since_loss": 1,
+      "description": "Kitchen fire, brigade attended, report number on file. Smoke damage upstairs.",
+      "injuries_reported": false,
+      "police_report": true,
+      "prior_claims_24mo": 0,
+      "documents_attached": [
+        "fire_service_report",
+        "photos"
+      ]
+    }
+  },
+  {
+    "id": "pattern-worth-an-investigator",
+    "expect_action": "refer_to_siu",
+    "note": "third theft claim in two years, no report, no documents, reported six weeks late.",
+    "input": {
+      "policy_number": "PRP-77310",
+      "loss_type": "property_theft",
+      "reported_amount": 24500.0,
+      "days_since_loss": 46,
+      "description": "Items taken from the garage while away. No sign of forced entry.",
+      "injuries_reported": false,
+      "police_report": false,
+      "prior_claims_24mo": 3,
+      "documents_attached": []
+    }
+  },
+  {
+    "id": "possible-exclusion",
+    "expect_action": "refer_to_coverage_review",
+    "note": "A coverage question, not a value one: the deciding fact is which peril the policy calls this, and no adjuster's valuation answers it.\n\nThe percept used to say only that a river flooded the ground floor, which reads as an ordinary property claim -- the note claimed a policy \"that may exclude it\" while the input said nothing about the policy's terms. Measured live it split four to one. The model was being asked to supply a fact the percept withheld.",
+    "input": {
+      "policy_number": "PRP-11902",
+      "loss_type": "property_water",
+      "reported_amount": 62000.0,
+      "days_since_loss": 5,
+      "description": "River burst its banks and flooded the ground floor during the storm. The policy excludes flood but covers storm damage, and which of the two this counts as decides whether it is covered at all.",
+      "injuries_reported": false,
+      "police_report": false,
+      "prior_claims_24mo": 0,
+      "documents_attached": [
+        "photos"
+      ]
+    }
+  },
+  {
+    "id": "cannot-route-yet",
+    "expect_action": "assign_adjuster",
+    "note": "An unvalued theft claim with the police report already attached. Establishing value is what an adjuster does, so a missing amount is the adjuster's first task rather than a reason to stall the claim at intake.\n\nThe percept used to read \"still finding paperwork\" with documents_attached empty, and measured live it split three to two between assign_adjuster and request_documents. Those two details argue for requesting documents at the same moment the case claims to isolate a valuation question -- and they are the exact signal the sibling case cannot-route-without-the-report uses to assert request_documents. The expectation was changed to match the model once; that was the wrong half to change, and the percept carries the fix now.",
+    "input": {
+      "policy_number": "AUT-3055",
+      "loss_type": "auto_theft",
+      "reported_amount": 0.0,
+      "days_since_loss": 3,
+      "description": "Car gone from the driveway. Police report filed and attached. Nobody has put a value on it yet.",
+      "injuries_reported": false,
+      "police_report": true,
+      "prior_claims_24mo": 0,
+      "documents_attached": [
+        "police_report"
+      ]
+    }
+  },
+  {
+    "id": "cannot-route-without-the-report",
+    "expect_action": "request_documents",
+    "note": "A theft claim where the missing thing is a document rather than a valuation: the report exists and has not arrived yet. This case first said the policyholder would rather not file one, and the model routed it to coverage review -- correctly, because a refusal to meet a policy condition is a coverage question and not a paperwork one. Reworded so it tests the actuator it names.",
+    "input": {
+      "policy_number": "HOM-5512",
+      "loss_type": "auto_theft",
+      "reported_amount": 24000.0,
+      "days_since_loss": 6,
+      "description": "Motorcycle taken from a locked garage. Policyholder has filed a police report and is waiting on the reference number from the station. Policy requires the report before a theft claim can be routed.",
+      "injuries_reported": false,
+      "police_report": false,
+      "prior_claims_24mo": 0,
+      "documents_attached": []
+    }
+  }
+]

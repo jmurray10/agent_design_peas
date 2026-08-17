@@ -1,0 +1,74 @@
+# Transaction monitoring alert disposition. A model-based reflex agent, because an AML
+# investigation is a sequence: the alert arrives, the analyst pulls customer context, the
+# payment rail responds, and the disposition depends on everything seen so far rather than
+# on the last message alone. The `state` block at the bottom is the whole difference
+# between this agent and claims-intake.
+#
+# The actuator list stops short of the regulated act. This agent can recommend a suspicious
+# activity report; it cannot file one. Filing is a decision a nominated officer makes and
+# signs, and a probability distribution should not be able to reach it. The recommendation
+# and the filing are different actions, and only one of them is on this list.
+agent:
+  name: "aml-alert"
+  use_case:
+    domain: >-
+      Financial crime compliance, retail and commercial banking
+    decision: >-
+      A transaction monitoring system has raised an alert. Somebody has to decide what happens
+      to it: close it, ask the customer, ask for enhanced due diligence, put it in front of the
+      money laundering reporting officer, or recommend a suspicious activity report.
+    why_it_matters: >-
+      Alert volumes are the defining problem in this domain. The large majority of alerts are
+      false positives, analysts are expensive and scarce, and the cost of closing a real one is
+      a regulatory finding rather than a bad afternoon. Both errors are expensive and they pull
+      in opposite directions.
+    boundary: >-
+      It can recommend a suspicious activity report and has no actuator that files one. Filing
+      is a regulated act with legal consequence, and it belongs to a named human. The boundary
+      is the actuator list, which is code, rather than a sentence in the prompt asking the model
+      to be careful.
+  architecture: "model-based-reflex"
+  performance:
+    metrics:
+      - "alerts closed correctly without escalation"
+      - "escalations the MLRO agrees with"
+      - "median steps to disposition"
+    eval: "eval/test_cases.json"
+  environment:
+    type: "partially-observable, stochastic, sequential, dynamic"
+  actuators:
+    - name: "close_no_further_action"
+      type: "deterministic"
+      output_schema: "schemas/action_disposition.json"
+    - name: "request_customer_context"
+      type: "deterministic"
+      output_schema: "schemas/action_disposition.json"
+    - name: "request_enhanced_due_diligence"
+      type: "deterministic"
+      output_schema: "schemas/action_disposition.json"
+    - name: "escalate_to_mlro"
+      type: "escalation"
+      output_schema: "schemas/action_disposition.json"
+    - name: "recommend_sar"
+      type: "escalation"
+      output_schema: "schemas/action_disposition.json"
+  sensors:
+    - name: "alert"
+      type: "structured"
+      input_schema: "schemas/percept_alert.json"
+    - name: "context_response"
+      type: "structured"
+      input_schema: "schemas/percept_context.json"
+  prompts:
+    system: "prompts/system.md"
+  state:
+    schema: "schemas/state.json"
+    persistence: "per-investigation"
+  behavior:
+    decision_strategy: "fold the percept into the investigation -> pick one disposition -> validate -> dispatch"
+    # tier=mid: the judgement is bounded -- five dispositions -- but it runs over
+    # accumulated state where the same transaction reads differently depending on what
+    # came before. Structured JSON with a state merge behind it is the mid case exactly.
+    # Not frontier: nothing here is a novel formalisation, and every disposition is
+    # reviewed by a human before it has any effect on a customer.
+    tier: "mid"

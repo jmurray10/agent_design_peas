@@ -1,0 +1,87 @@
+[
+  {
+    "id": "additive-nullable",
+    "expect_action": "approve_compatible",
+    "note": "a new nullable column cannot break a consumer that does not select it.",
+    "input": {
+      "change_id": "DC-101",
+      "table": "fct_payments",
+      "change_type": "add_column",
+      "detail": "Add settlement_channel VARCHAR, nullable, default NULL.",
+      "consumers": [
+        "finance_dashboard",
+        "risk_model_v3"
+      ],
+      "nullable": true,
+      "has_compatibility_view": false
+    }
+  },
+  {
+    "id": "drop-a-selected-column",
+    "expect_action": "block_breaking_change",
+    "note": "no window fixes a column two consumers select.",
+    "input": {
+      "change_id": "DC-118",
+      "table": "fct_payments",
+      "change_type": "drop_column",
+      "detail": "Drop legacy_merchant_ref. Superseded by merchant_id in 2024.",
+      "consumers": [
+        "finance_dashboard",
+        "chargeback_service"
+      ],
+      "nullable": false,
+      "has_compatibility_view": false
+    }
+  },
+  {
+    "id": "rename-with-a-view",
+    "expect_action": "require_migration_window",
+    "note": "breaking but mechanical, and a compatibility view carries consumers across.",
+    "input": {
+      "change_id": "DC-124",
+      "table": "dim_customer",
+      "change_type": "rename_column",
+      "detail": "Rename cust_nm to customer_name. Same values, same type.",
+      "consumers": [
+        "crm_sync",
+        "marketing_export"
+      ],
+      "nullable": true,
+      "has_compatibility_view": true
+    }
+  },
+  {
+    "id": "same-shape-different-meaning",
+    "expect_action": "require_consumer_signoff",
+    "note": "every automated check passes and the number means something else afterwards.",
+    "input": {
+      "change_id": "DC-131",
+      "table": "fct_payments",
+      "change_type": "rename_column",
+      "detail": "Rename amount to amount_usd. Historically the column held the transaction's local currency; from this release it is converted to USD at capture time.",
+      "consumers": [
+        "finance_dashboard",
+        "risk_model_v3",
+        "revenue_recognition"
+      ],
+      "nullable": false,
+      "has_compatibility_view": true
+    }
+  },
+  {
+    "id": "narrowing-a-type",
+    "expect_action": "block_breaking_change",
+    "note": "the existing data already exceeds the proposed width.",
+    "input": {
+      "change_id": "DC-140",
+      "table": "dim_product",
+      "change_type": "change_type",
+      "detail": "Change sku from VARCHAR(64) to VARCHAR(16). Current max length in table is 41.",
+      "consumers": [
+        "catalog_api"
+      ],
+      "nullable": false,
+      "has_compatibility_view": false
+    }
+  }
+]

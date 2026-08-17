@@ -1,0 +1,116 @@
+# ---------------------------------------------------------------------------
+# Credentials and anything that could carry one. Never commit these.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+.envrc
+.direnv/
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa*
+.ssh/
+secrets.*
+credentials.*
+service-account*.json
+*token*.json
+!shared/transcripts/*.json
+
+# ---------------------------------------------------------------------------
+# Assistant and editor state. These directories accumulate session logs, local
+# permissions and sometimes provider tokens. None of it is repository content, and
+# most of it is invisible until someone reads the diff.
+#
+# Names specific to one tool are kept in .git/info/exclude instead, which stays on
+# the machine that wrote it. A public ignore file that lists them advertises what it
+# is hiding, which is the opposite of the job.
+# ---------------------------------------------------------------------------
+.remember/
+*.local.md
+.mcp.json
+.cursor/
+.cursorrules
+.aider*
+.continue/
+.codeium/
+.windsurf/
+.goose/
+.specstory/
+.github/copilot-instructions.md
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+sdist/
+wheels/
+*.egg
+*.egg-info/
+.eggs/
+MANIFEST
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Tooling caches and coverage
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+.hypothesis/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Editors, IDEs, operating systems
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------------------
+# Local run output and scratch. The baselines under 10-drift/baselines/ are
+# deliberately NOT ignored -- the CI gate diffs against them -- and neither are
+# the recordings under shared/transcripts/, which are the offline path.
+# ---------------------------------------------------------------------------
+*.log
+# Except this one. Two published claims cite it as the raw output of the first critic
+# run, and a citation to a file the reader does not receive is worse than no citation.
+!10-drift/critic-experiment/run-2026-08-03-sonnet5.log
+*.tmp
+*.bak
+*.orig
+*.rej
+scratch/
+tmp/
+out/
+*.sqlite
+*.sqlite3
+*.db

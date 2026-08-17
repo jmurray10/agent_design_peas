@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support-bot internal state",
+  "description": "What the agent believes about this ticket. The declared properties are the fields the agent is expected to carry and are type-checked when present. Additional keys are allowed, because the source page's own update prompt says \"keep relevant history\" and a conversation produces facts nobody enumerated in advance -- a delivery date, an order status, what the customer is waiting for. additionalProperties was false here and nowhere else, and the result was that every state update failed validation and the hand-merge fallback fired on every turn: the agent ran permanently degraded while appearing to work, and the eval suite is what surfaced it. A schema that rejects every well-formed update is not validating the agent, it is replacing it.",
+  "type": "object",
+  "properties": {
+    "ticket_status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "open",
+        "awaiting_customer",
+        "escalated",
+        "resolved"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The order this ticket is about, once it is known. Nullable, because asking the agent to carry an identifier it has not been given yet leaves it two bad options: omit the field and lose the fact that the question is open, or invent a number. Null is the honest third answer and the schema has to permit it."
+    },
+    "sentiment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "days_elapsed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "refund_requested": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

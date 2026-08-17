@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "claim for reserving",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "loss_type",
+    "description",
+    "liability_clear"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "loss_type": {
+      "type": "string",
+      "enum": [
+        "auto_collision",
+        "property_fire",
+        "property_water",
+        "liability_injury",
+        "product_liability",
+        "business_interruption"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "liability_clear": {
+      "type": "boolean",
+      "description": "Is fault established, or contested?"
+    },
+    "initial_estimate": {
+      "type": "number",
+      "minimum": 0,
+      "description": "First estimate in USD, where one exists."
+    },
+    "injury_severity": {
+      "type": "string",
+      "enum": [
+        "none",
+        "minor",
+        "moderate",
+        "severe",
+        "unknown"
+      ]
+    },
+    "policy_limit": {
+      "type": "number",
+      "minimum": 0
+    },
+    "assessment_scheduled": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

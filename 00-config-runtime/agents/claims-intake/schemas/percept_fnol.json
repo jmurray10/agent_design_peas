@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "first notice of loss",
+  "description": "A claim as it arrives, before anyone has assessed it.",
+  "type": "object",
+  "required": [
+    "policy_number",
+    "loss_type",
+    "reported_amount",
+    "days_since_loss",
+    "description"
+  ],
+  "properties": {
+    "policy_number": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,4}-[0-9]{4,8}$",
+      "examples": [
+        "AUT-4471"
+      ]
+    },
+    "loss_type": {
+      "type": "string",
+      "enum": [
+        "auto_collision",
+        "auto_theft",
+        "property_water",
+        "property_fire",
+        "property_theft",
+        "liability",
+        "weather"
+      ]
+    },
+    "reported_amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Claimed amount in USD, as stated by the claimant."
+    },
+    "days_since_loss": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Days between the loss date and this notice."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the claimant says happened, in their words."
+    },
+    "injuries_reported": {
+      "type": "boolean"
+    },
+    "police_report": {
+      "type": "boolean"
+    },
+    "prior_claims_24mo": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "documents_attached": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

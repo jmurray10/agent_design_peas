@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "triage decision",
+  "type": "object",
+  "required": [
+    "action",
+    "reason"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "page_oncall",
+        "create_ticket",
+        "route_to_owning_team",
+        "suppress_as_duplicate",
+        "declare_incident"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notify": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Team or person this goes to. Null where nobody is notified."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "the-lookup-answers-the-question-it-asked",
+    "why": "A follow-up that means nothing on its own. Cold, \"So where is it?\" names no order and the agent has to ask what \"it\" is. After the earlier question and the lookup that answered it, the same four words refer to a known order with a known status, and the agent can reply. The percept is identical in both arms; only the history differs. Measured across vendors on 2026-08-13: this holds against claude-sonnet-5 and fails against both gemini-3.7-flash and llama-3.3-70b, which answer the primed arm exactly as they answer the cold one. The claim is that history changes the answer, and on those two models it does not -- so read a pass here as a statement about this model, not about stateful agents in general.",
+    "preamble": [
+      {
+        "message": "Where is my order?"
+      },
+      {
+        "order_lookup": "Order #7781 - delivered 3 days ago"
+      }
+    ],
+    "percept": {
+      "message": "So where is it?"
+    },
+    "control_action": "request_more_info",
+    "primed_action": "reply_to_customer"
+  }
+]
