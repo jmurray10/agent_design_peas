@@ -75,7 +75,21 @@ OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
 # entirely without the model. The validation layer reported malformed output, which was
 # true, and said nothing about the cause, because a truncated response is indistinguishable
 # from a badly formatted one once you are only looking at the text.
-MAX_TOKENS = 4096
+#
+# Raised from 4096 for the second time the same thing happened, from a new direction.
+# claude-sonnet-5 returns a `thinking` block on nearly every call now, those tokens count
+# against this cap, and the shim strips them before the caller sees anything -- so a call
+# can spend its whole budget reasoning and arrive with no text at all.
+#
+# The size of the answer is not what matters, which is the part worth knowing. The prompt
+# that hit it asks for a single number between -1.0 and 1.0, and says "No reasoning, no
+# explanation" in as many words. Measured over 20 calls to that exact prompt: output
+# ranged from 5 tokens to 2203, mean 903, for an answer four characters long. A tail past
+# 4096 is rare per call and near-certain across the 56 calls one game makes.
+#
+# This is a ceiling, not a purchase. Nothing is charged for headroom that goes unused,
+# and it is not part of any prompt, so no recording is invalidated by moving it.
+MAX_TOKENS = 8192
 
 _PROVIDERS_YAML = os.path.join(os.path.dirname(os.path.abspath(__file__)), "providers.yaml")
 

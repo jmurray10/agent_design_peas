@@ -137,12 +137,34 @@ class AgentHandler(BaseHTTPRequestHandler):
                              "docs": f"{mount.prefix}/docs",
                              "spec": f"{mount.prefix}/openapi.json",
                              "act": f"POST {mount.prefix}/act"})
+        elif route == "/act":
+            # The route exists; the method does not. 404 here would say this agent has no
+            # /act, which is the one thing it certainly does have, and would send someone
+            # looking for a typo instead of at their verb. The same distinction the 422
+            # and 502 codes make: say whose problem it is.
+            self._send_405("POST", path)
         else:
             self._json(404, {"error": "not_found", "reason": f"no route {path}"})
+
+    def _send_405(self, allow: str, path: str) -> None:
+        body = json.dumps({
+            "error": "method_not_allowed",
+            "reason": f"{path} exists and does not accept {self.command}",
+            "detail": {"allow": allow},
+        }, indent=2).encode("utf-8")
+        self.send_response(405)
+        self.send_header("Allow", allow)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
     def do_POST(self) -> None:  # noqa: N802
         path = self.path.split("?", 1)[0].rstrip("/") or "/"
         mount, route = self._resolve(path)
+        if mount is not None and route.rstrip("/") in ("/openapi.json", "/docs", "/agent", "/"):
+            self._send_405("GET", path)
+            return
         if mount is None or route.rstrip("/") != "/act":
             self._json(404, {"error": "not_found", "reason": f"no route {path}"})
             return
