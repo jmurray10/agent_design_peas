@@ -12,6 +12,32 @@ halves running side by side, so you can check it rather than take it.
 
 Nothing here is a framework. It is twenty examples, each one an argument you can run.
 
+## Start here
+
+    git clone https://github.com/jmurray10/agent_design_peas
+    cd agent_design_peas
+    python 01-reflex-agents/simple/before.py
+
+That is a classical reflex agent, running. No API key, no `pip install`, no network, no
+virtualenv -- Python 3.10 or newer and nothing else.
+
+    python 01-reflex-agents/simple/after.py
+
+The same architecture with one component swapped for a model call. It also runs with no
+key: where a model would be asked, the repository replays what a real model actually
+answered on a recorded date.
+
+Open the two files side by side. The difference between them is the entire argument, and
+it is about forty lines.
+
+Or, if you would rather click than read -- nine agents as nine HTTP services, each with a
+page you can send real requests from:
+
+    docker compose up -d peas
+    # open http://localhost:8079
+
+That needs no key either. Everything below is detail.
+
 ## What is in here
 
 Every numbered directory is one architecture or one production concern, drawn from a
@@ -94,8 +120,8 @@ not demonstrate is why anyone runs a reflex agent in production, which is volume
 
 ### On your machine, with nothing installed
 
-    git clone <this repo>
-    cd <this repo>
+    git clone https://github.com/jmurray10/agent_design_peas
+    cd agent_design_peas
     python 01-reflex-agents/simple/before.py
 
 No API key. No `pip install`. No network. No virtualenv. Python 3.10 or newer and nothing
@@ -108,8 +134,8 @@ key, because of recorded transcripts.
 
 ### In a browser
 
-Three notebooks in `colab/`. Their links need this repository to be public; while it is
-private they will 404 and the notebooks' first cell will fail on the clone.
+Three notebooks in `colab/`. Each opens in Colab and clones this repository in its first
+cell, so they need nothing installed on your machine.
 
     colab/oscillation.ipynb   the claim itself: before.py and after.py side by side
                               across five architectures. No key, no GPU.

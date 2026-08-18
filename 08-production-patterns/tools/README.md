@@ -11,38 +11,6 @@ hands back identifiers it cannot resolve, and answers two different mistakes wit
 five-word error, so the agent guesses. Run `compare.py` and the difference shows up as
 tokens and calls rather than as an opinion.
 
-## What a replay shows, and what it does not
-
-Read this before quoting any number out of `compare.py`.
-
-With no backend configured, `compare.py` replays a recorded run. Every tool call in both
-columns below was chosen by `claude-sonnet-5` on 2026-08-04, from the prompts and tool
-definitions in this directory, and stored in
-`shared/transcripts/08_production_patterns__tools__compare.json`. Nobody scripted the
-three failed `data()` calls in the unhelpful column. A real model made them, in that
-order, and then gave up.
-
-What that is: one run, one date, one model. Model versions move and sampling varies, so
-a live run today may pick different arguments, recover where this one did not, or fail
-somewhere else. Treat the trajectory as evidence, not as a constant.
-
-What it is not: an authored story. The distinction matters because this repository used
-to ship the story. Under the old hand-written mocks the call counts were decided by
-whoever wrote them, which made the comparison an argument about what a model would
-plausibly do. It is now a record of what one did.
-
-The mechanical rows are true in either mode, and were true before:
-
-- the size of the actual tool definitions, rendered the way they would be sent
-- the size of the actual tool responses, produced by the actual functions in this
-  directory against the same fixture data
-- both counted by one estimator, on both sides, with one serializer
-
-One more caveat on the token numbers: tokens are estimated at four characters each,
-because a real tokenizer would be a dependency and this repo installs nothing. Absolute
-counts are approximations. The ratio between two columns produced by the same estimator is
-the part worth reading.
-
 ## Run it
 
     python 08-production-patterns/tools/tools_bad.py
@@ -112,6 +80,38 @@ directly if you want to read it:
 
 That the model routed around the mistake instead of making it is one run's worth of
 evidence, not proof that a good description prevents a bad call.
+
+## What a replay shows, and what it does not
+
+Read this before quoting any number out of `compare.py`.
+
+With no backend configured, `compare.py` replays a recorded run. Every tool call in both
+columns below was chosen by `claude-sonnet-5` on 2026-08-04, from the prompts and tool
+definitions in this directory, and stored in
+`shared/transcripts/08_production_patterns__tools__compare.json`. Nobody scripted the
+three failed `data()` calls in the unhelpful column. A real model made them, in that
+order, and then gave up.
+
+What that is: one run, one date, one model. Model versions move and sampling varies, so
+a live run today may pick different arguments, recover where this one did not, or fail
+somewhere else. Treat the trajectory as evidence, not as a constant.
+
+What it is not: an authored story. The distinction matters because this repository used
+to ship the story. Under the old hand-written mocks the call counts were decided by
+whoever wrote them, which made the comparison an argument about what a model would
+plausibly do. It is now a record of what one did.
+
+The mechanical rows are true in either mode, and were true before:
+
+- the size of the actual tool definitions, rendered the way they would be sent
+- the size of the actual tool responses, produced by the actual functions in this
+  directory against the same fixture data
+- both counted by one estimator, on both sides, with one serializer
+
+One more caveat on the token numbers: tokens are estimated at four characters each,
+because a real tokenizer would be a dependency and this repo installs nothing. Absolute
+counts are approximations. The ratio between two columns produced by the same estimator is
+the part worth reading.
 
 ## The three capabilities
 

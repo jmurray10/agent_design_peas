@@ -49,6 +49,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -64,6 +65,10 @@ from runtime import ActionRejected, ConfigDrivenAgent, PerceptRejected  # noqa: 
 # reading it, and an air-gapped run still gets the spec.
 SWAGGER_CDN = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5"
 
+# How many named sessions one agent keeps at once. Small on purpose: this is a demo
+# endpoint, and the number exists so that inventing session ids cannot hold memory open.
+MAX_SESSIONS = 64
+
 DOCS_PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>{title}</title>
 <link rel="stylesheet" href="{cdn}/swagger-ui.css"></head>
@@ -78,17 +83,56 @@ class Mounted:
 
     def __init__(self, prefix: str, agent_dir: Path):
         self.prefix = prefix
+        self.agent_dir = agent_dir
         self.agent = ConfigDrivenAgent(agent_dir)
         self.spec = build_spec(agent_dir)
         self.name = self.agent.config["name"]
         self.architecture = self.agent.config["architecture"]
-
         # The generated spec describes paths relative to the agent. Mounted under a prefix,
         # the paths a caller actually calls are prefixed too, so the document has to say
         # so -- a spec whose paths do not resolve is worse than no spec.
         if prefix:
             self.spec = dict(self.spec)
             self.spec["paths"] = {f"{prefix}{p}": v for p, v in self.spec["paths"].items()}
+
+        # One agent per named session. See `for_request`.
+        self._sessions: dict[str, ConfigDrivenAgent] = {}
+        self._lock = threading.Lock()
+
+    def for_request(self, session: str | None) -> ConfigDrivenAgent:
+        """The agent instance this request should run on.
+
+        A stateful agent carries what it learned into the next prompt. Served from one
+        long-lived instance, that state is process-wide and permanent: every caller shares
+        one conversation, and the second caller's answer is shaped by the first caller's
+        order number. The configs here already say what the scope should be --
+        per-conversation, per-investigation, per-session -- and the server was honouring
+        none of them.
+
+        It also broke the documentation. The examples in each agent's Swagger page are its
+        eval cases, which were recorded with state reset between them; replayed in sequence
+        against one accumulating instance, the fourth example builds a prompt no recording
+        has ever seen, and a reader clicking Try it out gets a 503 on a request the page
+        told them to make. Eight of the forty-nine examples did exactly that.
+
+        So: no session named, no shared state. Construction is about 9ms, which is nothing
+        beside a model call, and it makes the default case both correct and thread-safe --
+        two concurrent requests never touch one object. Name a session with the
+        `X-Session-Id` header to get the multi-turn behaviour back, which is what the
+        sequence claims in `sequence_eval.py` are about.
+        """
+        if not session:
+            return ConfigDrivenAgent(self.agent_dir)
+        with self._lock:
+            agent = self._sessions.get(session)
+            if agent is None:
+                # Bounded, so a public endpoint cannot be made to hold memory open by
+                # inventing session ids. Oldest out first; a dropped session starts fresh
+                # rather than erroring, which is the behaviour a caller can recover from.
+                if len(self._sessions) >= MAX_SESSIONS:
+                    self._sessions.pop(next(iter(self._sessions)))
+                agent = self._sessions[session] = ConfigDrivenAgent(self.agent_dir)
+            return agent
 
 
 class AgentHandler(BaseHTTPRequestHandler):
@@ -179,8 +223,11 @@ class AgentHandler(BaseHTTPRequestHandler):
             self._json(400, {"error": "bad_json", "reason": "body must be a JSON object"})
             return
 
+        # No session named means no shared state: this request gets its own agent. See
+        # Mounted.for_request.
+        agent = mount.for_request(self.headers.get("X-Session-Id"))
         try:
-            self._json(200, mount.agent.run(percept))
+            self._json(200, agent.run(percept))
         except PerceptRejected as refusal:
             # Every sensor schema that rejected it comes back, because "invalid" without
             # saying what it was measured against is not an error a caller can act on.

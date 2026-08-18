@@ -25,19 +25,30 @@ from pathlib import Path
 # that re-read them per request would be slower and no more correct.
 ARCHITECTURE_NOTE = {
     "simple-reflex":
-        "One percept in, one action out, no memory between calls.",
+        "Looks at one thing and decides. It remembers nothing, so the same input always "
+        "gets the same treatment. Start here.",
     "model-based-reflex":
-        "Carries state between percepts, so what it saw earlier changes what it does now.",
+        "Remembers what it has already seen, so the answer to the same question can "
+        "differ depending on what came before it.",
     "goal-based":
-        "The goal is a constraint problem. A solver decides, and can prove there is no "
-        "answer rather than inventing one.",
+        "Has a goal and works out how to reach it. The plan comes from a solver rather "
+        "than from the model, so when a request cannot be met at all it can say so and "
+        "be right, instead of inventing a schedule that does not work.",
     "utility-based":
-        "Weighs outcomes that cost differently in different directions, with no single "
-        "correct answer available at decision time.",
+        "Chooses when there is no right answer -- only options that cost differently, "
+        "and where being wrong in one direction costs more than the other.",
     "learning":
-        "Improves from the outcomes of its own actions, and has an action for buying "
-        "information it does not have.",
+        "Gets better from how its own decisions turned out. It can also deliberately "
+        "choose a worse option now to find something out that helps later.",
 }
+
+# The order the textbook introduces them in, which is also simplest first. Sorting these
+# alphabetically put goal-based at the top, so the first agent anyone met was a clinical
+# trial scheduler -- the narrowest domain here and the least obvious architecture. That is
+# an accident of the letter g, and a reader arriving cold deserves better than an accident.
+ARCHITECTURE_ORDER = [
+    "simple-reflex", "model-based-reflex", "goal-based", "utility-based", "learning",
+]
 
 
 def collect(agents_root: Path, base_port: int) -> list[dict]:
@@ -91,7 +102,9 @@ def render(rows: list[dict]) -> str:
         "so it cannot describe an agent the runtime is not running.</p>",
     ]
 
-    for architecture in sorted(architectures):
+    ordered = ([a for a in ARCHITECTURE_ORDER if a in architectures]
+               + sorted(a for a in architectures if a not in ARCHITECTURE_ORDER))
+    for architecture in ordered:
         group = architectures[architecture]
         note = ARCHITECTURE_NOTE.get(architecture, "")
         parts.append(f"<h2>{html.escape(architecture)}</h2>")
@@ -115,18 +128,23 @@ def render(rows: list[dict]) -> str:
 
     parts += [
         "<h2>trying one</h2>",
-        "<p class='note'>Open any <code>/docs</code> above and use the Examples dropdown: "
-        "the request examples are that agent's own evaluation cases, so each one is a "
-        "percept it is asserted to handle. Or from a shell:</p>",
+        "<p class='note'>Pick any <code>/docs</code> link above. Press <b>Try it out</b>, "
+        "choose an entry from the <b>Examples</b> dropdown, press <b>Execute</b>. Those "
+        "examples are real inputs that agent is meant to handle, so you do not have to "
+        "invent one. You need no API key and no network.</p>",
+        "<p class='note'>Then try giving one something it does not handle:</p>",
         "<pre><code>curl -s localhost:8080/act -H 'content-type: application/json' \\",
         "     -d '{\"not_a_declared_field\": 1}'</code></pre>",
-        "<p class='note'>That returns 422. No sensor schema accepts it, so the request is "
-        "refused before a model is called and nothing is spent. A 200 means the model "
-        "answered and the actuator contract accepted the answer; a 502 means the model "
-        "answered and the contract refused it. The three codes are the two deterministic "
-        "gates either side of the model call.</p>",
-        "<p class='small'>With no key configured every agent here replays what a real "
-        "model returned to that exact prompt. Nothing invents a response.</p>",
+        "<p class='note'>You get a <b>422</b>, and no model was asked. That is the part "
+        "worth noticing: the agent checked the request against the shapes it accepts and "
+        "refused it in ordinary code, before spending anything. A <b>200</b> means a model "
+        "answered <i>and</i> the answer passed a second check on the way out. A <b>502</b> "
+        "means the model answered and that second check refused it.</p>",
+        "<p class='note'>So a model decides one thing here, in the middle, and code decides "
+        "what it may be asked and what it may answer. That is the whole argument, and these "
+        "nine agents are it running rather than described.</p>",
+        "<p class='small'>With no key configured every agent replays what a real model "
+        "returned to that exact request, on a recorded date. Nothing invents a response.</p>",
         "</body></html>",
     ]
     return "\n".join(parts)

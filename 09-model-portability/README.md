@@ -15,26 +15,6 @@ the fallback rate. The architecture around it does not move at all.
 There is no `before.py` and `after.py` pair here. This directory measures the examples that
 have them.
 
-## The post this feeds had its premise inverted
-
-The tidy story would be: a weaker model returns more unusable output, the
-deterministic layer catches it, and the agent never crashes. Running this suite against a
-live Anthropic backend on 2026-08-03 did not tell that story.
-
-The first live run scored 6 of 20 with a 74.1 percent fallback rate -- 10 refused actions
-and 70 responses that would not parse as JSON, across 108 model calls. That reads as a
-capability limit and is not one. The model was returning correct JSON wrapped in a markdown
-code fence, and `json.loads` does not eat fences. With one deterministic unwrap step added
-in front of the parse, the same suite against the same backend scored 9 of 20 with a 0.9
-percent fallback rate: 1 refused action, 0 parse failures.
-
-Both of those are single live runs on one day, not benchmarks. But the shape of the
-correction is the finding. The deterministic layer earned its keep and did not earn it the
-way the draft assumed: it was not compensating for a weak model, it was absorbing a
-formatting habit, quietly, at a rate high enough to look like the model's fault. A fallback
-rate is a property of the seam between two components. It is not a score for either one of
-them, and read as one it will point at the wrong component.
-
 ## Run it
 
     python 09-model-portability/compare_models.py
@@ -134,6 +114,26 @@ This directory compares backends over one twenty-case suite. For the same compar
 every script in the repository -- 48 of 48 against Anthropic, 46 against the Hugging Face
 router, 44 against Gemini, all at one commit on one day -- see "The same suite, three
 vendors, one commit" in the root README.
+
+## The post this feeds had its premise inverted
+
+The tidy story would be: a weaker model returns more unusable output, the
+deterministic layer catches it, and the agent never crashes. Running this suite against a
+live Anthropic backend on 2026-08-03 did not tell that story.
+
+The first live run scored 6 of 20 with a 74.1 percent fallback rate -- 10 refused actions
+and 70 responses that would not parse as JSON, across 108 model calls. That reads as a
+capability limit and is not one. The model was returning correct JSON wrapped in a markdown
+code fence, and `json.loads` does not eat fences. With one deterministic unwrap step added
+in front of the parse, the same suite against the same backend scored 9 of 20 with a 0.9
+percent fallback rate: 1 refused action, 0 parse failures.
+
+Both of those are single live runs on one day, not benchmarks. But the shape of the
+correction is the finding. The deterministic layer earned its keep and did not earn it the
+way the draft assumed: it was not compensating for a weak model, it was absorbing a
+formatting habit, quietly, at a rate high enough to look like the model's fault. A fallback
+rate is a property of the seam between two components. It is not a score for either one of
+them, and read as one it will point at the wrong component.
 
 ## What these numbers are, and are not
 

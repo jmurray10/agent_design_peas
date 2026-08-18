@@ -19,9 +19,9 @@ notebook in a public repo:
     https://colab.research.google.com/github/jmurray10/agent_design_peas/blob/main/colab/gpu_floor.ipynb
     https://colab.research.google.com/github/jmurray10/agent_design_peas/blob/main/colab/agents_live.ipynb
 
-**Those links need the repository to be public.** While it is private they will 404 for
-everyone including you, and the notebooks' first cell -- a `git clone` -- will fail the
-same way. Nothing else about them changes when the repository flips.
+Each notebook's first cell clones this repository, so nothing needs installing on your
+machine. The first two need no API key at all; `agents_live.ipynb` runs on recordings
+unless you supply one.
 
 ## Why a notebook and not just the Space
 
