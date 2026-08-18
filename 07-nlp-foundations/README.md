@@ -13,35 +13,6 @@ documents in `kb/`, and `routing_by_similarity.py` replaces an LLM classifier wi
 averaged vectors and prints every input where the two disagree. If the claim is wrong,
 the disagreement is on the screen.
 
-**The vectors in `similarity.py` are illustrative and were authored, not trained.** The
-six named dimensions -- `refund_intent`, `politeness`, and so on -- were typed in by a
-person who decided what each sentence means. No model produced them, and they exist so
-that a reader can check the arithmetic against numbers they can read. That is a statement
-about hand-built vectors, and it is unaffected by anything else in this repository.
-
-**The offline embeddings are deterministic hashes.** With no `EMBEDDING_API_KEY` set,
-`rag_pipeline.py` and `routing_by_similarity.py` embed text by hashing its tokens and
-character 4-grams into 2048 buckets. The same string always yields the same vector, which
-is the only property they are meant to have. They carry no semantic content beyond the
-lexical overlap that was designed into them: in hash space, "refund" and "money back" are
-strangers, and the routing table shows that failure rather than hiding it. Nothing here
-was trained on anything, and no similarity score printed by these scripts is evidence
-about how a trained embedding model behaves.
-
-The generation and classification calls are a separate matter. Those go through
-`shared/llm.py`, and with no backend configured they replay what a real model returned to
-these exact prompts: `claude-sonnet-5` for the four RAG answers, `claude-haiku-4-5` for
-the seven routing labels, both recorded 2026-08-04 and stored in `shared/transcripts/`.
-The answers below are a model's, not an author's. They are also one run on one date, so
-they are evidence about what that model did then, not a prediction about what it does now.
-
-Set `EMBEDDING_API_KEY` (optionally with `EMBEDDING_API_BASE_URL` and `EMBEDDING_MODEL`,
-which default to the OpenAI endpoint and `text-embedding-3-small`) and both scripts call a
-real embeddings API instead, and say so in their first line of output. `shared/llm.py`
-exposes no embedding function on purpose, so that path lives in `rag_pipeline.py`, guarded
-so that a missing key, a bad URL or a failed request all fall back to hashes and the run
-finishes offline.
-
 ## Run it
 
     python 07-nlp-foundations/similarity.py
@@ -102,6 +73,37 @@ finishes offline.
 All three run with no key, no install and no network. numpy is used where it is present --
 to cross-check the hand-written math, and to score the vector store in one matrix product --
 and every script produces the same numbers without it.
+
+## What these three scripts are for
+
+**The vectors in `similarity.py` are illustrative and were authored, not trained.** The
+six named dimensions -- `refund_intent`, `politeness`, and so on -- were typed in by a
+person who decided what each sentence means. No model produced them, and they exist so
+that a reader can check the arithmetic against numbers they can read. That is a statement
+about hand-built vectors, and it is unaffected by anything else in this repository.
+
+**The offline embeddings are deterministic hashes.** With no `EMBEDDING_API_KEY` set,
+`rag_pipeline.py` and `routing_by_similarity.py` embed text by hashing its tokens and
+character 4-grams into 2048 buckets. The same string always yields the same vector, which
+is the only property they are meant to have. They carry no semantic content beyond the
+lexical overlap that was designed into them: in hash space, "refund" and "money back" are
+strangers, and the routing table shows that failure rather than hiding it. Nothing here
+was trained on anything, and no similarity score printed by these scripts is evidence
+about how a trained embedding model behaves.
+
+The generation and classification calls are a separate matter. Those go through
+`shared/llm.py`, and with no backend configured they replay what a real model returned to
+these exact prompts: `claude-sonnet-5` for the four RAG answers, `claude-haiku-4-5` for
+the seven routing labels, both recorded 2026-08-04 and stored in `shared/transcripts/`.
+The answers below are a model's, not an author's. They are also one run on one date, so
+they are evidence about what that model did then, not a prediction about what it does now.
+
+Set `EMBEDDING_API_KEY` (optionally with `EMBEDDING_API_BASE_URL` and `EMBEDDING_MODEL`,
+which default to the OpenAI endpoint and `text-embedding-3-small`) and both scripts call a
+real embeddings API instead, and say so in their first line of output. `shared/llm.py`
+exposes no embedding function on purpose, so that path lives in `rag_pipeline.py`, guarded
+so that a missing key, a bad URL or a failed request all fall back to hashes and the run
+finishes offline.
 
 ## What the recorded run does not show you
 

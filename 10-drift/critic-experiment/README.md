@@ -19,52 +19,6 @@ learning cycle, and the next. The falsifiable version: given a reward that is ge
 computable, an agent whose critic is a model call will earn a lower true reward than an
 identical agent whose critic is arithmetic, while reporting a higher score for itself.
 
-**The hypothesis, stated before the experiment was run:** Arm B's self-reported score
-rises while its true reward stagnates or declines, and the gap between them widens as the
-learning element compounds on a signal nobody is checking.
-
-The result is reported either way. If Arm B tracks ground truth, the claim has to soften
-to "the critic must be deterministic where the reward is computable, and LLM critics are
-viable where it genuinely is not" -- a narrower claim, and a more honest one. `analysis.md`
-was written after the run and reports what happened, including the parts that did not go
-the way the hypothesis said.
-
-**It went that way.** Against `claude-sonnet-5`, over 200 interactions per arm, run twice,
-the hypothesis was not borne out either time. Arm B's true reward rose rather than
-degraded and finished level with Arm A. The critic was miscalibrated in the opposite
-direction from the prediction -- harsh, not generous -- and it preserved rank order to
-within half a point of 96 percent, which is the only property of a critic that reaches
-behaviour here.
-
-The numbers below are the second run, because that is the one whose transcript ships:
-running the script with no key reproduces them exactly. `analysis.md` puts both runs in
-one table and is the thing to read before quoting this directory. The paragraph above the
-bold is the prediction, not the finding.
-
-Two arms, same agent class, same percepts, same number of interactions:
-
-- **Arm A** -- `LLMLearningAgent` from `04-learning/q-learning/after.py`, unmodified. Its
-  critic is `_calculate_reward`.
-- **Arm B** -- the same class, the same prompts, the same fallbacks. `observe_outcome`
-  asks a model to score the outcome instead.
-
-Both arms are scored every interaction by the same ground-truth function, which is
-`_calculate_reward` called from one shared instance. There is no second implementation of
-the reward anywhere in `run_experiment.py`, which is what makes "computed identically for
-both arms" checkable rather than asserted. Arm A's own critic is that same inherited
-method, so Arm A's recorded reward equals ground truth by construction, and the harness
-asserts that on every interaction. That is the definition of the control arm, not a
-result.
-
-Arm B never sees ground truth. It is not in Arm B's prompt, not stored on the Arm B
-agent, and not derivable from anything Arm B holds. That separation is the experiment.
-
-One thing is disclosed to Arm B on purpose and should not be mistaken for a leak: its
-prompt states the scale endpoints, -2.0 to 3.0, which happen to be the range of the true
-reward function. Without a shared scale the required "gap between self-report and ground
-truth" would be a comparison of two arbitrary units. The endpoints say nothing about
-which of the four facts carries weight, which is the entire question.
-
 ## Run it
 
     python 10-drift/critic-experiment/run_experiment.py
@@ -127,12 +81,62 @@ scores the same outcome differently from the arithmetic one immediately, and the
 choosing from different tables by interaction ten. Rank agreement is the number that
 reaches behaviour. `learn()` sorts the experience log by reward and `act()` reads
 per-action averages, so a critic that is uniformly wrong by a constant produces the same
-sort. Only reordering changes what the agent does, and this critic reordered 506 pairs out
-of 11,339.
+sort. Only reordering changes what the agent does, and this critic reordered 481 pairs out
+of 11,713.
 
 `--replicates 10` runs consecutive seeds and summarises across them. That is the first
 thing to do before this is relied on: one seed is one sample. `--mock-critic` is
 retired and changes nothing in any mode; the script says so if you pass it.
+
+## What was predicted, and what happened
+
+**The hypothesis, stated before the experiment was run:** Arm B's self-reported score
+rises while its true reward stagnates or declines, and the gap between them widens as the
+learning element compounds on a signal nobody is checking.
+
+The result is reported either way. If Arm B tracks ground truth, the claim has to soften
+to "the critic must be deterministic where the reward is computable, and LLM critics are
+viable where it genuinely is not" -- a narrower claim, and a more honest one. `analysis.md`
+was written after the run and reports what happened, including the parts that did not go
+the way the hypothesis said.
+
+**It went that way.** Against `claude-sonnet-5`, over 200 interactions per arm, run twice,
+the hypothesis was not borne out either time. Arm B's true reward rose rather than
+degraded and finished level with Arm A. The critic was miscalibrated in the opposite
+direction from the prediction -- harsh, not generous -- and it preserved rank order to
+within half a point of 96 percent, which is the only property of a critic that reaches
+behaviour here.
+
+The output under Run it above is the second run, because that is the one whose
+transcript ships: running the script with no key reproduces it exactly. `analysis.md` puts both runs in
+one table and is the thing to read before quoting this directory. The paragraph above the
+bold is the prediction, not the finding.
+
+## How the two arms are kept honest
+
+Two arms, same agent class, same percepts, same number of interactions:
+
+- **Arm A** -- `LLMLearningAgent` from `04-learning/q-learning/after.py`, unmodified. Its
+  critic is `_calculate_reward`.
+- **Arm B** -- the same class, the same prompts, the same fallbacks. `observe_outcome`
+  asks a model to score the outcome instead.
+
+Both arms are scored every interaction by the same ground-truth function, which is
+`_calculate_reward` called from one shared instance. There is no second implementation of
+the reward anywhere in `run_experiment.py`, which is what makes "computed identically for
+both arms" checkable rather than asserted. Arm A's own critic is that same inherited
+method, so Arm A's recorded reward equals ground truth by construction, and the harness
+asserts that on every interaction. That is the definition of the control arm, not a
+result.
+
+Arm B never sees ground truth. It is not in Arm B's prompt, not stored on the Arm B
+agent, and not derivable from anything Arm B holds. That separation is the experiment.
+
+One thing is disclosed to Arm B on purpose and should not be mistaken for a leak: its
+prompt states the scale endpoints, -2.0 to 3.0, which happen to be the range of the true
+reward function. Without a shared scale the required "gap between self-report and ground
+truth" would be a comparison of two arbitrary units. The endpoints say nothing about
+which of the four facts carries weight, which is the entire question.
 
 ## What changed
 

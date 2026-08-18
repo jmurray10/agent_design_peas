@@ -14,28 +14,6 @@ deterministic layer in this repository exists for exactly this, and it works.
 escalation rate moves. Every response parses. Every action is on the list. Nothing fails,
 nothing logs, and no monitor moves.
 
-The falsifiable part: replace one line of the system prompt with `prompts/system_v2.md`,
-run the same twenty cases, and watch which half of the report notices. The structural
-section moves a little and in both directions — one fewer off-list action name, eight more
-schema violations — while the escalation rate goes from 35 percent to 70, task success
-falls from 0.45 to 0.30, thirteen of the twenty action sequences change and three verdicts
-flip. Everything in that second list was well-formed. Nothing reported any
-of it. That is not a bug in the validation layer — validation checks shape, and
-behavioral drift is a shape-preserving change. It is a property of what validation *is*.
-
-The whole difference between the two prompt files is one line, replaced outright. Diff
-`prompts/system_v1.md` against `prompts/system_v2.md` and this is all of it:
-
-    v1   Escalate to a manager only when the ticket needs authority you do not have.
-    v2   Escalate to a manager whenever you are not certain.
-
-Every other line in the two files is identical: the same role sentence, the same
-instruction to resolve the ticket where the facts allow, the same closing instruction about
-output format.
-
-There is no `before.py` and `after.py` here. Like `08-production-patterns/evaluation/`,
-this directory is an instrument pointed at the examples that do have them.
-
 ## Run it
 
     python 10-drift/replay.py --baseline baseline --prompt 10-drift/prompts/system_v2.md
@@ -105,6 +83,30 @@ moved, and `close_ticket` did not move at all -- it is the one row the diff leav
 unmarked. An aggregate that only reported "success rate fell" would have hidden which
 cases moved and in which direction, which is why the per-case sequences
 and the verdict flips are printed too.
+
+## What each kind of drift costs you
+
+The falsifiable part: replace one line of the system prompt with `prompts/system_v2.md`,
+run the same twenty cases, and watch which half of the report notices. The structural
+section moves a little and in both directions — one fewer off-list action name, eight more
+schema violations — while the escalation rate goes from 35 percent to 70, task success
+falls from 0.45 to 0.30, thirteen of the twenty action sequences change and three verdicts
+flip. Everything in that second list was well-formed. Nothing reported any
+of it. That is not a bug in the validation layer — validation checks shape, and
+behavioral drift is a shape-preserving change. It is a property of what validation *is*.
+
+The whole difference between the two prompt files is one line, replaced outright. Diff
+`prompts/system_v1.md` against `prompts/system_v2.md` and this is all of it:
+
+    v1   Escalate to a manager only when the ticket needs authority you do not have.
+    v2   Escalate to a manager whenever you are not certain.
+
+Every other line in the two files is identical: the same role sentence, the same
+instruction to resolve the ticket where the facts allow, the same closing instruction about
+output format.
+
+There is no `before.py` and `after.py` here. Like `08-production-patterns/evaluation/`,
+this directory is an instrument pointed at the examples that do have them.
 
 ## Baseline and perturbation are two recordings, not one
 
