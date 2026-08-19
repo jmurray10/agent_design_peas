@@ -28,7 +28,6 @@ service-account*.json
 # the machine that wrote it. A public ignore file that lists them advertises what it
 # is hiding, which is the opposite of the job.
 # ---------------------------------------------------------------------------
-.remember/
 *.local.md
 .mcp.json
 .cursor/
