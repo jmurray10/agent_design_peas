@@ -127,9 +127,13 @@ services:
       - |
         import os, pathlib, subprocess, sys, time
         skip = {"shared", "reference"}
-        # Same exclusions as `verify`, for the same reasons: two servers that block by
-        # design, and a report that compares against a running container.
-        blocking = {"serve.py", "serve_all.py", "container_report.py"}
+        # Same exclusions as `verify` -- two servers that block by design, and a report
+        # that compares against a running container -- plus ci_check.py, which refuses to
+        # run when a live backend is configured unless told --allow-real. That refusal is
+        # the script working: the drift gate's job is to judge recordings, and spending
+        # live calls should be a decision, not a side effect of a sweep. It is exercised
+        # where it belongs, by the `verify` and `ci` services, offline.
+        blocking = {"serve.py", "serve_all.py", "container_report.py", "ci_check.py"}
         scripts = sorted(
             p for p in pathlib.Path(".").rglob("*.py")
             if p.parts[0] not in skip
