@@ -36,7 +36,9 @@ page you can send real requests from:
     docker compose up -d peas
     # open http://localhost:8079
 
-That needs no key either. Everything below is detail.
+That needs no key either. Everything below is detail, except one section: [What running
+it live changed](#what-running-it-live-changed), seven defects that stayed green on the
+offline suite and broke against a real model. It is the reason to believe the rest.
 
 ## What is in here
 
@@ -137,8 +139,10 @@ key, because of recorded transcripts.
 Three notebooks in `colab/`. Each opens in Colab and clones this repository in its first
 cell, so they need nothing installed on your machine.
 
-    colab/oscillation.ipynb   the claim itself: before.py and after.py side by side
-                              across five architectures. No key, no GPU.
+    colab/oscillation.ipynb   the claim itself -- the loop oscillating between
+                              deterministic code and one model call -- before.py and
+                              after.py side by side across five architectures.
+                              No key, no GPU.
     colab/gpu_floor.ipynb     the parallelization floor on whatever GPU Colab gives you.
                               No key, no model call. Arithmetic, timed.
     colab/agents_live.ipynb   nine agents through one runtime, replaying by default and
@@ -304,7 +308,7 @@ unreproduced. What they explain is what kind of number a kernel-only speedup is.
 **Measured here, and model-dependent.** `09-model-portability/compare_models.py` reports
 one run, of one model version, on one day. It marks replayed rows as replays and refuses to
 print a row for a backend that did not run. One run is not a benchmark. The same applies to
-the agent eval standings: 49 of 49 across nine agents, every declared actuator reached
+the agent eval standings: 49 of 49 cases across nine agents, every declared actuator reached
 by at least one case. That is a suite small enough to read rather than a benchmark, and
 the cases were argued with rather than tuned -- several expectations were corrected
 because the agent read its domain better than the case did.
